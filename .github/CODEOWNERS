@@ -1,0 +1,3 @@
+# Automatically generated CODEOWNERS
+# Regenerate with `make update-codeowners`
+draft-thomson-tls-keylogfile.md mt@lowentropy.net
