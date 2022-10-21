@@ -36,10 +36,10 @@ informative:
 
 --- abstract
 
-A means of logging information about the secrets used in a TLS connection is
-described.  Recording secrets to a file in SSLKEYLOGFILE format allows
-diagnostic and logging tools that use this file to decrypt messages exchanged by
-TLS endpoints.
+A format that supports the logging information about the secrets used in a TLS
+connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
+allows diagnostic and logging tools that use this file to decrypt messages
+exchanged by TLS endpoints.
 
 
 --- middle
