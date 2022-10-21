@@ -157,6 +157,7 @@ SERVER_TRAFFIC_SECRET_0:
 EXPORTER_SECRET:
 
 : This secret is used in generating exporters {{Section 7.5 of !TLS13}}.
+{: newline="true"}
 
 Each of the preceding labels are identified using the lowercase form of the
 label in {{!TLS13}}, except as noted.  Note that the order that labels appear
