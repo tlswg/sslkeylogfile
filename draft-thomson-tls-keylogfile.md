@@ -78,9 +78,10 @@ Though Unicode is permitted in comments, the file MUST NOT contain a unicode
 byte order mark (U+FEFF).
 
 Lines are terminated using the line ending convention of the platform on which
-the file is generated.  Lines are ignored if they are empty or if the first
-character with an octothorp character ('#', U+23).  Other lines of the file each
-contain a single secret.
+the file is generated.  Tools that process these files MUST accept CRLF (U+13
+followed by U+10), CR (U+13), or LF (U+10) as a line terminator.  Lines are
+ignored if they are empty or if the first character is an octothorp character
+('#', U+23).  Other lines of the file each contain a single secret.
 
 Each secret is described using a single line composed of three values that are
 separated by a single space character (U+20).  These values are:
