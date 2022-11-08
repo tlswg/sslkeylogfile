@@ -60,14 +60,15 @@ adoption of TLS as the name of the protocol.
 This document describes the SSLKEYLOGFILE format.  This format can be used for
 TLS 1.2 {{!TLS12=RFC5246}} and TLS 1.3 {{!TLS13=RFC8446}}.  The format also
 supports earlier TLS versions, though use of earlier versions is strongly
-discouraged {{?RFC8996}}.  This format can also be used with the corresponding
-DTLS version {{?DTLS13=RFC9147}} and QUIC {{?RFC9000}}{{?RFC9001}}, which use
+discouraged {{?RFC8996}}.  This format can also be used with DTLS
+{{?DTLS13=RFC9147}}, QUIC {{?RFC9000}}{{?RFC9001}}, and protocols that also use
 the TLS key schedule.
 
 
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
+
 
 # The SSLKEYLOGFILE Format
 
