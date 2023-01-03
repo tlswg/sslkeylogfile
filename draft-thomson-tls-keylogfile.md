@@ -59,10 +59,16 @@ adoption of TLS as the name of the protocol.
 
 This document describes the SSLKEYLOGFILE format.  This format can be used for
 TLS 1.2 {{!TLS12=RFC5246}} and TLS 1.3 {{!TLS13=RFC8446}}.  The format also
-supports earlier TLS versions, though use of earlier versions is strongly
-discouraged {{?RFC8996}}.  This format can also be used with DTLS
-{{?DTLS13=RFC9147}}, QUIC {{?RFC9000}}{{?RFC9001}}, and protocols that also use
-the TLS key schedule.
+supports earlier TLS versions, though use of earlier versions is forbidden
+{{?RFC8996}}.  This format can also be used with DTLS {{?DTLS13=RFC9147}}, QUIC
+{{?RFC9000}}{{?RFC9001}}, and protocols that also use the TLS key schedule.
+
+The artifact that this document describes - if made available to entities other
+than endpoints - completely undermines the core guarantees that TLS provides.
+This format is intended for use in systems where TLS only protects test data.
+While the access that this information provides to TLS connections can be useful
+for diagnosing problems while developing systems, this mechanism MUST NOT be
+used in a production system.
 
 
 # Conventions and Definitions
