@@ -61,7 +61,12 @@ This document describes the SSLKEYLOGFILE format.  This format can be used for
 TLS 1.2 {{!TLS12=RFC5246}} and TLS 1.3 {{!TLS13=RFC8446}}.  The format also
 supports earlier TLS versions, though use of earlier versions is forbidden
 {{?RFC8996}}.  This format can also be used with DTLS {{?DTLS13=RFC9147}}, QUIC
-{{?RFC9000}}{{?RFC9001}}, and protocols that also use the TLS key schedule.
+{{?RFC9000}}{{?RFC9001}}, and protocols that also use the TLS key schedule.  Use
+of this format could complement other protocol-specific logging such as QLOG
+{{?QLOG=I-D.ietf-quic-qlog-main-schema}}.
+
+
+## Applicability Statement
 
 The artifact that this document describes - if made available to entities other
 than endpoints - completely undermines the core guarantees that TLS provides.
@@ -71,7 +76,7 @@ for diagnosing problems while developing systems, this mechanism MUST NOT be
 used in a production system.
 
 
-# Conventions and Definitions
+## Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
 
@@ -190,11 +195,11 @@ label "CLIENT_RANDOM" to identify the "master" secret for the connection.
 
 # Security Considerations {#security}
 
-Access to the content of a file in SSLKEYLOGFILE allows an attacker to break the
-confidentiality protection on any TLS connections that are included in the file.
-This includes both active connections and connections for which encrypted
-records were previously stored.  Ensuring adequate access control on these files
-therefore becomes very important.
+Access to the content of a file in SSLKEYLOGFILE format allows an attacker to
+break the confidentiality protection on any TLS connections that are included in
+the file.  This includes both active connections and connections for which
+encrypted records were previously stored.  Ensuring adequate access control on
+these files therefore becomes very important.
 
 Implementations that support logging this data need to ensure that logging can
 only be enabled by those who are authorized.  Allowing logging to be initiated
