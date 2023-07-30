@@ -127,6 +127,10 @@ Diagnostic tools that accept files in this format might choose to ignore lines
 that do not conform to this format in the interest of ensuring that secrets can
 be obtained from corrupted files.
 
+Logged secret values are not annotated with the ciphersuite or other connection
+parameters.  A record of the TLS handshake might therefore be needed to use the
+logged secrets.
+
 
 ## Secret Labels for TLS 1.3 {#labels}
 
@@ -319,9 +323,48 @@ Change controller:
 
 --- back
 
+# Example
+
+The following is a sample of a file in this format, including secrets from a TLS
+1.3 connection.
+
+~~~
+# NOTE: '\' line wrapping per RFC 8792
+
+CLIENT_HANDSHAKE_TRAFFIC_SECRET \
+  cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
+  be4a28d81ce41242ff31c6d8a6615852178f2cd75eaca2ee8768f9ed51282b38
+SERVER_HANDSHAKE_TRAFFIC_SECRET \
+  cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
+  258179721fa704e2f1ee16688b4b0419967ddea5624cd5ad0863288dc5ead35f
+CLIENT_TRAFFIC_SECRET_0 \
+  cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
+  e9ca165bcb762fab8086068929d26c532e90ef2e2daa762d8b52346951a34c02
+SERVER_TRAFFIC_SECRET_0 \
+  cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
+  4f93c61ac1393008d4c820f3723db3c67494f06574b65fcc21c9eef22f90071a
+EXPORTER_SECRET \
+  cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
+  011c900833468f837f7c55d836b2719beebd39b1648fdeda58772f48d94a1ffa
+~~~
+
+The following shows a log entry for a TLS 1.2 connection.
+
+~~~
+# NOTE: '\' line wrapping per RFC 8792
+
+CLIENT_RANDOM \
+  ad52329fcadd34ee3aa07092680287f09954823e26d7b5ae25c0d47714152a6a \
+  97af4c8618cfdc0b2326e590114c2ec04b43b08b7e2c3f8124cc61a3b068ba966\
+  9517e744e3117c3ce6c538a2d88dfdf
+~~~
+
+
 # Acknowledgments
 {:numbered="false"}
 
 The SSLKEYLOGFILE format originated in the NSS project, but it has evolved over
 time as TLS has changed.  Many people contributed to this evolution.  The author
 is only documenting the format as it is used.
+
+
