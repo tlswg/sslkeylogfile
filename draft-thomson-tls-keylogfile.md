@@ -172,11 +172,14 @@ EXPORTER_SECRET:
 : This secret is used in generating exporters {{Section 7.5 of !TLS13}}.
 {: newline="true"}
 
-Each of the preceding labels are identified using the lowercase form of the
-label in {{!TLS13}}, except as noted.  Note that the order that labels appear
-here corresponds to the order in which they are presented in {{?TLS13}}, but
-there is no guarantee that implementations will log secrets strictly in this
-order.
+These labels all appear in uppercase in the key log, but they correspond to
+lowercase labels in the TLS key schedule ({{Section 7.1 of !TLS13}}), except for
+the application data secrets as noted.  For example, "EXPORTER_SECRET" in the
+log file corresponds to the secret named `exporter_secret`.
+
+Note that the order that labels appear here corresponds to the order in which
+they are presented in {{?TLS13}}, but there is no guarantee that implementations
+will log secrets strictly in this order.
 
 Key updates ({{Section 7.2 of !TLS13}}) result in new secrets being generated
 for protecting `application_data` records.  The label used for these secrets
