@@ -1,0 +1,227 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2023-08-01T01:28:30.892474+00:00",
+  "repo": "martinthomson/sslkeylogfile",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 4,
+      "id": "I_kwDOIRczls5s6U_7",
+      "title": "Fix wording about lowercase labels",
+      "url": "https://github.com/martinthomson/sslkeylogfile/issues/4",
+      "state": "CLOSED",
+      "author": "JonathanLennox",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The text\r\n> Each of the preceding labels are identified using the lowercase form of the label in [TLS13], except as noted.\r\n\r\nwas confusing to me, because the labels were clearly in uppercase, until I figured out that it was saying that the labels are in lowercase in TLS13 but in uppercase in SSLKEYLOGFILE.  I'm not sure the best way to fix the wording, but it could be clearer.",
+      "createdAt": "2023-07-29T00:10:44Z",
+      "updatedAt": "2023-07-30T04:01:25Z",
+      "closedAt": "2023-07-30T04:01:25Z",
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOIRczls5s6VG1",
+      "title": "Add an example?",
+      "url": "https://github.com/martinthomson/sslkeylogfile/issues/5",
+      "state": "CLOSED",
+      "author": "JonathanLennox",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Having example SSLKEYLOGFILE content (for both TLS13 and TLS12) might be helpful.",
+      "createdAt": "2023-07-29T00:11:50Z",
+      "updatedAt": "2023-07-30T04:23:56Z",
+      "closedAt": "2023-07-30T04:23:56Z",
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOIRczls5Dr_IR",
+      "title": "Add stronger prohibitions",
+      "url": "https://github.com/martinthomson/sslkeylogfile/pull/1",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "For both old TLS versions and the use of this outside of testing and debugging.\r\n\r\nAs inspired by @emanjon.",
+      "createdAt": "2022-11-25T07:19:31Z",
+      "updatedAt": "2023-01-03T05:13:56Z",
+      "baseRepository": "martinthomson/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "2b899d8a842ffc629acb1ff66b654a51658d3684",
+      "headRepository": "martinthomson/sslkeylogfile",
+      "headRefName": "mmattssonn",
+      "headRefOid": "67ff7938098083e37d9860f171b5d0a06a14d242",
+      "closedAt": "2023-01-03T05:13:56Z",
+      "mergedAt": "2023-01-03T05:13:56Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "58dbc0ed46d3096b89eed29859ace417deca8e7f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls5HKdaL",
+          "commit": {
+            "abbreviatedOid": "67ff793"
+          },
+          "author": "marten-seemann",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-11-25T07:31:12Z",
+          "updatedAt": "2022-11-25T07:31:12Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOIRczls5JgV1J",
+          "commit": {
+            "abbreviatedOid": "67ff793"
+          },
+          "author": "emanjon",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-12-30T18:37:18Z",
+          "updatedAt": "2022-12-30T18:37:18Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOIRczls5WsqPH",
+      "title": "Fix wording",
+      "url": "https://github.com/martinthomson/sslkeylogfile/pull/2",
+      "state": "MERGED",
+      "author": "JonathanLennox",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The current wording implies that DTLS and QUIC do not use the TLS key schedule.",
+      "createdAt": "2023-07-29T00:04:58Z",
+      "updatedAt": "2023-07-30T01:18:25Z",
+      "baseRepository": "martinthomson/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "093b9f813e37b24af01fbee368f31193d8f84980",
+      "headRepository": "JonathanLennox/sslkeylogfile",
+      "headRefName": "patch-2",
+      "headRefOid": "58bbf1bf382a7911cac084dac5af7a99f5dbd189",
+      "closedAt": "2023-07-30T01:18:24Z",
+      "mergedAt": "2023-07-30T01:18:24Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "3fd4bc88e0fd6dffd07dd592c9b12e6e7fb5ee10"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls5cmQ5f",
+          "commit": {
+            "abbreviatedOid": "58bbf1b"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Thanks, this is better.",
+          "createdAt": "2023-07-30T01:18:11Z",
+          "updatedAt": "2023-07-30T01:18:11Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOIRczls5WsqSp",
+      "title": "Fix README link to CONTRIBUTING.md",
+      "url": "https://github.com/martinthomson/sslkeylogfile/pull/3",
+      "state": "MERGED",
+      "author": "JonathanLennox",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-07-29T00:05:38Z",
+      "updatedAt": "2023-07-30T01:18:47Z",
+      "baseRepository": "martinthomson/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "093b9f813e37b24af01fbee368f31193d8f84980",
+      "headRepository": "JonathanLennox/sslkeylogfile",
+      "headRefName": "patch-1",
+      "headRefOid": "7152deaaff5554e9b91a1fa5b9f1721e41888bf4",
+      "closedAt": "2023-07-30T01:18:46Z",
+      "mergedAt": "2023-07-30T01:18:46Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "9fd6b32bca01489df633ef00b42acce7d98687cb"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls5cmQ67",
+          "commit": {
+            "abbreviatedOid": "7152dea"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-07-30T01:18:42Z",
+          "updatedAt": "2023-07-30T01:18:42Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
