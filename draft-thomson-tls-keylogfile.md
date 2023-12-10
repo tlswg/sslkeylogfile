@@ -61,9 +61,9 @@ This document describes the SSLKEYLOGFILE format.  This format can be used for
 TLS 1.2 {{!TLS12=RFC5246}} and TLS 1.3 {{!TLS13=RFC8446}}.  The format also
 supports earlier TLS versions, though use of earlier versions is forbidden
 {{?RFC8996}}.  This format can also be used with DTLS {{?DTLS13=RFC9147}}, QUIC
-{{?RFC9000}}{{?RFC9001}}, and other protocols that also use the TLS key schedule.  Use
-of this format could complement other protocol-specific logging such as QLOG
-{{?QLOG=I-D.ietf-quic-qlog-main-schema}}.
+{{?RFC9000}}{{?RFC9001}}, and other protocols that also use the TLS key
+schedule.  Use of this format could complement other protocol-specific logging
+such as QLOG {{?QLOG=I-D.ietf-quic-qlog-main-schema}}.
 
 
 ## Applicability Statement
@@ -94,6 +94,9 @@ the file is generated.  Tools that process these files MUST accept CRLF (U+13
 followed by U+10), CR (U+13), or LF (U+10) as a line terminator.  Lines are
 ignored if they are empty or if the first character is an octothorp character
 ('#', U+23).  Other lines of the file each contain a single secret.
+
+Implementations that record secrets to a file do so continuously as those
+secrets are generated.
 
 Each secret is described using a single line composed of three values that are
 separated by a single space character (U+20).  These values are:
@@ -235,6 +238,14 @@ applications.  A TLS implementation might either choose to omit these secrets in
 contexts where the information might be abused or to require separate
 authorization to enable logging of exporter secrets.
 
+Using an environment variable, such as `SSLKEYLOGFILE`, to enable logging
+implies that access to the launch context for the application is needed to
+authorize logging.  On systems that support specially-named files, logs might be
+directed to these names so that logging does not result in storage, but enable
+consumption by other programs.  In both cases, applications might require
+special autorization or they might rely on system-level access control to limit
+access to these capabilities.
+
 Logging the TLS 1.2 "master" secret provides the recipient of a file in
 SSLKEYLOGFILE far greater access to an active connection.  This can include the
 ability to resume the connection and impersonate either endpoint, insert records
@@ -366,5 +377,3 @@ CLIENT_RANDOM \
 The SSLKEYLOGFILE format originated in the NSS project, but it has evolved over
 time as TLS has changed.  Many people contributed to this evolution.  The author
 is only documenting the format as it is used.
-
-
