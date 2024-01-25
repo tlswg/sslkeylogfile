@@ -12,28 +12,28 @@ connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
 allows diagnostic and logging tools that use this file to decrypt messages
 exchanged by TLS endpoints. 
     " name="description">
-<meta content="xml2rfc 3.18.2" name="generator">
+<meta content="xml2rfc 3.19.1" name="generator">
 <meta content="network transparency" name="keyword">
 <meta content="tls" name="keyword">
 <meta content="blockchain" name="keyword">
-<meta content="draft-thomson-tls-keylogfile-latest" name="ietf.draft">
+<meta content="draft-ietf-tls-keylogfile-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.2
+  xml2rfc 3.19.1
     Python 3.11.6
-    ConfigArgParse 1.5.3
+    ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
     platformdirs 4.1.0
     pycountry 22.3.5
-    PyYAML 6.0
+    PyYAML 6.0.1
     requests 2.31.0
-    setuptools 67.7.2
+    setuptools 68.2.2
     six 1.16.0
-    wcwidth 0.2.12
+    wcwidth 0.2.13
 -->
-<link href="draft-thomson-tls-keylogfile.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-ietf-tls-keylogfile.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1030,11 +1030,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SSLKEYLOGFILE</td>
-<td class="right">December 2023</td>
+<td class="right">January 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thomson</td>
-<td class="center">Expires 12 June 2024</td>
+<td class="center">Expires 28 July 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1044,15 +1044,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Transport Layer Security</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-thomson-tls-keylogfile-latest</dd>
+<dd class="internet-draft">draft-ietf-tls-keylogfile-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-12-10" class="published">10 December 2023</time>
+<time datetime="2024-01-25" class="published">25 January 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-06-12">12 June 2024</time></dd>
+<dd class="expires"><time datetime="2024-07-28">28 July 2024</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1076,15 +1076,15 @@ exchanged by TLS endpoints.<a href="#section-abstract-1" class="pilcrow">¶</a><
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://martinthomson.github.io/sslkeylogfile/draft-thomson-tls-keylogfile.html">https://martinthomson.github.io/sslkeylogfile/draft-thomson-tls-keylogfile.html</a></span>.
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-thomson-tls-keylogfile/">https://datatracker.ietf.org/doc/draft-thomson-tls-keylogfile/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        The latest revision of this draft can be found at <span><a href="https://tlswg.github.io/sslkeylogfile/draft-ietf-tls-keylogfile.html">https://tlswg.github.io/sslkeylogfile/draft-ietf-tls-keylogfile.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ietf-tls-keylogfile/">https://datatracker.ietf.org/doc/draft-ietf-tls-keylogfile/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
         Transport Layer Security Working Group mailing list (<span><a href="mailto:tls@ietf.org">mailto:tls@ietf.org</a></span>),
         which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/tls/">https://mailarchive.ietf.org/arch/browse/tls/</a></span>.
         Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/tls/">https://www.ietf.org/mailman/listinfo/tls/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/martinthomson/sslkeylogfile">https://github.com/martinthomson/sslkeylogfile</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/tlswg/sslkeylogfile">https://github.com/tlswg/sslkeylogfile</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1105,7 +1105,7 @@ exchanged by TLS endpoints.<a href="#section-abstract-1" class="pilcrow">¶</a><
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 12 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 28 July 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1114,7 +1114,7 @@ exchanged by TLS endpoints.<a href="#section-abstract-1" class="pilcrow">¶</a><
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2023 IETF Trust and the persons identified as the
+            Copyright (c) 2024 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1391,7 +1391,7 @@ secrets are symmetric, an adversary with access to these secrets is also able to
 encrypt data for an active connection.  This might allow for injection or
 modification of application data on a connection that would otherwise be
 protected by TLS.<a href="#section-3-3" class="pilcrow">¶</a></p>
-<p id="section-3-4">As some protocols that depend on TLS generate encryption keys, the SSLKEYLOGFILE
+<p id="section-3-4">As some protocols rely on TLS for generating encryption keys, the SSLKEYLOGFILE
 format includes keys that identify the secret used in TLS exporters or early
 exporters (<span><a href="https://rfc-editor.org/rfc/rfc8446#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>.  Knowledge of these secrets can enable
 more than inspection or modification of encrypted data, depending on how an
@@ -1400,7 +1400,7 @@ session bindings (e.g., <span>[<a href="#RFC8471" class="cite xref">RFC8471</a>]
 other derived secrets that are used in application context.  An adversary that
 obtains these secrets might be able to use this information to attack these
 applications.  A TLS implementation might either choose to omit these secrets in
-contexts where the information might be abused or to require separate
+contexts where the information might be abused or require separate
 authorization to enable logging of exporter secrets.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <p id="section-3-5">Using an environment variable, such as <code>SSLKEYLOGFILE</code>, to enable logging
 implies that access to the launch context for the application is needed to
@@ -1409,11 +1409,13 @@ directed to these names so that logging does not result in storage, but enable
 consumption by other programs.  In both cases, applications might require
 special autorization or they might rely on system-level access control to limit
 access to these capabilities.<a href="#section-3-5" class="pilcrow">¶</a></p>
-<p id="section-3-6">Logging the TLS 1.2 "master" secret provides the recipient of a file in
-SSLKEYLOGFILE far greater access to an active connection.  This can include the
+<p id="section-3-6">Logging the TLS 1.2 "master" secret provides the recipient of that secret far
+greater access to an active connection than TLS 1.3 secrets.  In addition to
+reading and altering protected mesages, the TLS 1.2 "master" secret confers the
 ability to resume the connection and impersonate either endpoint, insert records
-that result in renegotiation, or even forge Finished messages.  Implementations
-might avoid these risks by not logging this secret value.<a href="#section-3-6" class="pilcrow">¶</a></p>
+that result in renegotiation, and forge Finished messages.  Implementations can
+avoid the risks associated with these capabilities by not logging this secret
+value.<a href="#section-3-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1584,7 +1586,7 @@ protected by TLS.<a href="#section-4-2.18.1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="RFC8996">[RFC8996]</dt>
         <dd>
-<span class="refTitle">"*** BROKEN REFERENCE ***"</span>. </dd>
+<span class="refAuthor">Moriarty, K.</span> and <span class="refAuthor">S. Farrell</span>, <span class="refTitle">"Deprecating TLS 1.0 and TLS 1.1"</span>, <span class="seriesInfo">BCP 195</span>, <span class="seriesInfo">RFC 8996</span>, <span class="seriesInfo">DOI 10.17487/RFC8996</span>, <time datetime="2021-03" class="refDate">March 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8996">https://www.rfc-editor.org/rfc/rfc8996</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9000">[RFC9000]</dt>
         <dd>
