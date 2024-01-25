@@ -20,7 +20,7 @@ venue:
   type: "Working Group"
   mail: "tls@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/tls/"
-  github: "martinthomson/sslkeylogfile"
+  github: "tlswg/sslkeylogfile"
   latest: "https://tlswg.github.io/sslkeylogfile/draft-ietf-tls-keylogfile.html"
 
 author:
