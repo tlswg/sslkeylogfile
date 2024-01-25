@@ -226,7 +226,7 @@ encrypt data for an active connection.  This might allow for injection or
 modification of application data on a connection that would otherwise be
 protected by TLS.
 
-As some protocols that depend on TLS generate encryption keys, the SSLKEYLOGFILE
+As some protocols rely on TLS for generating encryption keys, the SSLKEYLOGFILE
 format includes keys that identify the secret used in TLS exporters or early
 exporters ({{Section 7.5 of ?TLS13}}.  Knowledge of these secrets can enable
 more than inspection or modification of encrypted data, depending on how an
@@ -235,7 +235,7 @@ session bindings (e.g., {{?RFC8471}}), authentication (e.g., {{?RFC9261}}), or
 other derived secrets that are used in application context.  An adversary that
 obtains these secrets might be able to use this information to attack these
 applications.  A TLS implementation might either choose to omit these secrets in
-contexts where the information might be abused or to require separate
+contexts where the information might be abused or require separate
 authorization to enable logging of exporter secrets.
 
 Using an environment variable, such as `SSLKEYLOGFILE`, to enable logging
@@ -246,11 +246,13 @@ consumption by other programs.  In both cases, applications might require
 special autorization or they might rely on system-level access control to limit
 access to these capabilities.
 
-Logging the TLS 1.2 "master" secret provides the recipient of a file in
-SSLKEYLOGFILE far greater access to an active connection.  This can include the
+Logging the TLS 1.2 "master" secret provides the recipient of that secret far
+greater access to an active connection than TLS 1.3 secrets.  In addition to
+reading and altering protected mesages, the TLS 1.2 "master" secret confers the
 ability to resume the connection and impersonate either endpoint, insert records
-that result in renegotiation, or even forge Finished messages.  Implementations
-might avoid these risks by not logging this secret value.
+that result in renegotiation, and forge Finished messages.  Implementations can
+avoid the risks associated with these capabilities by not logging this secret
+value.
 
 
 # IANA Considerations
