@@ -3,7 +3,7 @@ title: "The SSLKEYLOGFILE Format for TLS"
 abbrev: "SSLKEYLOGFILE"
 category: info
 
-docname: draft-thomson-tls-keylogfile-latest
+docname: draft-ietf-tls-keylogfile-latest
 submissiontype: IETF
 number:
 date:
@@ -21,7 +21,7 @@ venue:
   mail: "tls@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/tls/"
   github: "martinthomson/sslkeylogfile"
-  latest: "https://martinthomson.github.io/sslkeylogfile/draft-thomson-tls-keylogfile.html"
+  latest: "https://tlswg.github.io/sslkeylogfile/draft-ietf-tls-keylogfile.html"
 
 author:
  -
