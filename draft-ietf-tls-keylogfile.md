@@ -86,7 +86,7 @@ used in a production system.
 A file in SSLKEYLOGFILE format is a text file.  This document specifies the
 character encoding as UTF-8 {{!RFC3629}}.  Though the format itself only
 includes ASCII characters {{?RFC0020}}, comments MAY contain other characters.
-Though Unicode is permitted in comments, the file MUST NOT contain a unicode
+Though Unicode is permitted in comments, the file MUST NOT contain a Unicode
 byte order mark (U+FEFF).
 
 Lines are terminated using the line ending convention of the platform on which
@@ -108,7 +108,7 @@ label:
 
 client_random:
 
-: The 32 byte value of the Random field from the ClientHello message that
+: The 32-byte value of the Random field from the ClientHello message that
   established the TLS connection.  This value is encoded as 64 hexadecimal
   characters.  Including this field allows a single file to include secrets from
   multiple connections and for the secrets to be applied to the correct
@@ -130,7 +130,7 @@ Diagnostic tools that accept files in this format might choose to ignore lines
 that do not conform to this format in the interest of ensuring that secrets can
 be obtained from corrupted files.
 
-Logged secret values are not annotated with the ciphersuite or other connection
+Logged secret values are not annotated with the cipher suite or other connection
 parameters.  A record of the TLS handshake might therefore be needed to use the
 logged secrets.
 
@@ -194,8 +194,9 @@ comprises a base label of "CLIENT_TRAFFIC_SECRET_" for a client or
 "SERVER_TRAFFIC_SECRET_" for a server, plus the decimal value of a counter.
 This counter identifies the number of key updates that occurred to produce this
 secret.  This counter starts at 0, which produces the first application data
-traffic secret, as above.
-
+traffic secret, as above. Note that with knowledge of "_TRAFFIC_SECRET_N",
+all subsequent application data traffic secret can be derived without any
+additional information.
 
 ## Secret Labels for TLS 1.2
 
@@ -243,12 +244,12 @@ implies that access to the launch context for the application is needed to
 authorize logging.  On systems that support specially-named files, logs might be
 directed to these names so that logging does not result in storage, but enable
 consumption by other programs.  In both cases, applications might require
-special autorization or they might rely on system-level access control to limit
+special authorization or they might rely on system-level access control to limit
 access to these capabilities.
 
 Logging the TLS 1.2 "master" secret provides the recipient of that secret far
 greater access to an active connection than TLS 1.3 secrets.  In addition to
-reading and altering protected mesages, the TLS 1.2 "master" secret confers the
+reading and altering protected messages, the TLS 1.2 "master" secret confers the
 ability to resume the connection and impersonate either endpoint, insert records
 that result in renegotiation, and forge Finished messages.  Implementations can
 avoid the risks associated with these capabilities by not logging this secret
