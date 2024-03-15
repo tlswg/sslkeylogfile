@@ -249,7 +249,7 @@ access to these capabilities.
 
 Forward secrecy guarantees provided in TLS 1.3 (see {{Section 1.2 and Appendix
 E.1 of ?RFC8446}}) and some modes of TLS 1.2 (such as those in {{Sections 2.2
-and 2.4 of ?RFC4492}}) are not provided if keys are saved.  Logged keys
+and 2.4 of ?RFC4492}}) do not hold if keys are saved.  Logged keys
 therefore risk the authenticity, confidentiality, and integrity of any data that
 is exchanged.
 
