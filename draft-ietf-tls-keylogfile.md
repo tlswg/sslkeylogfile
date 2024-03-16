@@ -252,6 +252,7 @@ E.1 of ?RFC8446}}) and some modes of TLS 1.2 (such as those in {{Sections 2.2
 and 2.4 of ?RFC4492}}) do not hold if key material is recorded.  Access to key
 material allows an attacker to decrypt data exchanged in any logged TLS
 connections.
+
 Logging the TLS 1.2 "master" secret provides the recipient of that secret far
 greater access to an active connection than TLS 1.3 secrets.  In addition to
 reading and altering protected messages, the TLS 1.2 "master" secret confers the
