@@ -1412,7 +1412,7 @@ consumption by other programs.  In both cases, applications might require
 special authorization or they might rely on system-level access control to limit
 access to these capabilities.<a href="#section-3-5" class="pilcrow">¶</a></p>
 <p id="section-3-6">Forward secrecy guarantees provided in TLS 1.3 (see Section <a href="https://rfc-editor.org/rfc/rfc8446#section-1.2" class="relref">1.2</a> and Appendix <a href="https://rfc-editor.org/rfc/rfc8446#appendix-E.1" class="relref">E.1</a> of <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span>) and some modes of TLS 1.2 (such as those in Sections <a href="https://rfc-editor.org/rfc/rfc4492#section-2.2" class="relref">2.2</a> and <a href="https://rfc-editor.org/rfc/rfc4492#section-2.4" class="relref">2.4</a> of <span>[<a href="#RFC4492" class="cite xref">RFC4492</a>]</span>) do not hold if key material is recorded.  Access to key
-material allows an attacker to decrypt data exchanged in any logged TLS
+material allows an attacker to decrypt data exchanged in any previously logged TLS
 connections.<a href="#section-3-6" class="pilcrow">¶</a></p>
 <p id="section-3-7">Logging the TLS 1.2 "master" secret provides the recipient of that secret far
 greater access to an active connection than TLS 1.3 secrets.  In addition to
