@@ -58,7 +58,7 @@ format.  Note the use of "SSL" as this convention originally predates the
 adoption of TLS as the name of the protocol.
 
 This document describes the SSLKEYLOGFILE format.  This format can be used for
-TLS 1.2 {{!TLS12=RFC5246}} and TLS 1.3 {{!TLS13=RFC8446}}.  The format also
+TLS 1.2 {{!TLS12=RFC5246}} and TLS 1.3 {{!TLS13=I-D.ietf-tls-rfc8446bis}}.  The format also
 supports earlier TLS versions, though use of earlier versions is forbidden
 {{?RFC8996}}.  This format can also be used with DTLS {{?DTLS13=RFC9147}}, QUIC
 {{?RFC9000}}{{?RFC9001}}, and other protocols that also use the TLS key
