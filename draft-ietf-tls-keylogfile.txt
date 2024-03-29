@@ -4,8 +4,8 @@
 
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                          26 February 2024
-Expires: 29 August 2024
+Intended status: Informational                             29 March 2024
+Expires: 30 September 2024
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 August 2024.
+   This Internet-Draft will expire on 30 September 2024.
 
 Copyright Notice
 
@@ -356,8 +356,10 @@ Table of Contents
               <https://www.rfc-editor.org/rfc/rfc5246>.
 
    [TLS13]    Rescorla, E., "The Transport Layer Security (TLS) Protocol
-              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
-              <https://www.rfc-editor.org/rfc/rfc8446>.
+              Version 1.3", Work in Progress, Internet-Draft, draft-
+              ietf-tls-rfc8446bis-10, 3 March 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
+              rfc8446bis-10>.
 
 5.2.  Informative References
 
@@ -368,9 +370,9 @@ Table of Contents
 
    [QLOG]     Marx, R., Niccolini, L., Seemann, M., and L. Pardue, "Main
               logging schema for qlog", Work in Progress, Internet-
-              Draft, draft-ietf-quic-qlog-main-schema-07, 23 October
-              2023, <https://datatracker.ietf.org/doc/html/draft-ietf-
-              quic-qlog-main-schema-07>.
+              Draft, draft-ietf-quic-qlog-main-schema-08, 4 March 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
+              qlog-main-schema-08>.
 
    [RFC0020]  Cerf, V., "ASCII format for network interchange", STD 80,
               RFC 20, DOI 10.17487/RFC0020, October 1969,
