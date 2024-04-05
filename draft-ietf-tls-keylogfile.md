@@ -345,8 +345,8 @@ Change controller:
 
 # Example
 
-The following is a sample of a file in this format, including secrets from a TLS
-1.3 connection.
+The following is a sample of a file in this format, including secrets from two
+TLS 1.3 connections.
 
 ~~~
 # NOTE: '\' line wrapping per RFC 8792
@@ -357,6 +357,12 @@ CLIENT_HANDSHAKE_TRAFFIC_SECRET \
 SERVER_HANDSHAKE_TRAFFIC_SECRET \
   cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
   258179721fa704e2f1ee16688b4b0419967ddea5624cd5ad0863288dc5ead35f
+CLIENT_HANDSHAKE_TRAFFIC_SECRET \
+  b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+  59ec0981b211a743f22d5a46a1fc77a2b230e16ef0de6d4e418abfe90eff10bf
+SERVER_HANDSHAKE_TRAFFIC_SECRET \
+  b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+  a37fe4d3b6c9a6a372396b1562f6f8a40c1c3f85f1aa9b02d5ed46c4a1301365
 CLIENT_TRAFFIC_SECRET_0 \
   cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
   e9ca165bcb762fab8086068929d26c532e90ef2e2daa762d8b52346951a34c02
@@ -366,7 +372,19 @@ SERVER_TRAFFIC_SECRET_0 \
 EXPORTER_SECRET \
   cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
   011c900833468f837f7c55d836b2719beebd39b1648fdeda58772f48d94a1ffa
+CLIENT_TRAFFIC_SECRET_0 \
+  b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+  e9160bca1a531d871f5ecf51943d8cfb88833adeccf97701546b5fb93e030d79
+SERVER_TRAFFIC_SECRET_0 \
+  b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+  fb1120b91e48d402fac20faa33880e77bace82c85d6688df0aa99bf5084430e4
+EXPORTER_SECRET \
+  b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+  db1f4fa1a6942fb125d4cc47e02938b6f8030c6956bb81b9e3269f1cf855a8f8
 ~~~
+
+Note that secrets from the two connections might be interleaved as shown here,
+because secrets could be logged as they are generated.
 
 The following shows a log entry for a TLS 1.2 connection.
 
