@@ -17,7 +17,7 @@
 /versioned/
 Gemfile.lock
 archive.json
-draft-thomson-tls-keylogfile.xml
+draft-ietf-tls-keylogfile.xml
 package-lock.json
 report.xml
 !requirements.txt
