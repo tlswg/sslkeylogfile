@@ -1,4 +1,4 @@
 # License
 
 See the
-[guidelines for contributions](https://github.com/martinthomson/sslkeylogfile/blob//CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/tlswg/sslkeylogfile/blob/main/CONTRIBUTING.md).

@@ -1,17 +1,17 @@
 # The SSLKEYLOGFILE Format for TLS
 
-This is the working area for the individual Internet-Draft, "The SSLKEYLOGFILE Format for TLS".
+This is the working area for the IETF [TLS Working Group](https://datatracker.ietf.org/wg/tls/documents/) Internet-Draft, "The SSLKEYLOGFILE Format for TLS".
 
-* [Editor's Copy](https://martinthomson.github.io/sslkeylogfile/#go.draft-thomson-tls-keylogfile.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-thomson-tls-keylogfile)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-thomson-tls-keylogfile)
-* [Compare Editor's Copy to Individual Draft](https://martinthomson.github.io/sslkeylogfile/#go.draft-thomson-tls-keylogfile.diff)
+* [Editor's Copy](https://tlswg.github.io/sslkeylogfile/#go.draft-ietf-tls-keylogfile.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-tls-keylogfile)
+* [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-tls-keylogfile)
+* [Compare Editor's Copy to Working Group Draft](https://tlswg.github.io/sslkeylogfile/#go.draft-ietf-tls-keylogfile.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/martinthomson/sslkeylogfile/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/tlswg/sslkeylogfile/blob/main/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
