@@ -207,10 +207,10 @@ label "CLIENT_RANDOM" to identify the "master" secret for the connection.
 # Security Considerations {#security}
 
 Access to the content of a file in SSLKEYLOGFILE format allows an attacker to
-break the confidentiality protection on any TLS connections that are included in
-the file.  This includes both active connections and connections for which
-encrypted records were previously stored.  Ensuring adequate access control on
-these files therefore becomes very important.
+break the confidentiality and integrity protection on any TLS connections that
+are included in the file.  This includes both active connections and connections
+for which encrypted records were previously stored.  Ensuring adequate access
+control on these files therefore becomes very important.
 
 Implementations that support logging this data need to ensure that logging can
 only be enabled by those who are authorized.  Allowing logging to be initiated
