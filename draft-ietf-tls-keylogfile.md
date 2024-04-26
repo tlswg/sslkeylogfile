@@ -287,7 +287,7 @@ Optional parameters:
 
 Encoding considerations:
 
-: 8bit (Unicode without BOM or ASCII only)
+: UTF-8 without BOM, or ASCII only
 
 Security considerations:
 
@@ -299,7 +299,7 @@ Interoperability considerations:
 
 Published specification:
 
-: This document
+: RFC XXXX (RFC Editor: please update)
 
 Applications that use this media type:
 
@@ -321,7 +321,7 @@ Additional information:
 
 Person & email address to contact for further information:
 
-: See the Authors' Addresses section.
+: TLS WG (tls@ietf.org)
 
 Intended usage:
 
@@ -333,7 +333,7 @@ Restrictions on usage:
 
 Author:
 
-: See the Authors' Addresses section.
+: IETF TLS Working Group
 
 Change controller:
 
