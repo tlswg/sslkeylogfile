@@ -4,8 +4,8 @@
 
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                             26 April 2024
-Expires: 28 October 2024
+Intended status: Informational                             30 April 2024
+Expires: 1 November 2024
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 October 2024.
+   This Internet-Draft will expire on 1 November 2024.
 
 Copyright Notice
 
@@ -320,11 +320,11 @@ Table of Contents
    Subtype name:  sslkeylogfile
    Required parameters:  N/A
    Optional parameters:  N/A
-   Encoding considerations:  8bit (Unicode without BOM or ASCII only)
+   Encoding considerations:  UTF-8 without BOM, or ASCII only
    Security considerations:  See Section 3.
    Interoperability considerations:  Line endings might differ from
       platform convention
-   Published specification:  This document
+   Published specification:  RFC XXXX (RFC Editor: please update)
    Applications that use this media type:  Diagnostic and analysis tools
       that need to decrypt data that is otherwise protected by TLS.
    Fragment identifier considerations:  N/A
@@ -332,11 +332,11 @@ Table of Contents
                             Magic number(s):  N/A
                             File extension(s):  N/A
                             Macintosh file type code(s):  N/A
-   Person & email address to contact for further information:  See the
-      Authors' Addresses section.
+   Person & email address to contact for further information:  TLS WG (t
+      ls@ietf.org)
    Intended usage:  COMMON
    Restrictions on usage:  N/A
-   Author:  See the Authors' Addresses section.
+   Author:  IETF TLS Working Group
    Change controller:  IESG
 
 5.  References
@@ -399,7 +399,9 @@ Table of Contents
               DOI 10.17487/RFC8471, October 2018,
               <https://www.rfc-editor.org/rfc/rfc8471>.
 
-   [RFC8996]  "*** BROKEN REFERENCE ***".
+   [RFC8996]  Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
+              1.1", BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021,
+              <https://www.rfc-editor.org/rfc/rfc8996>.
 
    [RFC9000]  Iyengar, J., Ed. and M. Thomson, Ed., "QUIC: A UDP-Based
               Multiplexed and Secure Transport", RFC 9000,
