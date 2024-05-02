@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-08-01T01:28:30.892474+00:00",
-  "repo": "martinthomson/sslkeylogfile",
+  "timestamp": "2024-05-02T01:06:08.724043+00:00",
+  "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
       "name": "bug",
@@ -54,7 +54,7 @@
       "number": 4,
       "id": "I_kwDOIRczls5s6U_7",
       "title": "Fix wording about lowercase labels",
-      "url": "https://github.com/martinthomson/sslkeylogfile/issues/4",
+      "url": "https://github.com/tlswg/sslkeylogfile/issues/4",
       "state": "CLOSED",
       "author": "JonathanLennox",
       "authorAssociation": "CONTRIBUTOR",
@@ -70,7 +70,7 @@
       "number": 5,
       "id": "I_kwDOIRczls5s6VG1",
       "title": "Add an example?",
-      "url": "https://github.com/martinthomson/sslkeylogfile/issues/5",
+      "url": "https://github.com/tlswg/sslkeylogfile/issues/5",
       "state": "CLOSED",
       "author": "JonathanLennox",
       "authorAssociation": "CONTRIBUTOR",
@@ -81,6 +81,51 @@
       "updatedAt": "2023-07-30T04:23:56Z",
       "closedAt": "2023-07-30T04:23:56Z",
       "comments": []
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOIRczls6EuIF0",
+      "title": "Many transactions in a file",
+      "url": "https://github.com/tlswg/sslkeylogfile/issues/9",
+      "state": "CLOSED",
+      "author": "paulehoffman",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The draft says \"Implementations that record secrets to a file do so continuously as those secrets are generated.\" However, the examples are only for a single secret per file, and there is no indication of how a file that has multiple secrets differentiates betwen the secrets. Parsing a file for multiple secrets is made more difficult for TLS 1.3 because the labels for a secret are a set, not a list.\r\n\r\nProposal: add some text about adding a comment between each secret, and expand the examples to show multiple secrets in the file.",
+      "createdAt": "2024-04-04T23:20:51Z",
+      "updatedAt": "2024-04-05T01:18:23Z",
+      "closedAt": "2024-04-05T01:18:23Z",
+      "comments": [
+        {
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm not sure about the commenting.  I know that some libraries do generate comments, but I don't see any interoperability benefit to doing so.\r\n\r\nI can add another connection to the example.  That should be easy.",
+          "createdAt": "2024-04-04T23:46:47Z",
+          "updatedAt": "2024-04-04T23:46:47Z"
+        },
+        {
+          "author": "paulehoffman",
+          "authorAssociation": "NONE",
+          "body": "Without a comment separators, there is no way for a log parser to tell when a new connection starts unless each connection has all the labels. Maybe this isn't important, but I can imagine a dumb parser getting some connections wrong.",
+          "createdAt": "2024-04-05T00:06:21Z",
+          "updatedAt": "2024-04-05T00:06:21Z"
+        },
+        {
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ah, there is no \"start\" or \"end\" involved.  The log can include secrets that are interleaved from multiple connections.\r\n\r\nThis is the output of some of our test code, showing multiple connections, each made in sequence (open, connect, close, open, connect, close).  Note that both client and server a logging into the same file, so the same connection appears twice:\r\n\r\n<details>\r\n<summary>Sequential log</summary>\r\n\r\n```\r\nCLIENT_HANDSHAKE_TRAFFIC_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a 59ec0981b211a743f22d5a46a1fc77a2b230e16ef0de6d4e418abfe90eff10bf\r\nSERVER_HANDSHAKE_TRAFFIC_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a a37fe4d3b6c9a6a372396b1562f6f8a40c1c3f85f1aa9b02d5ed46c4a1301365\r\nCLIENT_TRAFFIC_SECRET_0 b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a e9160bca1a531d871f5ecf51943d8cfb88833adeccf97701546b5fb93e030d79\r\nSERVER_TRAFFIC_SECRET_0 b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a fb1120b91e48d402fac20faa33880e77bace82c85d6688df0aa99bf5084430e4\r\nEXPORTER_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a db1f4fa1a6942fb125d4cc47e02938b6f8030c6956bb81b9e3269f1cf855a8f8\r\nCLIENT_HANDSHAKE_TRAFFIC_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a 59ec0981b211a743f22d5a46a1fc77a2b230e16ef0de6d4e418abfe90eff10bf\r\nSERVER_HANDSHAKE_TRAFFIC_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a a37fe4d3b6c9a6a372396b1562f6f8a40c1c3f85f1aa9b02d5ed46c4a1301365\r\nCLIENT_TRAFFIC_SECRET_0 b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a e9160bca1a531d871f5ecf51943d8cfb88833adeccf97701546b5fb93e030d79\r\nSERVER_TRAFFIC_SECRET_0 b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a fb1120b91e48d402fac20faa33880e77bace82c85d6688df0aa99bf5084430e4\r\nEXPORTER_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a db1f4fa1a6942fb125d4cc47e02938b6f8030c6956bb81b9e3269f1cf855a8f8\r\nCLIENT_HANDSHAKE_TRAFFIC_SECRET 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 52b4fc06776e40a9e346813cc7478d3b59ce5d011339508c10ec90b7208edcc7\r\nSERVER_HANDSHAKE_TRAFFIC_SECRET 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 ca5c1d6451233668d17fd777dbd2fab94f9ef9007d50beda5cbc4e09cde6d7c6\r\nCLIENT_TRAFFIC_SECRET_0 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 c6d9818178e39d6637c983b557118b20895fca8b68973361fedd47fd4743467d\r\nSERVER_TRAFFIC_SECRET_0 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 8621a980843415bdad95e5cd9371e43d204434b5506b0a4de44cb62a735e22fd\r\nEXPORTER_SECRET 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 11b9c305d1f88f1d80534aa7a76b5fb3f31c5b7c125e3df7b8ba46604e3af8ce\r\nCLIENT_HANDSHAKE_TRAFFIC_SECRET 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 52b4fc06776e40a9e346813cc7478d3b59ce5d011339508c10ec90b7208edcc7\r\nSERVER_HANDSHAKE_TRAFFIC_SECRET 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 ca5c1d6451233668d17fd777dbd2fab94f9ef9007d50beda5cbc4e09cde6d7c6\r\nCLIENT_TRAFFIC_SECRET_0 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 c6d9818178e39d6637c983b557118b20895fca8b68973361fedd47fd4743467d\r\nSERVER_TRAFFIC_SECRET_0 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 8621a980843415bdad95e5cd9371e43d204434b5506b0a4de44cb62a735e22fd\r\nEXPORTER_SECRET 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 11b9c305d1f88f1d80534aa7a76b5fb3f31c5b7c125e3df7b8ba46604e3af8ce\r\n```\r\n</details>\r\n\r\nAs you can see, the ClientHello.random field (the second one) just repeats.\r\n\r\nBut a real server will often look more like this:\r\n\r\n<details>\r\n<summary>Interleaved log</summary>\r\n\r\n```\r\nCLIENT_HANDSHAKE_TRAFFIC_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a 59ec0981b211a743f22d5a46a1fc77a2b230e16ef0de6d4e418abfe90eff10bf\r\nSERVER_HANDSHAKE_TRAFFIC_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a a37fe4d3b6c9a6a372396b1562f6f8a40c1c3f85f1aa9b02d5ed46c4a1301365\r\nCLIENT_HANDSHAKE_TRAFFIC_SECRET 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 52b4fc06776e40a9e346813cc7478d3b59ce5d011339508c10ec90b7208edcc7\r\nSERVER_HANDSHAKE_TRAFFIC_SECRET 635fc8c76eb35690a3d9ba7647501ddf812944f9529fd74489476b9cae101786 ca5c1d6451233668d17fd777dbd2fab94f9ef9007d50beda5cbc4e09cde6d7c6\r\nCLIENT_TRAFFIC_SECRET_0 b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a e9160bca1a531d871f5ecf51943d8cfb88833adeccf97701546b5fb93e030d79\r\nSERVER_TRAFFIC_SECRET_0 b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a fb1120b91e48d402fac20faa33880e77bace82c85d6688df0aa99bf5084430e4\r\nEXPORTER_SECRET b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a db1f4fa1a6942fb125d4cc47e02938b6f8030c6956bb81b9e3269f1cf855a8f8\r\n```\r\n</details>\r\n\r\nThe thing here is that the keys arrive at different times, so they are logged at different times.\r\n\r\nYes, this is a problem for tools like Wireshark, but they manage this pretty well.",
+          "createdAt": "2024-04-05T01:07:24Z",
+          "updatedAt": "2024-04-05T01:09:12Z"
+        },
+        {
+          "author": "paulehoffman",
+          "authorAssociation": "NONE",
+          "body": "OK, that seems reasonable (but ugly for parsers). I'll close.",
+          "createdAt": "2024-04-05T01:18:23Z",
+          "updatedAt": "2024-04-05T01:18:23Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -88,19 +133,19 @@
       "number": 1,
       "id": "PR_kwDOIRczls5Dr_IR",
       "title": "Add stronger prohibitions",
-      "url": "https://github.com/martinthomson/sslkeylogfile/pull/1",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/1",
       "state": "MERGED",
       "author": "martinthomson",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "For both old TLS versions and the use of this outside of testing and debugging.\r\n\r\nAs inspired by @emanjon.",
       "createdAt": "2022-11-25T07:19:31Z",
       "updatedAt": "2023-01-03T05:13:56Z",
-      "baseRepository": "martinthomson/sslkeylogfile",
+      "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "2b899d8a842ffc629acb1ff66b654a51658d3684",
-      "headRepository": "martinthomson/sslkeylogfile",
+      "headRepository": "tlswg/sslkeylogfile",
       "headRefName": "mmattssonn",
       "headRefOid": "67ff7938098083e37d9860f171b5d0a06a14d242",
       "closedAt": "2023-01-03T05:13:56Z",
@@ -130,7 +175,7 @@
             "abbreviatedOid": "67ff793"
           },
           "author": "emanjon",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2022-12-30T18:37:18Z",
@@ -143,7 +188,7 @@
       "number": 2,
       "id": "PR_kwDOIRczls5WsqPH",
       "title": "Fix wording",
-      "url": "https://github.com/martinthomson/sslkeylogfile/pull/2",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/2",
       "state": "MERGED",
       "author": "JonathanLennox",
       "authorAssociation": "CONTRIBUTOR",
@@ -152,7 +197,7 @@
       "body": "The current wording implies that DTLS and QUIC do not use the TLS key schedule.",
       "createdAt": "2023-07-29T00:04:58Z",
       "updatedAt": "2023-07-30T01:18:25Z",
-      "baseRepository": "martinthomson/sslkeylogfile",
+      "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "093b9f813e37b24af01fbee368f31193d8f84980",
       "headRepository": "JonathanLennox/sslkeylogfile",
@@ -172,7 +217,7 @@
             "abbreviatedOid": "58bbf1b"
           },
           "author": "martinthomson",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "Thanks, this is better.",
           "createdAt": "2023-07-30T01:18:11Z",
@@ -185,7 +230,7 @@
       "number": 3,
       "id": "PR_kwDOIRczls5WsqSp",
       "title": "Fix README link to CONTRIBUTING.md",
-      "url": "https://github.com/martinthomson/sslkeylogfile/pull/3",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/3",
       "state": "MERGED",
       "author": "JonathanLennox",
       "authorAssociation": "CONTRIBUTOR",
@@ -194,7 +239,7 @@
       "body": "",
       "createdAt": "2023-07-29T00:05:38Z",
       "updatedAt": "2023-07-30T01:18:47Z",
-      "baseRepository": "martinthomson/sslkeylogfile",
+      "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "093b9f813e37b24af01fbee368f31193d8f84980",
       "headRepository": "JonathanLennox/sslkeylogfile",
@@ -214,7 +259,7 @@
             "abbreviatedOid": "7152dea"
           },
           "author": "martinthomson",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2023-07-30T01:18:42Z",
@@ -222,6 +267,331 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOIRczls5n0f4e",
+      "title": "Minor suggestions",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/6",
+      "state": "MERGED",
+      "author": "emanjon",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Minor suggestions. Use them as you wish. No need to sync with me.",
+      "createdAt": "2024-02-24T13:41:29Z",
+      "updatedAt": "2024-02-26T00:11:59Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "5e7b2a77c2980e5e8dceeb9847d135e9315bcaf1",
+      "headRepository": "emanjon/sslkeylogfile",
+      "headRefName": "patch-1",
+      "headRefOid": "a6c35ea248c18c5d3d06637a3dc21d9412ce2b3b",
+      "closedAt": "2024-02-26T00:11:59Z",
+      "mergedAt": "2024-02-26T00:11:59Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "189c670f8fc01bc9a832718cf3e1a685eaa6d154"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls5xPHSd",
+          "commit": {
+            "abbreviatedOid": "a6c35ea"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-26T00:09:58Z",
+          "updatedAt": "2024-02-26T00:09:58Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOIRczls5ps1D7",
+      "title": "Riffing on Dennis' idea",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/7",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-03-15T03:39:27Z",
+      "updatedAt": "2024-03-29T01:25:49Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "189c670f8fc01bc9a832718cf3e1a685eaa6d154",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "fs-break",
+      "headRefOid": "0466d2946bd55d4fd7dad0caab47b8f89d294b97",
+      "closedAt": "2024-03-29T01:25:44Z",
+      "mergedAt": "2024-03-29T01:25:44Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "6760780f88610180825b084d210f2445a93dbfee"
+      },
+      "comments": [
+        {
+          "author": "dennisjackson",
+          "authorAssociation": "NONE",
+          "body": "In the final paragraph of the security considerations, it might be worth clarifying: \r\n\r\n> This draft does not support the export of the resumption_master_secret in TLS1.3 (see {{Section 7.1 of ?RFC8446}}) as exposing this value would impact both the confidentiality and authenticity of data exchanged in future TLS sessions. ",
+          "createdAt": "2024-03-15T11:11:42Z",
+          "updatedAt": "2024-03-15T11:11:42Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls5zhHNv",
+          "commit": {
+            "abbreviatedOid": "0d5a81c"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-03-15T03:39:50Z",
+          "updatedAt": "2024-03-15T03:39:50Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nand 2.4 of ?RFC4492}}) do not hold if keys are saved.  Logged keys\r\n```",
+              "createdAt": "2024-03-15T03:39:50Z",
+              "updatedAt": "2024-03-15T03:39:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls5zjeB9",
+          "commit": {
+            "abbreviatedOid": "a8d3683"
+          },
+          "author": "dennisjackson",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-03-15T11:09:53Z",
+          "updatedAt": "2024-03-15T11:09:53Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nForward secrecy guarantees provided in TLS 1.3 (see {{Section 1.2 and Appendix\r\nE.1 of ?RFC8446}}) and some modes of TLS 1.2 (such as those in {{Sections 2.2\r\nand 2.4 of ?RFC4492}}) do not hold if key material is recorded.  Access to logged material allows an attacker to decrypt data exchanged in previous TLS connections and so undermine the intended security properties of ?RFC8446. \r\n```\r\n\r\nNot sure what the second sentence was going for so word smithed a bit. ",
+              "createdAt": "2024-03-15T11:09:53Z",
+              "updatedAt": "2024-03-15T11:09:53Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls5zrhl9",
+          "commit": {
+            "abbreviatedOid": "a8d3683"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-03-15T23:08:25Z",
+          "updatedAt": "2024-03-15T23:08:26Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nForward secrecy guarantees provided in TLS 1.3 (see {{Section 1.2 and Appendix\r\nE.1 of ?RFC8446}}) and some modes of TLS 1.2 (such as those in {{Sections 2.2\r\nand 2.4 of ?RFC4492}}) do not hold if key material is recorded.  Access to key\r\nmaterial allows an attacker to decrypt data exchanged in any logged TLS\r\nconnections.\r\n```\r\n\r\n?",
+              "createdAt": "2024-03-15T23:08:25Z",
+              "updatedAt": "2024-03-15T23:08:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls5zrpQv",
+          "commit": {
+            "abbreviatedOid": "a8d3683"
+          },
+          "author": "dennisjackson",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-03-16T00:01:35Z",
+          "updatedAt": "2024-03-16T00:01:35Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "The aspect that I'm trying to bring out is that we're worried about an attacker getting a key log file in the present and then decrypting previously exchanged data they'd recorded (which is the thing that PFS stops). Your proposed second sentence gets rid of the nuance w.r.t. timing. Perhaps insert 'previously' before logged?\r\n\r\nI have visions of these keylog files slowly filling up disks, not unlike nuclear waste, insofar as they remain hazardous indefinitely unless properly disposed of. I don't want to take up another round trip, so happy with whatever formulation you like best.",
+              "createdAt": "2024-03-16T00:01:35Z",
+              "updatedAt": "2024-03-16T00:01:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls5zrzam",
+          "commit": {
+            "abbreviatedOid": "9f8b404"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-03-16T01:39:21Z",
+          "updatedAt": "2024-03-16T01:39:21Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\nconnections.\r\n\r\n```",
+              "createdAt": "2024-03-16T01:39:21Z",
+              "updatedAt": "2024-03-16T01:39:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls5zsE78",
+          "commit": {
+            "abbreviatedOid": "44a27e0"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-03-16T03:14:08Z",
+          "updatedAt": "2024-03-16T03:14:09Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nmaterial allows an attacker to decrypt data exchanged in any previously logged TLS\r\n```",
+              "createdAt": "2024-03-16T03:14:08Z",
+              "updatedAt": "2024-03-16T03:14:09Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOIRczls5rDj4P",
+      "title": "Refer to RFC8446bis",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/8",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Let's make a cluster :/",
+      "createdAt": "2024-03-28T13:30:23Z",
+      "updatedAt": "2024-03-29T01:25:30Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "189c670f8fc01bc9a832718cf3e1a685eaa6d154",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "seanturner-cluster-time",
+      "headRefOid": "f51d4ad1aad139f933c820cd7dd2d74c0f6b5aa8",
+      "closedAt": "2024-03-29T01:25:27Z",
+      "mergedAt": "2024-03-29T01:25:27Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "db57c4f2d7a831562fc3ef9444df0ed6617f2a95"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls51SAbL",
+          "commit": {
+            "abbreviatedOid": "f51d4ad"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "If you think it wise...",
+          "createdAt": "2024-03-29T01:25:23Z",
+          "updatedAt": "2024-03-29T01:25:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOIRczls5rxwAl",
+      "title": "Add multiple connections to the example",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/10",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "And note that interleaving might happen.\r\n\r\nCloses #9.",
+      "createdAt": "2024-04-05T01:22:46Z",
+      "updatedAt": "2024-04-26T02:26:13Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "6760780f88610180825b084d210f2445a93dbfee",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "multiple-connections",
+      "headRefOid": "fae9e036776de8b933b9ba5653baf502b20e5155",
+      "closedAt": "2024-04-26T02:26:10Z",
+      "mergedAt": "2024-04-26T02:26:10Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "c485600c474d60a79468d6db3acb0847d4fa2479"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOIRczls5sl9DS",
+      "title": "Integrity is busted too",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/11",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-04-14T10:16:33Z",
+      "updatedAt": "2024-04-26T02:26:22Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "3c312dbc9b75f19c653b9df29b8a9802e4c94b6b",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "russ-integrity",
+      "headRefOid": "261571cfb83c4b248ee1cb3bfc9c21f539237f07",
+      "closedAt": "2024-04-26T02:26:19Z",
+      "mergedAt": "2024-04-26T02:26:19Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "f5057ff8c73506de41b6c586571c6663f54c2624"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDOIRczls5swWSY",
+      "title": "Update media template",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/12",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This makes it more standalone and corrects a Unicode/UTF-8 error.\r\n\r\nThanks to Martin D\u00fcrst.",
+      "createdAt": "2024-04-16T05:53:52Z",
+      "updatedAt": "2024-04-26T02:26:34Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "3c312dbc9b75f19c653b9df29b8a9802e4c94b6b",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "media-review",
+      "headRefOid": "ecf056b8e76a9a502beb3201a6494acb9d67e9e3",
+      "closedAt": "2024-04-26T02:26:28Z",
+      "mergedAt": "2024-04-26T02:26:28Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "626f219a4fb527862fc0576e5af7863bb92cd79b"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
