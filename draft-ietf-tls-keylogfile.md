@@ -337,7 +337,7 @@ Author:
 
 Change controller:
 
-: IESG
+: IETF
 {: spacing="compact"}
 
 
