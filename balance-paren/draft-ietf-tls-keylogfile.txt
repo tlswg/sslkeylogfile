@@ -4,8 +4,8 @@
 
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Informational                             14 April 2024
-Expires: 16 October 2024
+Intended status: Informational                               15 May 2024
+Expires: 16 November 2024
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 October 2024.
+   This Internet-Draft will expire on 16 November 2024.
 
 Copyright Notice
 
@@ -272,7 +272,7 @@ Table of Contents
 
    As some protocols rely on TLS for generating encryption keys, the
    SSLKEYLOGFILE format includes keys that identify the secret used in
-   TLS exporters or early exporters (Section 7.5 of [TLS13].  Knowledge
+   TLS exporters or early exporters (Section 7.5 of [TLS13]).  Knowledge
    of these secrets can enable more than inspection or modification of
    encrypted data, depending on how an application protocol uses
    exporters.  For instance, exporters might be used for session
@@ -320,11 +320,11 @@ Table of Contents
    Subtype name:  sslkeylogfile
    Required parameters:  N/A
    Optional parameters:  N/A
-   Encoding considerations:  8bit (Unicode without BOM or ASCII only)
+   Encoding considerations:  UTF-8 without BOM, or ASCII only
    Security considerations:  See Section 3.
    Interoperability considerations:  Line endings might differ from
       platform convention
-   Published specification:  This document
+   Published specification:  RFC XXXX (RFC Editor: please update)
    Applications that use this media type:  Diagnostic and analysis tools
       that need to decrypt data that is otherwise protected by TLS.
    Fragment identifier considerations:  N/A
@@ -332,11 +332,11 @@ Table of Contents
                             Magic number(s):  N/A
                             File extension(s):  N/A
                             Macintosh file type code(s):  N/A
-   Person & email address to contact for further information:  See the
-      Authors' Addresses section.
+   Person & email address to contact for further information:  TLS WG (t
+      ls@ietf.org)
    Intended usage:  COMMON
    Restrictions on usage:  N/A
-   Author:  See the Authors' Addresses section.
+   Author:  IETF TLS Working Group
    Change controller:  IESG
 
 5.  References
@@ -399,7 +399,9 @@ Table of Contents
               DOI 10.17487/RFC8471, October 2018,
               <https://www.rfc-editor.org/rfc/rfc8471>.
 
-   [RFC8996]  "*** BROKEN REFERENCE ***".
+   [RFC8996]  Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
+              1.1", BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021,
+              <https://www.rfc-editor.org/rfc/rfc8996>.
 
    [RFC9000]  Iyengar, J., Ed. and M. Thomson, Ed., "QUIC: A UDP-Based
               Multiplexed and Secure Transport", RFC 9000,
@@ -417,7 +419,7 @@ Table of Contents
 Appendix A.  Example
 
    The following is a sample of a file in this format, including secrets
-   from a TLS 1.3 connection.
+   from two TLS 1.3 connections.
 
    # NOTE: '\' line wrapping per RFC 8792
 
@@ -427,6 +429,12 @@ Appendix A.  Example
    SERVER_HANDSHAKE_TRAFFIC_SECRET \
      cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
      258179721fa704e2f1ee16688b4b0419967ddea5624cd5ad0863288dc5ead35f
+   CLIENT_HANDSHAKE_TRAFFIC_SECRET \
+     b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+     59ec0981b211a743f22d5a46a1fc77a2b230e16ef0de6d4e418abfe90eff10bf
+   SERVER_HANDSHAKE_TRAFFIC_SECRET \
+     b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+     a37fe4d3b6c9a6a372396b1562f6f8a40c1c3f85f1aa9b02d5ed46c4a1301365
    CLIENT_TRAFFIC_SECRET_0 \
      cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
      e9ca165bcb762fab8086068929d26c532e90ef2e2daa762d8b52346951a34c02
@@ -436,6 +444,18 @@ Appendix A.  Example
    EXPORTER_SECRET \
      cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
      011c900833468f837f7c55d836b2719beebd39b1648fdeda58772f48d94a1ffa
+   CLIENT_TRAFFIC_SECRET_0 \
+     b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+     e9160bca1a531d871f5ecf51943d8cfb88833adeccf97701546b5fb93e030d79
+   SERVER_TRAFFIC_SECRET_0 \
+     b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+     fb1120b91e48d402fac20faa33880e77bace82c85d6688df0aa99bf5084430e4
+   EXPORTER_SECRET \
+     b2eb93b8ddab8c228993567947bca1e133736980c22754687874e3896f7d6d0a \
+     db1f4fa1a6942fb125d4cc47e02938b6f8030c6956bb81b9e3269f1cf855a8f8
+
+   Note that secrets from the two connections might be interleaved as
+   shown here, because secrets could be logged as they are generated.
 
    The following shows a log entry for a TLS 1.2 connection.
 
