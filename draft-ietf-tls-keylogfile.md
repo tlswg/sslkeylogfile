@@ -59,8 +59,8 @@ adoption of TLS as the name of the protocol.
 
 This document describes the SSLKEYLOGFILE format.  This format can be used for
 TLS 1.2 {{!TLS12=RFC5246}} and TLS 1.3 {{!TLS13=I-D.ietf-tls-rfc8446bis}}.  The format also
-supports earlier TLS versions, though use of earlier versions is forbidden
-{{?RFC8996}}.  This format can also be used with DTLS {{?DTLS13=RFC9147}}, QUIC
+supports earlier TLS versions, though use of earlier versions is strongly discouraged
+{{?RFC8996}}{{?RFC9325}}.  This format can also be used with DTLS {{?DTLS13=RFC9147}}, QUIC
 {{?RFC9000}}{{?RFC9001}}, and other protocols that also use the TLS key
 schedule.  Use of this format could complement other protocol-specific logging
 such as QLOG {{?QLOG=I-D.ietf-quic-qlog-main-schema}}.
