@@ -188,16 +188,6 @@ Note that the order that labels appear here corresponds to the order in which
 they are presented in {{?TLS13}}, but there is no guarantee that implementations
 will log secrets strictly in this order.
 
-Key updates ({{Section 7.2 of !TLS13}}) result in new secrets being generated
-for protecting `application_data` records.  The label used for these secrets
-comprises a base label of "CLIENT_TRAFFIC_SECRET_" for a client or
-"SERVER_TRAFFIC_SECRET_" for a server, plus the decimal value of a counter.
-This counter identifies the number of key updates that occurred to produce this
-secret.  This counter starts at 0, which produces the first application data
-traffic secret, as above. Note that with knowledge of "_TRAFFIC_SECRET_N",
-all subsequent application data traffic secret can be derived without any
-additional information.
-
 ## Secret Labels for TLS 1.2
 
 An implementation of TLS 1.2 {{!TLS12}} (and also earlier versions) use the
