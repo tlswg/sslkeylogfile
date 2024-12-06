@@ -232,7 +232,7 @@ These labels MUST be always use the Random from the Outer ClientHello.
 
 ECH_SECRET:
 
-: This label corresponds to the KEM shared secret derived during the HPKE key schedule process.
+: This label corresponds to the KEM shared secret used by HPKE (`shared_secret` in the algorithms in {{Section 5.1.1 of !HPKE=RFC9180}}.
   Length of the secret is defined by the KEM negotiated for use with ECH.
 
 ECH_CONFIG:
