@@ -237,8 +237,8 @@ ECH_SECRET:
 
 ECH_CONFIG:
 
-: This label is used to log the ECHConfig used for construction of the ECH extension. The
-  value is logged in hexadecimal representation, similarly to other entries in the SSLKEYLOGFILE.
+: The ECHConfig used to construct the ECH extension. The value is logged
+  in hexadecimal representation.
 
 
 # Security Considerations {#security}
