@@ -152,7 +152,7 @@ logged secrets.
 An implementation of TLS 1.3 produces a number of values as part of the key
 schedule (see {{Section 7.1 of !TLS13}}). If ECH was successfully negotiated for a
 given connection, these labels MUST be followed by the Random from the Inner ClientHello.
-Otherwise, Random from Outer ClientHello MUST be used.
+Otherwise, the Random from the Outer ClientHello MUST be used.
 
 Each of the following labels correspond to the equivalent secret produced by the key schedule:
 
