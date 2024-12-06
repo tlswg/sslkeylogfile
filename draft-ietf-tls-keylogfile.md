@@ -74,9 +74,8 @@ supports earlier TLS versions, though use of earlier versions is forbidden
 schedule.  Use of this format could complement other protocol-specific logging
 such as QLOG {{?QLOG=I-D.ietf-quic-qlog-main-schema}}.
 
-This document also specifies an extension to the SSLKEYLOGFILE format to support the
-logging of information about Encrypted Client Hello (ECH) {{!ECH=I-D.ietf-tls-esni}}
-related secrets. This enables debugging of ECH-enabled TLS and DTLS connections.
+This document also defines labels that can be used to log information
+about exchanges that use Encrypted Client Hello (ECH) {{!ECH=I-D.ietf-tls-esni}}.
 
 
 ## Applicability Statement
