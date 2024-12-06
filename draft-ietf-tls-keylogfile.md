@@ -223,7 +223,7 @@ label "CLIENT_RANDOM" to identify the "master" secret for the connection.
 With ECH {{!ECH}}, additional secrets are derived
 during the handshake to encrypt the Inner ClientHello message using Hybrid Public
 Key Encryption (HPKE) {{?RFC9180}}. A client can log the ECH labels described below
-if it offered ECH regardless of server acceptance. The server MAY log the labels only if it
+if it offered ECH regardless of server acceptance. The server can log the labels only if it
 successfully decrypted and accepted ECH offered by the client. The client MUST NOT log
 the labels for connections that use the GREASE ECH extension (see Section 6.2 of {{!ECH}}).
 
