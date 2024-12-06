@@ -228,7 +228,7 @@ successfully decrypted the ECH offered by the client, though it could choose to 
 only when it accepts ECH.
 the labels for connections that use the GREASE ECH extension (see Section 6.2 of {{!ECH}}).
 
-These labels MUST be always use the Random from the Outer ClientHello.
+These labels MUST always use the Random from the Outer ClientHello.
 
 ECH_SECRET:
 
