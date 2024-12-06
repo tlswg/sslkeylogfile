@@ -255,8 +255,7 @@ by any entity that is not otherwise authorized to observe or modify the content
 of connections for which secrets are logged could represent a privilege
 escalation attack.  Implementations that enable logging also need to ensure that
 access to logged secrets is limited, using appropriate file permissions or
-equivalent access control mechanisms. To minimize the risk of accidental activation
-in production, implementers SHOULD incorporate appropriate compile-time controls.
+equivalent access control mechanisms.
 
 In order to support decryption, the secrets necessary to remove record
 protection are logged.  However, as the keys that can be derived from these
