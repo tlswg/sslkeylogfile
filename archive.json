@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-05T01:40:16.387601+00:00",
+  "timestamp": "2024-12-08T01:45:50.857835+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -664,6 +664,185 @@
       "headRepository": "tlswg/sslkeylogfile",
       "headRefName": "discouraged-not-forbidden",
       "headRefOid": "b7a27f662e91bbd44d25a16bf044ec93d7d17457",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOIRczls6ELIFo",
+      "title": "ECH extensions added to the main SSLKEYLOGFILE spec",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/17",
+      "state": "OPEN",
+      "author": "yaroslavros",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "As discussed on the mailing list, here is my first stab at merging specs together.",
+      "createdAt": "2024-12-05T12:05:58Z",
+      "updatedAt": "2024-12-06T17:40:15Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
+      "headRepository": "yaroslavros/sslkeylogfile",
+      "headRefName": "ech",
+      "headRefOid": "b69fe526d2a0a01359b1c3f680e74efaa4a90ddd",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6UJNl0",
+          "commit": {
+            "abbreviatedOid": "47a4c2b"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Conditional approval.\r\n\r\nI've been pretty aggressive in trimming the text here, but that is mostly stylistic.  The only one I'm not OK with either way is the security considerations change.  But we can discuss that separately.",
+          "createdAt": "2024-12-06T17:12:48Z",
+          "updatedAt": "2024-12-06T17:22:19Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "```suggestion\r\nThis document also defines labels that can be used to log information\r\nabout exchanges that use Encrypted Client Hello (ECH) {{!ECH=I-D.ietf-tls-esni}}.\r\n```",
+              "createdAt": "2024-12-06T17:12:48Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "```suggestion\r\ngiven connection, these labels MUST be followed by the Random from the Inner ClientHello.\r\n```",
+              "createdAt": "2024-12-06T17:13:11Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 35,
+              "body": "```suggestion\r\nOtherwise, the Random from the Outer ClientHello MUST be used.\r\n```",
+              "createdAt": "2024-12-06T17:13:23Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 47,
+              "body": "```suggestion\r\nWith ECH {{!ECH}}, additional secrets are derived\r\n```",
+              "createdAt": "2024-12-06T17:13:51Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 49,
+              "body": "```suggestion\r\nKey Encryption (HPKE) {{?RFC9180}}. A client can log the ECH labels described below\r\n```",
+              "createdAt": "2024-12-06T17:13:58Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 50,
+              "body": "```suggestion\r\nif it offered ECH regardless of server acceptance. The server can log the labels only if it\r\n```",
+              "createdAt": "2024-12-06T17:14:32Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 51,
+              "body": "```suggestion\r\nsuccessfully decrypted the ECH offered by the client, though it could choose to do so\r\nonly when it accepts ECH.\r\n```",
+              "createdAt": "2024-12-06T17:15:32Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 52,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2024-12-06T17:15:39Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 54,
+              "body": "```suggestion\r\nThese labels MUST be always use the Random from the Outer ClientHello.\r\n```",
+              "createdAt": "2024-12-06T17:15:55Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 58,
+              "body": "```suggestion\r\n: This label corresponds to the KEM shared secret used by HPKE (`shared_secret` in the algorithms in {{Section 5.1.1 of !HPKE=RFC9180}}.\r\n```",
+              "createdAt": "2024-12-06T17:17:58Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 64,
+              "body": "```suggestion\r\n: The ECHConfig used to construct the ECH extension. The value is logged\r\n  in hexadecimal representation.\r\n```",
+              "createdAt": "2024-12-06T17:18:59Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            },
+            {
+              "originalPosition": 75,
+              "body": "```suggestion\r\nequivalent access control mechanisms.\r\n```\r\n\r\nSeparate pull request for this if you want to add it.  I don't think we need it either way, but I'm happy to discuss it.",
+              "createdAt": "2024-12-06T17:20:24Z",
+              "updatedAt": "2024-12-06T17:22:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls6UJYn1",
+          "commit": {
+            "abbreviatedOid": "47a4c2b"
+          },
+          "author": "yaroslavros",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-06T17:30:32Z",
+          "updatedAt": "2024-12-06T17:30:32Z",
+          "comments": [
+            {
+              "originalPosition": 52,
+              "body": "Not sure if I follow this. I thought asking implementors not to pollute SSLKEYLOGFILE with imaginary artifacts from grease is a good thing, no?",
+              "createdAt": "2024-12-06T17:30:32Z",
+              "updatedAt": "2024-12-06T17:34:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls6UJaNm",
+          "commit": {
+            "abbreviatedOid": "47a4c2b"
+          },
+          "author": "yaroslavros",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-06T17:33:00Z",
+          "updatedAt": "2024-12-06T17:33:00Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "This was based on comments on the list from adoption call. Happy to drop it as I believe this kind of thing heavily depend on implementation details.",
+              "createdAt": "2024-12-06T17:33:00Z",
+              "updatedAt": "2024-12-06T17:33:00Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOIRczls6ELN2T",
+      "title": "Removing KeyUpdate section",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/18",
+      "state": "OPEN",
+      "author": "yaroslavros",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I suggest removing KeyUpdate section because that's actually not how SSLKEYLOGFILE implementations work with the TLS 1.3 Key Update. They derive new set of secrets from the previous set (see tls13_key_update in epan/dissectors/packet-tls-utils.c of Wireshark source code). Every TLS 1.3 library I've checked only produces CLIENT_TRAFFIC_SECRET_0 and SERVER_TRAFFIC_SECRET_0.\r\n\r\n_N will become useful with Extended Key Update when the new set of secrets is derived from ~~thin air~~ a fresh key exchange - however we are documenting that in the corresponding spec.",
+      "createdAt": "2024-12-05T12:18:05Z",
+      "updatedAt": "2024-12-05T12:18:06Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
+      "headRepository": "yaroslavros/sslkeylogfile",
+      "headRefName": "keyupdate-fix",
+      "headRefOid": "441fadfef84c12d288dbe6cdd693cb700d1ef6c8",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
