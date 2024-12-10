@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-08T01:45:50.857835+00:00",
+  "timestamp": "2024-12-10T01:41:32.455057+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -678,12 +678,12 @@
       "url": "https://github.com/tlswg/sslkeylogfile/pull/17",
       "state": "OPEN",
       "author": "yaroslavros",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "As discussed on the mailing list, here is my first stab at merging specs together.",
       "createdAt": "2024-12-05T12:05:58Z",
-      "updatedAt": "2024-12-06T17:40:15Z",
+      "updatedAt": "2024-12-09T02:46:51Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
@@ -788,7 +788,7 @@
             "abbreviatedOid": "47a4c2b"
           },
           "author": "yaroslavros",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-12-06T17:30:32Z",
@@ -808,7 +808,7 @@
             "abbreviatedOid": "47a4c2b"
           },
           "author": "yaroslavros",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-12-06T17:33:00Z",
@@ -821,6 +821,46 @@
               "updatedAt": "2024-12-06T17:33:00Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOIRczls6URK2Y",
+          "commit": {
+            "abbreviatedOid": "47a4c2b"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-09T02:45:05Z",
+          "updatedAt": "2024-12-09T02:45:05Z",
+          "comments": [
+            {
+              "originalPosition": 52,
+              "body": "There isn't a secret or config to log when greasing, so why would it be logged?",
+              "createdAt": "2024-12-09T02:45:05Z",
+              "updatedAt": "2024-12-09T02:45:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls6URLLp",
+          "commit": {
+            "abbreviatedOid": "47a4c2b"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-09T02:46:51Z",
+          "updatedAt": "2024-12-09T02:46:51Z",
+          "comments": [
+            {
+              "originalPosition": 75,
+              "body": "Yeah, this is just unnecessary and a little weird.  We don't tell people how to structure their code in specifications.",
+              "createdAt": "2024-12-09T02:46:51Z",
+              "updatedAt": "2024-12-09T02:46:51Z"
+            }
+          ]
         }
       ]
     },
@@ -829,26 +869,42 @@
       "id": "PR_kwDOIRczls6ELN2T",
       "title": "Removing KeyUpdate section",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/18",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yaroslavros",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "I suggest removing KeyUpdate section because that's actually not how SSLKEYLOGFILE implementations work with the TLS 1.3 Key Update. They derive new set of secrets from the previous set (see tls13_key_update in epan/dissectors/packet-tls-utils.c of Wireshark source code). Every TLS 1.3 library I've checked only produces CLIENT_TRAFFIC_SECRET_0 and SERVER_TRAFFIC_SECRET_0.\r\n\r\n_N will become useful with Extended Key Update when the new set of secrets is derived from ~~thin air~~ a fresh key exchange - however we are documenting that in the corresponding spec.",
       "createdAt": "2024-12-05T12:18:05Z",
-      "updatedAt": "2024-12-05T12:18:06Z",
+      "updatedAt": "2024-12-09T02:20:45Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
       "headRepository": "yaroslavros/sslkeylogfile",
       "headRefName": "keyupdate-fix",
       "headRefOid": "441fadfef84c12d288dbe6cdd693cb700d1ef6c8",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-12-09T02:20:45Z",
+      "mergedAt": "2024-12-09T02:20:45Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "324d083b4ece87955a0d50ce5672e20b26d40560"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6URGM-",
+          "commit": {
+            "abbreviatedOid": "441fadf"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-09T02:20:40Z",
+          "updatedAt": "2024-12-09T02:20:40Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
