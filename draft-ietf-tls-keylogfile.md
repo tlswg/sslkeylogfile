@@ -28,6 +28,15 @@ author:
     fullname: Martin Thomson
     organization: Mozilla
     email: mt@lowentropy.net
+ -
+    fullname: Yaroslav Rosomakho
+    organization: Zscaler
+    email: yrosomakho@zscaler.com
+ -
+    fullname: Hannes Tschofenig
+    organization: University of Applied Sciences Bonn-Rhein-Sieg
+    abbrev: H-BRS
+    email: Hannes.Tschofenig@gmx.net
 
 normative:
 
@@ -64,6 +73,9 @@ supports earlier TLS versions, though use of earlier versions is forbidden
 {{?RFC9000}}{{?RFC9001}}, and other protocols that also use the TLS key
 schedule.  Use of this format could complement other protocol-specific logging
 such as QLOG {{?QLOG=I-D.ietf-quic-qlog-main-schema}}.
+
+This document also defines labels that can be used to log information
+about exchanges that use Encrypted Client Hello (ECH) {{!ECH=I-D.ietf-tls-esni}}.
 
 
 ## Applicability Statement
@@ -138,8 +150,11 @@ logged secrets.
 ## Secret Labels for TLS 1.3 {#labels}
 
 An implementation of TLS 1.3 produces a number of values as part of the key
-schedule (see {{Section 7.1 of !TLS13}}).  Each of the following labels
-correspond to the equivalent secret produced by the key schedule:
+schedule (see {{Section 7.1 of !TLS13}}). If ECH was successfully negotiated for a
+given connection, these labels MUST be followed by the Random from the Inner ClientHello.
+Otherwise, the Random from the Outer ClientHello MUST be used.
+
+Each of the following labels correspond to the equivalent secret produced by the key schedule:
 
 CLIENT_EARLY_TRAFFIC_SECRET:
 
@@ -192,6 +207,28 @@ will log secrets strictly in this order.
 
 An implementation of TLS 1.2 {{!TLS12}} (and also earlier versions) use the
 label "CLIENT_RANDOM" to identify the "master" secret for the connection.
+
+## Secret Labels for ECH
+
+With ECH {{!ECH}}, additional secrets are derived
+during the handshake to encrypt the Inner ClientHello message using Hybrid Public
+Key Encryption (HPKE) {{?RFC9180}}. A client can log the ECH labels described below
+if it offered ECH regardless of server acceptance. The server can log the labels only if it
+successfully decrypted the ECH offered by the client, though it could choose to do so
+only when it accepts ECH.
+
+These labels MUST always use the Random from the Outer ClientHello.
+
+ECH_SECRET:
+
+: This label corresponds to the KEM shared secret used by HPKE
+  (`shared_secret` in the algorithms in {{Section 5.1.1 of !HPKE=RFC9180}}).
+  Length of the secret is defined by the KEM negotiated for use with ECH.
+
+ECH_CONFIG:
+
+: The ECHConfig used to construct the ECH extension. The value is logged
+  in hexadecimal representation.
 
 
 # Security Considerations {#security}
@@ -251,8 +288,18 @@ that result in renegotiation, and forge Finished messages.  Implementations can
 avoid the risks associated with these capabilities by not logging this secret
 value.
 
+Access to the ECH_SECRET record in the SSLKEYLOGFILE allows the attacker to decrypt
+the ECH extension and thereby reveal the content of the Inner ClientHello message,
+including the payload of the Server Name Indication (SNI) extension.
+
+Access to the HPKE-established shared secret used in ECH introduces a potential
+attack surface against the HPKE library since access to this keying material
+is normally not available otherwise.
+
 
 # IANA Considerations
+
+## SSLKEYLOGFILE media type
 
 The "`application/sslkeylogfile`" media type can be used to describe content in
 the SSLKEYLOGFILE format.  IANA \[has added/is requested to add] the following
@@ -330,6 +377,28 @@ Change controller:
 : IESG
 {: spacing="compact"}
 
+## SSLKEYLOGFILE labels registry
+
+IANA is requested to create a new registry "SSLKEYLOGFILE Labels", within the
+existing "Transport Layer Security (TLS) Parameters" registry page.
+This new registry reserves labels used for SSLKEYLOGFILE entries.
+The initial contents of this registry are as follows.
+
+| Value | Description | Reference |
+| --- | --- | --- |
+| CLIENT_RANDOM | Master secret in TLS 1.2 and earlier | This document |
+| CLIENT_EARLY_TRAFFIC_SECRET | Secret for client early data records | This document |
+| EARLY_EXPORTER_MASTER_SECRET | Early exporters secret | This document |
+| CLIENT_HANDSHAKE_TRAFFIC_SECRET | Secret protecting client handshake | This document |
+| SERVER_HANDSHAKE_TRAFFIC_SECRET | Secret protecting server handshake | This document |
+| CLIENT_TRAFFIC_SECRET_0 | Secret protecting client records post handshake | This document |
+| SERVER_TRAFFIC_SECRET_0 | Secret protecting server records post handshake | This document |
+| EXPORTER_SECRET | Exporter secret after handshake | This document |
+| ECH_SECRET | HPKE KEM shared secret used in the ECH | This document |
+| ECH_CONFIG | ECHConfig used for construction of the ECH | This document |
+
+New assignments in the "SSLKEYLOGFILE Labels" registry will be administered by IANA through
+IETF Review procedure {{!RFC8126}}.
 
 --- back
 
@@ -387,10 +456,40 @@ CLIENT_RANDOM \
   9517e744e3117c3ce6c538a2d88dfdf
 ~~~
 
+The following shows a log entry for a TLS 1.3 connection that successfully
+negotiated ECH.
+
+~~~
+# NOTE: '\' line wrapping per RFC 8792
+
+ECH_SECRET \
+  0ba587ee6b65ce21a726630efb881206a7cd995611095b5f4c244bb2b23f1ee1 \
+  e8828ec09909cc9363179dc13b62498550c8637129345263011a1678370ca52a
+ECH_CONFIG \
+  0ba587ee6b65ce21a726630efb881206a7cd995611095b5f4c244bb2b23f1ee1 \
+  fe0d003c5500200020d5260ae4cdda08bcbdc37bd0dc53c29aea5f0fdd2b2d594\
+  e4235e99b134ac904000400010001000d636f7665722e6465666f2e69650000
+CLIENT_HANDSHAKE_TRAFFIC_SECRET \
+  8726180bb24718089a4c5c8c93e0ea1c6d6649d7dd3c978fc1413854a20e9647 \
+  a195b63ec4270609692a204c08e63e74d9ae58e377d11a383bfe641a63c01140
+SERVER_HANDSHAKE_TRAFFIC_SECRET \
+  8726180bb24718089a4c5c8c93e0ea1c6d6649d7dd3c978fc1413854a20e9647 \
+  022d1cb827a90f27dadde0c99110c2b7d0f362fdfe420a04818aa223e5f2c14c
+CLIENT_TRAFFIC_SECRET_0 \
+  8726180bb24718089a4c5c8c93e0ea1c6d6649d7dd3c978fc1413854a20e9647 \
+  c2310f7db71109de88bab6f2f433fdc1704aecc0d57349cbf9113e5033178172
+SERVER_TRAFFIC_SECRET_0 \
+  8726180bb24718089a4c5c8c93e0ea1c6d6649d7dd3c978fc1413854a20e9647 \
+  04ffc7c154f71ba5f530c7344b0496f60ce71b9b7c6b0e203ea574bfcdf14e27
+EXPORTER_SECRET \
+  8726180bb24718089a4c5c8c93e0ea1c6d6649d7dd3c978fc1413854a20e9647 \
+  befb5db5ac6785b5dd4c6a8c4693c379ec0a1486b5fd035b25e50c3c95abc500
+~~~
+
 
 # Acknowledgments
 {:numbered="false"}
 
 The SSLKEYLOGFILE format originated in the NSS project, but it has evolved over
-time as TLS has changed.  Many people contributed to this evolution.  The author
-is only documenting the format as it is used.
+time as TLS has changed.  Many people contributed to this evolution.  The authors
+are only documenting the format as it is used while extending it to cover ECH.
