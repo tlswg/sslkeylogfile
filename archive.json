@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-10T01:41:32.455057+00:00",
+  "timestamp": "2024-12-12T01:39:40.149142+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -676,25 +676,35 @@
       "id": "PR_kwDOIRczls6ELIFo",
       "title": "ECH extensions added to the main SSLKEYLOGFILE spec",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/17",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yaroslavros",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "As discussed on the mailing list, here is my first stab at merging specs together.",
       "createdAt": "2024-12-05T12:05:58Z",
-      "updatedAt": "2024-12-09T02:46:51Z",
+      "updatedAt": "2024-12-11T22:47:38Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
       "headRepository": "yaroslavros/sslkeylogfile",
       "headRefName": "ech",
-      "headRefOid": "b69fe526d2a0a01359b1c3f680e74efaa4a90ddd",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "cdff69c4c5444bc5390a8461af6676ca0aad6a20",
+      "closedAt": "2024-12-11T22:47:37Z",
+      "mergedAt": "2024-12-11T22:47:37Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "8f07b320f2387150cad049c1760c98ac313f7b36"
+      },
+      "comments": [
+        {
+          "author": "yaroslavros",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Everything seems to be resolved now. Thanks for the thorough review, @martinthomson .",
+          "createdAt": "2024-12-10T14:15:58Z",
+          "updatedAt": "2024-12-10T14:15:58Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOIRczls6UJNl0",
@@ -859,6 +869,72 @@
               "body": "Yeah, this is just unnecessary and a little weird.  We don't tell people how to structure their code in specifications.",
               "createdAt": "2024-12-09T02:46:51Z",
               "updatedAt": "2024-12-09T02:46:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls6Uj8yu",
+          "commit": {
+            "abbreviatedOid": "47a4c2b"
+          },
+          "author": "yaroslavros",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-10T14:11:20Z",
+          "updatedAt": "2024-12-10T14:11:20Z",
+          "comments": [
+            {
+              "originalPosition": 52,
+              "body": "I've checked few implementations and indeed they are generating GREASE without creating any ephemeral secrets. Which makes perfect sense of course. Thanks for pointing this out!",
+              "createdAt": "2024-12-10T14:11:20Z",
+              "updatedAt": "2024-12-10T14:11:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls6Uj_dR",
+          "commit": {
+            "abbreviatedOid": "47a4c2b"
+          },
+          "author": "yaroslavros",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-12-10T14:15:01Z",
+          "updatedAt": "2024-12-10T14:15:01Z",
+          "comments": [
+            {
+              "originalPosition": 54,
+              "body": "Resolved with https://github.com/tlswg/sslkeylogfile/pull/17/commits/b69fe526d2a0a01359b1c3f680e74efaa4a90ddd",
+              "createdAt": "2024-12-10T14:15:01Z",
+              "updatedAt": "2024-12-10T14:15:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOIRczls6U1as8",
+          "commit": {
+            "abbreviatedOid": "e98c452"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-12-11T21:18:34Z",
+          "updatedAt": "2024-12-11T21:20:37Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "```suggestion\r\n: This label corresponds to the KEM shared secret used by HPKE\r\n  (`shared_secret` in the algorithms in {{Section 5.1.1 of !HPKE=RFC9180}}).\r\n```",
+              "createdAt": "2024-12-11T21:18:35Z",
+              "updatedAt": "2024-12-11T21:20:37Z"
+            },
+            {
+              "originalPosition": 113,
+              "body": "I'm going to start a thread on this.  I think that we should instead go for Specification Required, with experts advised to reject registrations for secrets that can be used to derive other secrets (other than _TRAFFIC_SECRET_0, that should be unnecessary).",
+              "createdAt": "2024-12-11T21:20:29Z",
+              "updatedAt": "2024-12-11T21:20:37Z"
             }
           ]
         }
