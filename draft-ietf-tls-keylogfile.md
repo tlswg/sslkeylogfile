@@ -398,7 +398,12 @@ The initial contents of this registry are as follows.
 | ECH_CONFIG | ECHConfig used for construction of the ECH | This document |
 
 New assignments in the "SSLKEYLOGFILE Labels" registry will be administered by IANA through
-IETF Review procedure {{!RFC8126}}.
+Specification Required procedure {{?RFC8126}}. The role of the designated expert is described
+in {{Section 17 of ?RFC8447}}. The designated expert {{RFC8126}} ensures that the specification is
+publicly available.  It is sufficient to have an Internet-Draft (that is posted and never published
+as an RFC) or a document from another standards body, industry consortium, university site, etc.
+The expert may provide more in depth reviews, but their approval should not be taken as an endorsement
+of the SSLKEYLOGFILE label.
 
 --- back
 
