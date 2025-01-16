@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-14T01:21:03.139515+00:00",
+  "timestamp": "2025-01-16T01:21:59.538346+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -605,7 +605,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2024-05-09T22:53:23Z",
-      "updatedAt": "2024-05-09T22:53:23Z",
+      "updatedAt": "2025-01-14T16:05:23Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
@@ -617,7 +617,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6YAVBd",
+          "commit": {
+            "abbreviatedOid": "143fdb1"
+          },
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-01-14T16:05:23Z",
+          "updatedAt": "2025-01-14T16:05:23Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 14,
@@ -657,7 +671,7 @@
       "labels": [],
       "body": "Also, \"verboten\" is a bit strong here.  The enforcement regime that we have in place lacks teeth.",
       "createdAt": "2024-05-15T05:35:32Z",
-      "updatedAt": "2024-05-15T05:35:32Z",
+      "updatedAt": "2025-01-14T16:05:57Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
@@ -669,7 +683,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6YAVs4",
+          "commit": {
+            "abbreviatedOid": "b7a27f6"
+          },
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-01-14T16:05:57Z",
+          "updatedAt": "2025-01-14T16:05:57Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 17,
@@ -981,6 +1009,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOIRczls6HwYfA",
+      "title": "IANA considerations text adjustments",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/19",
+      "state": "OPEN",
+      "author": "yaroslavros",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adjusted IANA procedure text as discussed on the mailing list",
+      "createdAt": "2025-01-14T19:06:04Z",
+      "updatedAt": "2025-01-14T19:06:05Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "8f07b320f2387150cad049c1760c98ac313f7b36",
+      "headRepository": "yaroslavros/sslkeylogfile",
+      "headRefName": "main",
+      "headRefOid": "2dffd266ee38642cf889349a5afe0ecd42541a45",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
