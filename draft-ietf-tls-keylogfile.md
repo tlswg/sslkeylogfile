@@ -374,7 +374,7 @@ Author:
 
 Change controller:
 
-: IESG
+: IETF
 {: spacing="compact"}
 
 ## SSLKEYLOGFILE labels registry
