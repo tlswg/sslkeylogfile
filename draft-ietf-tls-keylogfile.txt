@@ -370,7 +370,7 @@ Table of Contents
    Intended usage:  COMMON
    Restrictions on usage:  N/A
    Author:  IETF TLS Working Group
-   Change controller:  IESG
+   Change controller:  IETF
 
 4.2.  SSLKEYLOGFILE labels registry
 
