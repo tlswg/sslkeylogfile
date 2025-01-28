@@ -55,7 +55,7 @@ exchanged by TLS endpoints.
 
 # Introduction
 
-Debugging or analyzing protocols can be challenging when TLS {{?TLS13}} is used
+Debugging or analyzing protocols can be challenging when TLS {{!TLS13}} is used
 to protect the content of communications.  Inspecting the content of encrypted
 messages in diagnostic tools can enable more thorough analysis.
 
@@ -200,7 +200,7 @@ the application data secrets as noted.  For example, "EXPORTER_SECRET" in the
 log file corresponds to the secret named `exporter_secret`.
 
 Note that the order that labels appear here corresponds to the order in which
-they are presented in {{?TLS13}}, but there is no guarantee that implementations
+they are presented in {{!TLS13}}, but there is no guarantee that implementations
 will log secrets strictly in this order.
 
 ## Secret Labels for TLS 1.2
@@ -256,7 +256,7 @@ protected by TLS.
 
 As some protocols rely on TLS for generating encryption keys, the SSLKEYLOGFILE
 format includes keys that identify the secret used in TLS exporters or early
-exporters ({{Section 7.5 of ?TLS13}}).  Knowledge of these secrets can enable
+exporters ({{Section 7.5 of !TLS13}}).  Knowledge of these secrets can enable
 more than inspection or modification of encrypted data, depending on how an
 application protocol uses exporters.  For instance, exporters might be used for
 session bindings (e.g., {{?RFC8471}}), authentication (e.g., {{?RFC9261}}), or
@@ -275,7 +275,7 @@ special authorization or they might rely on system-level access control to limit
 access to these capabilities.
 
 Forward secrecy guarantees provided in TLS 1.3 (see {{Section 1.2 and Appendix
-E.1 of ?RFC8446}}) and some modes of TLS 1.2 (such as those in {{Sections 2.2
+E.1 of !TLS13}}) and some modes of TLS 1.2 (such as those in {{Sections 2.2
 and 2.4 of ?RFC4492}}) do not hold if key material is recorded.  Access to key
 material allows an attacker to decrypt data exchanged in any previously logged TLS
 connections.
