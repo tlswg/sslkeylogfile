@@ -256,7 +256,7 @@ protected by TLS.
 
 As some protocols rely on TLS for generating encryption keys, the SSLKEYLOGFILE
 format includes keys that identify the secret used in TLS exporters or early
-exporters ({{Section 7.5 of ?TLS13}}.  Knowledge of these secrets can enable
+exporters ({{Section 7.5 of ?TLS13}}).  Knowledge of these secrets can enable
 more than inspection or modification of encrypted data, depending on how an
 application protocol uses exporters.  For instance, exporters might be used for
 session bindings (e.g., {{?RFC8471}}), authentication (e.g., {{?RFC9261}}), or
