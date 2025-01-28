@@ -1459,7 +1459,7 @@ modification of application data on a connection that would otherwise be
 protected by TLS.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">As some protocols rely on TLS for generating encryption keys, the SSLKEYLOGFILE
 format includes keys that identify the secret used in TLS exporters or early
-exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>.  Knowledge of these secrets can enable
+exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>).  Knowledge of these secrets can enable
 more than inspection or modification of encrypted data, depending on how an
 application protocol uses exporters.  For instance, exporters might be used for
 session bindings (e.g., <span>[<a href="#RFC8471" class="cite xref">RFC8471</a>]</span>), authentication (e.g., <span>[<a href="#RFC9261" class="cite xref">RFC9261</a>]</span>), or
