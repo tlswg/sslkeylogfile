@@ -299,7 +299,11 @@ is normally not available otherwise.
 
 # IANA Considerations
 
-## SSLKEYLOGFILE media type
+This document registers a media type ({{iana-media}})
+and creates a registry for labels ({{iana-labels-registry}}).
+
+
+## SSLKEYLOGFILE Media Type {#iana-media}
 
 The "`application/sslkeylogfile`" media type can be used to describe content in
 the SSLKEYLOGFILE format.  IANA \[has added/is requested to add] the following
@@ -377,7 +381,8 @@ Change controller:
 : IETF
 {: spacing="compact"}
 
-## SSLKEYLOGFILE labels registry
+
+## SSLKEYLOGFILE Labels Registry {#iana-labels-registry}
 
 IANA is requested to create a new registry "SSLKEYLOGFILE Labels", within the
 existing "Transport Layer Security (TLS) Parameters" registry page.
@@ -401,8 +406,8 @@ New assignments in the "SSLKEYLOGFILE Labels" registry will be administered by I
 Specification Required procedure {{?RFC8126}}. The role of the designated expert is described
 in {{Section 17 of ?RFC8447}}. The designated expert {{RFC8126}} ensures that the specification is
 publicly available.  It is sufficient to have an Internet-Draft (that is posted and never published
-as an RFC) or a document from another standards body, industry consortium, university site, etc.
-The expert may provide more in depth reviews, but their approval should not be taken as an endorsement
+as an RFC) or to cite a document from another standards body, industry consortium, or any other location.
+An expert may provide more in depth reviews, but their approval should not be taken as an endorsement
 of the SSLKEYLOGFILE label.
 
 --- back
