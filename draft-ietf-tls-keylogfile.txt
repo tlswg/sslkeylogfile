@@ -5,10 +5,10 @@
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Informational                              Y. Rosomakho
-Expires: 14 June 2025                                            Zscaler
+Expires: 1 August 2025                                           Zscaler
                                                            H. Tschofenig
                                                                    H-BRS
-                                                        11 December 2024
+                                                         28 January 2025
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -53,11 +53,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 June 2025.
+   This Internet-Draft will expire on 1 August 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -107,10 +107,10 @@ Table of Contents
    This document describes the SSLKEYLOGFILE format.  This format can be
    used for TLS 1.2 [TLS12] and TLS 1.3 [TLS13].  The format also
    supports earlier TLS versions, though use of earlier versions is
-   forbidden [RFC8996].  This format can also be used with DTLS
-   [DTLS13], QUIC [RFC9000][RFC9001], and other protocols that also use
-   the TLS key schedule.  Use of this format could complement other
-   protocol-specific logging such as QLOG [QLOG].
+   strongly discouraged [RFC8996][RFC9325].  This format can also be
+   used with DTLS [DTLS13], QUIC [RFC9000][RFC9001], and other protocols
+   that also use the TLS key schedule.  Use of this format could
+   complement other protocol-specific logging such as QLOG [QLOG].
 
    This document also defines labels that can be used to log information
    about exchanges that use Encrypted Client Hello (ECH) [ECH].
@@ -521,6 +521,12 @@ Table of Contents
    [RFC9261]  Sullivan, N., "Exported Authenticators in TLS", RFC 9261,
               DOI 10.17487/RFC9261, July 2022,
               <https://www.rfc-editor.org/rfc/rfc9261>.
+
+   [RFC9325]  Sheffer, Y., Saint-Andre, P., and T. Fossati,
+              "Recommendations for Secure Use of Transport Layer
+              Security (TLS) and Datagram Transport Layer Security
+              (DTLS)", BCP 195, RFC 9325, DOI 10.17487/RFC9325, November
+              2022, <https://www.rfc-editor.org/rfc/rfc9325>.
 
 Appendix A.  Example
 
