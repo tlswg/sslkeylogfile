@@ -5,10 +5,10 @@
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Informational                              Y. Rosomakho
-Expires: 1 August 2025                                           Zscaler
+Expires: 2 August 2025                                           Zscaler
                                                            H. Tschofenig
                                                                    H-BRS
-                                                         28 January 2025
+                                                         29 January 2025
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 August 2025.
+   This Internet-Draft will expire on 2 August 2025.
 
 Copyright Notice
 
@@ -80,8 +80,8 @@ Table of Contents
      2.3.  Secret Labels for ECH
    3.  Security Considerations
    4.  IANA Considerations
-     4.1.  SSLKEYLOGFILE media type
-     4.2.  SSLKEYLOGFILE labels registry
+     4.1.  SSLKEYLOGFILE Media Type
+     4.2.  SSLKEYLOGFILE Labels Registry
    5.  References
      5.1.  Normative References
      5.2.  Informative References
@@ -341,7 +341,10 @@ Table of Contents
 
 4.  IANA Considerations
 
-4.1.  SSLKEYLOGFILE media type
+   This document registers a media type (Section 4.1) and creates a
+   registry for labels (Section 4.2).
+
+4.1.  SSLKEYLOGFILE Media Type
 
    The "application/sslkeylogfile" media type can be used to describe
    content in the SSLKEYLOGFILE format.  IANA [has added/is requested to
@@ -372,7 +375,7 @@ Table of Contents
    Author:  IETF TLS Working Group
    Change controller:  IETF
 
-4.2.  SSLKEYLOGFILE labels registry
+4.2.  SSLKEYLOGFILE Labels Registry
 
    IANA is requested to create a new registry "SSLKEYLOGFILE Labels",
    within the existing "Transport Layer Security (TLS) Parameters"
@@ -428,10 +431,10 @@ Table of Contents
    Section 17 of [RFC8447].  The designated expert [RFC8126] ensures
    that the specification is publicly available.  It is sufficient to
    have an Internet-Draft (that is posted and never published as an RFC)
-   or a document from another standards body, industry consortium,
-   university site, etc.  The expert may provide more in depth reviews,
-   but their approval should not be taken as an endorsement of the
-   SSLKEYLOGFILE label.
+   or to cite a document from another standards body, industry
+   consortium, or any other location.  An expert may provide more in
+   depth reviews, but their approval should not be taken as an
+   endorsement of the SSLKEYLOGFILE label.
 
 5.  References
 
