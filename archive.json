@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-28T01:22:09.378304+00:00",
+  "timestamp": "2025-01-30T01:21:10.828552+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -598,24 +598,26 @@
       "id": "PR_kwDOIRczls5vCbp5",
       "title": "Switch the change controller to IETF",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinthomson",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-05-09T22:53:23Z",
-      "updatedAt": "2025-01-14T16:05:23Z",
+      "updatedAt": "2025-01-28T05:52:35Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
       "headRepository": "tlswg/sslkeylogfile",
       "headRefName": "change-controller",
       "headRefOid": "143fdb1f0ed0c6ffdb3221b49e42064f00d081fd",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-01-28T05:52:35Z",
+      "mergedAt": "2025-01-28T05:52:35Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "40eda74200ff45268b63cb59b35dcbe63f01836a"
+      },
       "comments": [],
       "reviews": [
         {
@@ -638,24 +640,26 @@
       "id": "PR_kwDOIRczls5venX9",
       "title": "Close an unbalanced paren",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/14",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinthomson",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-05-15T05:31:39Z",
-      "updatedAt": "2024-05-15T05:31:39Z",
+      "updatedAt": "2025-01-28T05:52:43Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
       "headRepository": "tlswg/sslkeylogfile",
       "headRefName": "balance-paren",
       "headRefOid": "11d9cabbb9bb1b404547274cc11086e1bee4d222",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-01-28T05:52:43Z",
+      "mergedAt": "2025-01-28T05:52:43Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "cf687d85ea1705bf1646bd7225e51f3db842f3f8"
+      },
       "comments": [],
       "reviews": []
     },
@@ -664,24 +668,26 @@
       "id": "PR_kwDOIRczls5veoNo",
       "title": "Reference RFC 9325 as well",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/15",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinthomson",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Also, \"verboten\" is a bit strong here.  The enforcement regime that we have in place lacks teeth.",
       "createdAt": "2024-05-15T05:35:32Z",
-      "updatedAt": "2025-01-14T16:05:57Z",
+      "updatedAt": "2025-01-28T05:52:20Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "6f5b0ba2701075c34b3647d7c7c043f45bc4083a",
       "headRepository": "tlswg/sslkeylogfile",
       "headRefName": "discouraged-not-forbidden",
       "headRefOid": "b7a27f662e91bbd44d25a16bf044ec93d7d17457",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-01-28T05:52:20Z",
+      "mergedAt": "2025-01-28T05:52:20Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "46ed1fd0102e6dd46163e129c89e5f1a2585f6e5"
+      },
       "comments": [],
       "reviews": [
         {
@@ -706,7 +712,7 @@
       "url": "https://github.com/tlswg/sslkeylogfile/pull/17",
       "state": "MERGED",
       "author": "yaroslavros",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "As discussed on the mailing list, here is my first stab at merging specs together.",
@@ -727,7 +733,7 @@
       "comments": [
         {
           "author": "yaroslavros",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "body": "Everything seems to be resolved now. Thanks for the thorough review, @martinthomson .",
           "createdAt": "2024-12-10T14:15:58Z",
           "updatedAt": "2024-12-10T14:15:58Z"
@@ -826,7 +832,7 @@
             "abbreviatedOid": "47a4c2b"
           },
           "author": "yaroslavros",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-12-06T17:30:32Z",
@@ -846,7 +852,7 @@
             "abbreviatedOid": "47a4c2b"
           },
           "author": "yaroslavros",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-12-06T17:33:00Z",
@@ -906,7 +912,7 @@
             "abbreviatedOid": "47a4c2b"
           },
           "author": "yaroslavros",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-12-10T14:11:20Z",
@@ -926,7 +932,7 @@
             "abbreviatedOid": "47a4c2b"
           },
           "author": "yaroslavros",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-12-10T14:15:01Z",
@@ -975,7 +981,7 @@
       "url": "https://github.com/tlswg/sslkeylogfile/pull/18",
       "state": "MERGED",
       "author": "yaroslavros",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "I suggest removing KeyUpdate section because that's actually not how SSLKEYLOGFILE implementations work with the TLS 1.3 Key Update. They derive new set of secrets from the previous set (see tls13_key_update in epan/dissectors/packet-tls-utils.c of Wireshark source code). Every TLS 1.3 library I've checked only produces CLIENT_TRAFFIC_SECRET_0 and SERVER_TRAFFIC_SECRET_0.\r\n\r\n_N will become useful with Extended Key Update when the new set of secrets is derived from ~~thin air~~ a fresh key exchange - however we are documenting that in the corresponding spec.",
@@ -1015,26 +1021,161 @@
       "id": "PR_kwDOIRczls6HwYfA",
       "title": "IANA considerations text adjustments",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/19",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yaroslavros",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Adjusted IANA procedure text as discussed on the mailing list",
       "createdAt": "2025-01-14T19:06:04Z",
-      "updatedAt": "2025-01-14T19:06:05Z",
+      "updatedAt": "2025-01-28T05:53:23Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "8f07b320f2387150cad049c1760c98ac313f7b36",
       "headRepository": "yaroslavros/sslkeylogfile",
       "headRefName": "main",
       "headRefOid": "2dffd266ee38642cf889349a5afe0ecd42541a45",
-      "closedAt": null,
+      "closedAt": "2025-01-28T05:53:23Z",
+      "mergedAt": "2025-01-28T05:53:23Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "fb0a3aaef4663acf4c7350c7b17c730521c9a002"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6ZnDMC",
+          "commit": {
+            "abbreviatedOid": "2dffd26"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-01-28T05:53:18Z",
+          "updatedAt": "2025-01-28T05:53:18Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOIRczls6JLLeb",
+      "title": "Fix some IANA stuff",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/20",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I refuse to have my name on a document with an empty lead-in section.\r\n\r\nAlso, I don't like \"etc.\" It's not a word.\r\n\r\n@seanturner, you should probably add @hannestschofenig and @yaroslavros to this repository.",
+      "createdAt": "2025-01-28T05:59:52Z",
+      "updatedAt": "2025-01-29T02:00:33Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "fb0a3aaef4663acf4c7350c7b17c730521c9a002",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "titels",
+      "headRefOid": "fc072a670dcb70f5bd2e395e3a9be1586ca0d0a8",
+      "closedAt": "2025-01-29T02:00:33Z",
+      "mergedAt": "2025-01-29T02:00:33Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "ee6d9b86ba86c02c86d989f86834f19d38dc8840"
+      },
+      "comments": [
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Hi Martin, thanks for the PR. The PR description comes across as a bit harsh, but the actual change itself is not controversial.",
+          "createdAt": "2025-01-28T18:35:24Z",
+          "updatedAt": "2025-01-28T18:35:24Z"
+        },
+        {
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "body": "FWIW go ahead an merge the PR.",
+          "createdAt": "2025-01-28T18:56:10Z",
+          "updatedAt": "2025-01-28T18:56:10Z"
+        },
+        {
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@hannestschofenig and @yaroslavros added as maintainers.",
+          "createdAt": "2025-01-28T21:08:08Z",
+          "updatedAt": "2025-01-28T21:08:08Z"
+        },
+        {
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks all (and apologies for any perceived harshness).",
+          "createdAt": "2025-01-29T02:00:30Z",
+          "updatedAt": "2025-01-29T02:00:30Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6Zvss9",
+          "commit": {
+            "abbreviatedOid": "fc072a6"
+          },
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-01-28T21:08:35Z",
+          "updatedAt": "2025-01-28T21:08:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOIRczls6JSIs7",
+      "title": "Fix some md references",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/21",
+      "state": "CLOSED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Sometimes TLS13 and 8446bis was optional sometimes and mandatory other times.",
+      "createdAt": "2025-01-28T21:15:56Z",
+      "updatedAt": "2025-01-29T16:54:50Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "fb0a3aaef4663acf4c7350c7b17c730521c9a002",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "seanturner-8446bis-ref-consistency",
+      "headRefOid": "3bdd588a528ebafa13ae4d2ad3054ad66b3e57cd",
+      "closedAt": "2025-01-29T16:54:50Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "seanturner",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Ah!",
+          "createdAt": "2025-01-29T16:54:50Z",
+          "updatedAt": "2025-01-29T16:54:50Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6ZxH2p",
+          "commit": {
+            "abbreviatedOid": "3bdd588"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "The ? is deliberate.  If those citations are the only ones left, then the citation will be downgraded to informative.  The ?/! markings don't need to be consistent.",
+          "createdAt": "2025-01-29T02:01:53Z",
+          "updatedAt": "2025-01-29T02:01:53Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
