@@ -1,6 +1,6 @@
 # The SSLKEYLOGFILE Format for TLS
 
-This is the working area for the IETF [TLS Working Group](https://datatracker.ietf.org/wg/tls/documents/) Internet-Draft, "The SSLKEYLOGFILE Format for TLS".
+This is the working area for the IETF [TLS Working Group](https://datatracker.ietf.org/group/tls/documents/) Internet-Draft, "The SSLKEYLOGFILE Format for TLS".
 
 * [Editor's Copy](https://tlswg.github.io/sslkeylogfile/#go.draft-ietf-tls-keylogfile.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-tls-keylogfile)
