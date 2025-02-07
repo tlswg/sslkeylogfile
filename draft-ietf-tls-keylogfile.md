@@ -163,7 +163,7 @@ CLIENT_EARLY_TRAFFIC_SECRET:
   data will not log this secret, though a client that attempts early data can do
   so unconditionally.
 
-EARLY_EXPORTER_MASTER_SECRET:
+EARLY_EXPORTER_SECRET:
 
 : This secret is used for early exporters.  Like the
   CLIENT_EARLY_TRAFFIC_SECRET, this is only generated when early data is
@@ -393,7 +393,7 @@ The initial contents of this registry are as follows.
 | --- | --- | --- |
 | CLIENT_RANDOM | Master secret in TLS 1.2 and earlier | This document |
 | CLIENT_EARLY_TRAFFIC_SECRET | Secret for client early data records | This document |
-| EARLY_EXPORTER_MASTER_SECRET | Early exporters secret | This document |
+| EARLY_EXPORTER_SECRET | Early exporters secret | This document |
 | CLIENT_HANDSHAKE_TRAFFIC_SECRET | Secret protecting client handshake | This document |
 | SERVER_HANDSHAKE_TRAFFIC_SECRET | Secret protecting server handshake | This document |
 | CLIENT_TRAFFIC_SECRET_0 | Secret protecting client records post handshake | This document |
