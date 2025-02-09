@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-06T01:23:57.496752+00:00",
+  "timestamp": "2025-02-09T01:34:28.491417+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -1176,6 +1176,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOIRczls6KdQhI",
+      "title": "Fix typo for EARLY_EXPORTER_SECRET label",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/22",
+      "state": "OPEN",
+      "author": "davidben",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This matches both the names in rfc8446bis and established practice. It seems to have simply been a typo. See\r\nhttps://mailarchive.ietf.org/arch/msg/tls/kfl93VUkDx-cytByLNd63C1V8Uk/",
+      "createdAt": "2025-02-07T18:59:55Z",
+      "updatedAt": "2025-02-07T18:59:55Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "fbfda65590c456c1ccb7c0ffa4b703052af23811",
+      "headRepository": "davidben/sslkeylogfile",
+      "headRefName": "fix-early-exporter",
+      "headRefOid": "d3ba67c2045ba651bb8261841165ba3188444b51",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
