@@ -145,7 +145,7 @@ Table of Contents
    on which the file is generated.  Tools that process these files MUST
    accept CRLF (U+13 followed by U+10), CR (U+13), or LF (U+10) as a
    line terminator.  Lines are ignored if they are empty or if the first
-   character is an octothorp character ('#', U+23).  Other lines of the
+   character is an octothorpe character ('#', U+23).  Other lines of the
    file each contain a single secret.
 
    Implementations that record secrets to a file do so continuously as
