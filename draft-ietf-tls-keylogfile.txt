@@ -5,10 +5,10 @@
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Informational                              Y. Rosomakho
-Expires: 6 August 2025                                           Zscaler
+Expires: 13 August 2025                                          Zscaler
                                                            H. Tschofenig
                                                                    H-BRS
-                                                         2 February 2025
+                                                         9 February 2025
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 August 2025.
+   This Internet-Draft will expire on 13 August 2025.
 
 Copyright Notice
 
@@ -201,7 +201,7 @@ Table of Contents
       server that rejects early data will not log this secret, though a
       client that attempts early data can do so unconditionally.
 
-   EARLY_EXPORTER_MASTER_SECRET:
+   EARLY_EXPORTER_SECRET:
       This secret is used for early exporters.  Like the
       CLIENT_EARLY_TRAFFIC_SECRET, this is only generated when early
       data is attempted and might not be logged by a server if early
@@ -394,7 +394,7 @@ Table of Contents
    |                                 | early data          | document  |
    |                                 | records             |           |
    +---------------------------------+---------------------+-----------+
-   | EARLY_EXPORTER_MASTER_SECRET    | Early exporters     | This      |
+   | EARLY_EXPORTER_SECRET           | Early exporters     | This      |
    |                                 | secret              | document  |
    +---------------------------------+---------------------+-----------+
    | CLIENT_HANDSHAKE_TRAFFIC_SECRET | Secret protecting   | This      |
