@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-09T01:34:28.491417+00:00",
+  "timestamp": "2025-02-11T01:23:35.553063+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -1182,20 +1182,56 @@
       "id": "PR_kwDOIRczls6KdQhI",
       "title": "Fix typo for EARLY_EXPORTER_SECRET label",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/22",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "davidben",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This matches both the names in rfc8446bis and established practice. It seems to have simply been a typo. See\r\nhttps://mailarchive.ietf.org/arch/msg/tls/kfl93VUkDx-cytByLNd63C1V8Uk/",
       "createdAt": "2025-02-07T18:59:55Z",
-      "updatedAt": "2025-02-07T18:59:55Z",
+      "updatedAt": "2025-02-09T21:13:41Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "fbfda65590c456c1ccb7c0ffa4b703052af23811",
       "headRepository": "davidben/sslkeylogfile",
       "headRefName": "fix-early-exporter",
       "headRefOid": "d3ba67c2045ba651bb8261841165ba3188444b51",
+      "closedAt": "2025-02-09T21:13:41Z",
+      "mergedAt": "2025-02-09T21:13:41Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "9d79c950825c49ff397d2ebd886bceae8005b38e"
+      },
+      "comments": [
+        {
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Indeed it was.",
+          "createdAt": "2025-02-09T21:13:36Z",
+          "updatedAt": "2025-02-09T21:13:36Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOIRczls6KkRAm",
+      "title": "We can recommend conditional compilation",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/23",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-09T21:18:56Z",
+      "updatedAt": "2025-02-09T21:18:57Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "047457b700bbdbd22f82f56dc1de2b96f84779b3",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "compile-it-out",
+      "headRefOid": "64f67450c711efa6bfa4fc235cfbaccf9335320a",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
