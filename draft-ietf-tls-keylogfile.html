@@ -14,14 +14,14 @@ connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
 allows diagnostic and logging tools that use this file to decrypt messages
 exchanged by TLS endpoints. 
     " name="description">
-<meta content="xml2rfc 3.26.0" name="generator">
+<meta content="xml2rfc 3.27.0" name="generator">
 <meta content="network transparency" name="keyword">
 <meta content="tls" name="keyword">
 <meta content="blockchain" name="keyword">
 <meta content="draft-ietf-tls-keylogfile-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.26.0
-    Python 3.12.8
+  xml2rfc 3.27.0
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -442,7 +442,7 @@ dl {
     margin-bottom: 0;
   }
 }
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thomson, et al.</td>
-<td class="center">Expires 13 August 2025</td>
+<td class="center">Expires 22 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-tls-keylogfile-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-09" class="published">9 February 2025</time>
+<time datetime="2025-02-18" class="published">18 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-13">13 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-22">22 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1134,7 +1134,7 @@ exchanged by TLS endpoints.<a href="#section-abstract-1" class="pilcrow">¶</a><
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1259,7 +1259,9 @@ than endpoints - completely undermines the core guarantees that TLS provides.
 This format is intended for use in systems where TLS only protects test data.
 While the access that this information provides to TLS connections can be useful
 for diagnosing problems while developing systems, this mechanism <span class="bcp14">MUST NOT</span> be
-used in a production system.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+used in a production system.  For software that is compiled, use of conditional
+compilation is the best way to ensure that deployed binaries cannot be
+configured to enable key logging.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1335,7 +1337,7 @@ logged secrets.<a href="#section-2-8" class="pilcrow">¶</a></p>
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-secret-labels-for-tls-13" class="section-name selfRef">Secret Labels for TLS 1.3</a>
         </h3>
 <p id="section-2.1-1">An implementation of TLS 1.3 produces a number of values as part of the key
-schedule (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>). If ECH was successfully negotiated for a
+schedule (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>). If ECH was successfully negotiated for a
 given connection, these labels <span class="bcp14">MUST</span> be followed by the Random from the Inner ClientHello.
 Otherwise, the Random from the Outer ClientHello <span class="bcp14">MUST</span> be used.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.1-2">Each of the following labels correspond to the equivalent secret produced by the key schedule:<a href="#section-2.1-2" class="pilcrow">¶</a></p>
@@ -1381,12 +1383,12 @@ immediately after the handshake completes.  This secret is identified as
           <dd class="break"></dd>
 <dt id="section-2.1-3.13">EXPORTER_SECRET:</dt>
           <dd style="margin-left: 1.5em" id="section-2.1-3.14">
-            <p id="section-2.1-3.14.1">This secret is used in generating exporters <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>.<a href="#section-2.1-3.14.1" class="pilcrow">¶</a></p>
+            <p id="section-2.1-3.14.1">This secret is used in generating exporters <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>.<a href="#section-2.1-3.14.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
 <p id="section-2.1-4">These labels all appear in uppercase in the key log, but they correspond to
-lowercase labels in the TLS key schedule (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>), except for
+lowercase labels in the TLS key schedule (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>), except for
 the application data secrets as noted.  For example, "EXPORTER_SECRET" in the
 log file corresponds to the secret named <code>exporter_secret</code>.<a href="#section-2.1-4" class="pilcrow">¶</a></p>
 <p id="section-2.1-5">Note that the order that labels appear here corresponds to the order in which
@@ -1459,7 +1461,7 @@ modification of application data on a connection that would otherwise be
 protected by TLS.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">As some protocols rely on TLS for generating encryption keys, the SSLKEYLOGFILE
 format includes keys that identify the secret used in TLS exporters or early
-exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>).  Knowledge of these secrets can enable
+exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>).  Knowledge of these secrets can enable
 more than inspection or modification of encrypted data, depending on how an
 application protocol uses exporters.  For instance, exporters might be used for
 session bindings (e.g., <span>[<a href="#RFC8471" class="cite xref">RFC8471</a>]</span>), authentication (e.g., <span>[<a href="#RFC9261" class="cite xref">RFC9261</a>]</span>), or
@@ -1730,7 +1732,7 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="TLS13">[TLS13]</dt>
       <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8446bis-11</span>, <time datetime="2024-09-14" class="refDate">14 September 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8446bis-12</span>, <time datetime="2025-02-17" class="refDate">17 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>

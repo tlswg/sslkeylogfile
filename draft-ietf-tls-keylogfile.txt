@@ -5,10 +5,10 @@
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Informational                              Y. Rosomakho
-Expires: 13 August 2025                                          Zscaler
+Expires: 22 August 2025                                          Zscaler
                                                            H. Tschofenig
                                                                    H-BRS
-                                                         9 February 2025
+                                                        18 February 2025
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 August 2025.
+   This Internet-Draft will expire on 22 August 2025.
 
 Copyright Notice
 
@@ -123,7 +123,9 @@ Table of Contents
    systems where TLS only protects test data.  While the access that
    this information provides to TLS connections can be useful for
    diagnosing problems while developing systems, this mechanism MUST NOT
-   be used in a production system.
+   be used in a production system.  For software that is compiled, use
+   of conditional compilation is the best way to ensure that deployed
+   binaries cannot be configured to enable key logging.
 
 1.2.  Conventions and Definitions
 
@@ -470,9 +472,9 @@ Table of Contents
 
    [TLS13]    Rescorla, E., "The Transport Layer Security (TLS) Protocol
               Version 1.3", Work in Progress, Internet-Draft, draft-
-              ietf-tls-rfc8446bis-11, 14 September 2024,
+              ietf-tls-rfc8446bis-12, 17 February 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              rfc8446bis-11>.
+              rfc8446bis-12>.
 
 5.2.  Informative References
 
