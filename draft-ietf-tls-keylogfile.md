@@ -85,7 +85,9 @@ than endpoints - completely undermines the core guarantees that TLS provides.
 This format is intended for use in systems where TLS only protects test data.
 While the access that this information provides to TLS connections can be useful
 for diagnosing problems while developing systems, this mechanism MUST NOT be
-used in a production system.
+used in a production system.  For software that is compiled, use of conditional
+compilation is the best way to ensure that deployed binaries cannot be
+configured to enable key logging.
 
 
 ## Conventions and Definitions
