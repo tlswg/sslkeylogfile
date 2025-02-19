@@ -5,10 +5,10 @@
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Informational                              Y. Rosomakho
-Expires: 22 August 2025                                          Zscaler
+Expires: 23 August 2025                                          Zscaler
                                                            H. Tschofenig
                                                                    H-BRS
-                                                        18 February 2025
+                                                        19 February 2025
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 August 2025.
+   This Internet-Draft will expire on 23 August 2025.
 
 Copyright Notice
 
@@ -253,11 +253,11 @@ Table of Contents
 
    With ECH [ECH], additional secrets are derived during the handshake
    to encrypt the Inner ClientHello message using Hybrid Public Key
-   Encryption (HPKE) [RFC9180].  A client can log the ECH labels
-   described below if it offered ECH regardless of server acceptance.
-   The server can log the labels only if it successfully decrypted the
-   ECH offered by the client, though it could choose to do so only when
-   it accepts ECH.
+   Encryption (HPKE) [HPKE].  A client can log the ECH labels described
+   below if it offered ECH regardless of server acceptance.  The server
+   can log the labels only if it successfully decrypted the ECH offered
+   by the client, though it could choose to do so only when it accepts
+   ECH.
 
    These labels MUST always use the Random from the Outer ClientHello.
 
@@ -444,9 +444,9 @@ Table of Contents
 
    [ECH]      Rescorla, E., Oku, K., Sullivan, N., and C. A. Wood, "TLS
               Encrypted Client Hello", Work in Progress, Internet-Draft,
-              draft-ietf-tls-esni-22, 15 September 2024,
+              draft-ietf-tls-esni-23, 19 February 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              esni-22>.
+              esni-23>.
 
    [HPKE]     Barnes, R., Bhargavan, K., Lipp, B., and C. Wood, "Hybrid
               Public Key Encryption", RFC 9180, DOI 10.17487/RFC9180,
@@ -530,10 +530,6 @@ Table of Contents
    [RFC9001]  Thomson, M., Ed. and S. Turner, Ed., "Using TLS to Secure
               QUIC", RFC 9001, DOI 10.17487/RFC9001, May 2021,
               <https://www.rfc-editor.org/rfc/rfc9001>.
-
-   [RFC9180]  Barnes, R., Bhargavan, K., Lipp, B., and C. Wood, "Hybrid
-              Public Key Encryption", RFC 9180, DOI 10.17487/RFC9180,
-              February 2022, <https://www.rfc-editor.org/rfc/rfc9180>.
 
    [RFC9261]  Sullivan, N., "Exported Authenticators in TLS", RFC 9261,
               DOI 10.17487/RFC9261, July 2022,
