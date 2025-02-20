@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-18T01:24:02.168597+00:00",
+  "timestamp": "2025-02-20T01:24:47.627760+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -1218,24 +1218,26 @@
       "id": "PR_kwDOIRczls6KkRAm",
       "title": "We can recommend conditional compilation",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/23",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinthomson",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-09T21:18:56Z",
-      "updatedAt": "2025-02-13T13:49:46Z",
+      "updatedAt": "2025-02-18T22:08:11Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "047457b700bbdbd22f82f56dc1de2b96f84779b3",
       "headRepository": "tlswg/sslkeylogfile",
       "headRefName": "compile-it-out",
       "headRefOid": "64f67450c711efa6bfa4fc235cfbaccf9335320a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-02-18T21:48:15Z",
+      "mergedAt": "2025-02-18T21:48:15Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "37aed4ae5b75f8d270008168d64a35b1c8b1e82d"
+      },
       "comments": [
         {
           "author": "yaroslavros",
@@ -1245,7 +1247,63 @@
           "updatedAt": "2025-02-13T13:49:44Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6cZ5Fd",
+          "commit": {
+            "abbreviatedOid": "64f6745"
+          },
+          "author": "hannestschofenig",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Makes total sense to me.",
+          "createdAt": "2025-02-18T15:39:55Z",
+          "updatedAt": "2025-02-18T15:39:55Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOIRczls6Lw2V4",
+      "title": "Duplication Ref to HPKE",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/24",
+      "state": "MERGED",
+      "author": "seanturner",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Two references, one informational and one normative, to HPKE.",
+      "createdAt": "2025-02-19T14:51:50Z",
+      "updatedAt": "2025-02-19T21:18:29Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "37aed4ae5b75f8d270008168d64a35b1c8b1e82d",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "seanturner-hpke-ref",
+      "headRefOid": "3a65226f4001003d5858be4465d932c9234e970b",
+      "closedAt": "2025-02-19T21:18:29Z",
+      "mergedAt": "2025-02-19T21:18:29Z",
+      "mergedBy": "martinthomson",
+      "mergeCommit": {
+        "oid": "8289dad7f7d6c4f46bad9dd28e31a4acb48bd50a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOIRczls6cpB-Z",
+          "commit": {
+            "abbreviatedOid": "3a65226"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-19T21:17:23Z",
+          "updatedAt": "2025-02-19T21:17:23Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
