@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-20T01:24:47.627760+00:00",
+  "timestamp": "2025-02-23T01:37:16.651759+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -1225,7 +1225,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-02-09T21:18:56Z",
-      "updatedAt": "2025-02-18T22:08:11Z",
+      "updatedAt": "2025-02-22T06:40:42Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "047457b700bbdbd22f82f56dc1de2b96f84779b3",
@@ -1260,6 +1260,26 @@
           "createdAt": "2025-02-18T15:39:55Z",
           "updatedAt": "2025-02-18T15:39:55Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOIRczls6dCszh",
+          "commit": {
+            "abbreviatedOid": "64f6745"
+          },
+          "author": "boaks",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-22T06:40:41Z",
+          "updatedAt": "2025-02-22T06:40:42Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "That assumes, that someone has access to the \"configuration mechanism\", but is not able to exchange the executable. Otherwise you may need to add \"proprietary\" software. Because for the most \"open source\" application an attacker may just build it with the switch enabled.",
+              "createdAt": "2025-02-22T06:40:42Z",
+              "updatedAt": "2025-02-22T06:40:42Z"
+            }
+          ]
         }
       ]
     },
