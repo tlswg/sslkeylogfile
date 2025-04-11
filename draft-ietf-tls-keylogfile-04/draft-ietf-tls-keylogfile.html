@@ -14,20 +14,20 @@ connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
 allows diagnostic and logging tools that use this file to decrypt messages
 exchanged by TLS endpoints. 
     " name="description">
-<meta content="xml2rfc 3.25.0" name="generator">
+<meta content="xml2rfc 3.28.1" name="generator">
 <meta content="network transparency" name="keyword">
 <meta content="tls" name="keyword">
 <meta content="blockchain" name="keyword">
 <meta content="draft-ietf-tls-keylogfile-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.25.0
-    Python 3.12.8
+  xml2rfc 3.28.1
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.5
+    Jinja2 3.1.6
     lxml 5.3.0
-    platformdirs 4.3.6
+    platformdirs 4.3.7
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.3
@@ -442,7 +442,7 @@ dl {
     margin-bottom: 0;
   }
 }
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
@@ -1051,11 +1051,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SSLKEYLOGFILE</td>
-<td class="right">January 2025</td>
+<td class="right">April 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thomson, et al.</td>
-<td class="center">Expires 1 August 2025</td>
+<td class="center">Expires 13 October 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-tls-keylogfile-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-01-28" class="published">28 January 2025</time>
+<time datetime="2025-04-11" class="published">11 April 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-01">1 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-10-13">13 October 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1134,7 +1134,7 @@ exchanged by TLS endpoints.<a href="#section-abstract-1" class="pilcrow">¶</a><
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 1 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 13 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1259,7 +1259,9 @@ than endpoints - completely undermines the core guarantees that TLS provides.
 This format is intended for use in systems where TLS only protects test data.
 While the access that this information provides to TLS connections can be useful
 for diagnosing problems while developing systems, this mechanism <span class="bcp14">MUST NOT</span> be
-used in a production system.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+used in a production system.  For software that is compiled, use of conditional
+compilation is the best way to ensure that deployed binaries cannot be
+configured to enable key logging.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1288,7 +1290,7 @@ byte order mark (U+FEFF).<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">Lines are terminated using the line ending convention of the platform on which
 the file is generated.  Tools that process these files <span class="bcp14">MUST</span> accept CRLF (U+13
 followed by U+10), CR (U+13), or LF (U+10) as a line terminator.  Lines are
-ignored if they are empty or if the first character is an octothorp character
+ignored if they are empty or if the first character is an octothorpe character
 ('#', U+23).  Other lines of the file each contain a single secret.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">Implementations that record secrets to a file do so continuously as those
 secrets are generated.<a href="#section-2-3" class="pilcrow">¶</a></p>
@@ -1335,7 +1337,7 @@ logged secrets.<a href="#section-2-8" class="pilcrow">¶</a></p>
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-secret-labels-for-tls-13" class="section-name selfRef">Secret Labels for TLS 1.3</a>
         </h3>
 <p id="section-2.1-1">An implementation of TLS 1.3 produces a number of values as part of the key
-schedule (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>). If ECH was successfully negotiated for a
+schedule (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>). If ECH was successfully negotiated for a
 given connection, these labels <span class="bcp14">MUST</span> be followed by the Random from the Inner ClientHello.
 Otherwise, the Random from the Outer ClientHello <span class="bcp14">MUST</span> be used.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.1-2">Each of the following labels correspond to the equivalent secret produced by the key schedule:<a href="#section-2.1-2" class="pilcrow">¶</a></p>
@@ -1348,7 +1350,7 @@ data will not log this secret, though a client that attempts early data can do
 so unconditionally.<a href="#section-2.1-3.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-2.1-3.3">EARLY_EXPORTER_MASTER_SECRET:</dt>
+<dt id="section-2.1-3.3">EARLY_EXPORTER_SECRET:</dt>
           <dd style="margin-left: 1.5em" id="section-2.1-3.4">
             <p id="section-2.1-3.4.1">This secret is used for early exporters.  Like the
 CLIENT_EARLY_TRAFFIC_SECRET, this is only generated when early data is
@@ -1381,12 +1383,12 @@ immediately after the handshake completes.  This secret is identified as
           <dd class="break"></dd>
 <dt id="section-2.1-3.13">EXPORTER_SECRET:</dt>
           <dd style="margin-left: 1.5em" id="section-2.1-3.14">
-            <p id="section-2.1-3.14.1">This secret is used in generating exporters <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>.<a href="#section-2.1-3.14.1" class="pilcrow">¶</a></p>
+            <p id="section-2.1-3.14.1">This secret is used in generating exporters <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>.<a href="#section-2.1-3.14.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
 <p id="section-2.1-4">These labels all appear in uppercase in the key log, but they correspond to
-lowercase labels in the TLS key schedule (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>), except for
+lowercase labels in the TLS key schedule (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>), except for
 the application data secrets as noted.  For example, "EXPORTER_SECRET" in the
 log file corresponds to the secret named <code>exporter_secret</code>.<a href="#section-2.1-4" class="pilcrow">¶</a></p>
 <p id="section-2.1-5">Note that the order that labels appear here corresponds to the order in which
@@ -1410,7 +1412,7 @@ label "CLIENT_RANDOM" to identify the "master" secret for the connection.<a href
         </h3>
 <p id="section-2.3-1">With ECH <span>[<a href="#ECH" class="cite xref">ECH</a>]</span>, additional secrets are derived
 during the handshake to encrypt the Inner ClientHello message using Hybrid Public
-Key Encryption (HPKE) <span>[<a href="#RFC9180" class="cite xref">RFC9180</a>]</span>. A client can log the ECH labels described below
+Key Encryption (HPKE) <span>[<a href="#HPKE" class="cite xref">HPKE</a>]</span>. A client can log the ECH labels described below
 if it offered ECH regardless of server acceptance. The server can log the labels only if it
 successfully decrypted the ECH offered by the client, though it could choose to do so
 only when it accepts ECH.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
@@ -1459,7 +1461,7 @@ modification of application data on a connection that would otherwise be
 protected by TLS.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">As some protocols rely on TLS for generating encryption keys, the SSLKEYLOGFILE
 format includes keys that identify the secret used in TLS exporters or early
-exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>).  Knowledge of these secrets can enable
+exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>).  Knowledge of these secrets can enable
 more than inspection or modification of encrypted data, depending on how an
 application protocol uses exporters.  For instance, exporters might be used for
 session bindings (e.g., <span>[<a href="#RFC8471" class="cite xref">RFC8471</a>]</span>), authentication (e.g., <span>[<a href="#RFC9261" class="cite xref">RFC9261</a>]</span>), or
@@ -1641,7 +1643,7 @@ The initial contents of this registry are as follows.<a href="#section-4.2-1" cl
               <td class="text-left" rowspan="1" colspan="1">This document</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">EARLY_EXPORTER_MASTER_SECRET</td>
+              <td class="text-left" rowspan="1" colspan="1">EARLY_EXPORTER_SECRET</td>
               <td class="text-left" rowspan="1" colspan="1">Early exporters secret</td>
               <td class="text-left" rowspan="1" colspan="1">This document</td>
             </tr>
@@ -1706,7 +1708,7 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dl class="references">
 <dt id="ECH">[ECH]</dt>
         <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-22</span>, <time datetime="2024-09-15" class="refDate">15 September 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-22">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-22</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-24</span>, <time datetime="2025-03-20" class="refDate">20 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-24">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-24</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="HPKE">[HPKE]</dt>
         <dd>
@@ -1730,7 +1732,7 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="TLS13">[TLS13]</dt>
       <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8446bis-11</span>, <time datetime="2024-09-14" class="refDate">14 September 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-11</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8446bis-12</span>, <time datetime="2025-02-17" class="refDate">17 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1747,7 +1749,7 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="QLOG">[QLOG]</dt>
         <dd>
-<span class="refAuthor">Marx, R.</span>, <span class="refAuthor">Niccolini, L.</span>, <span class="refAuthor">Seemann, M.</span>, and <span class="refAuthor">L. Pardue</span>, <span class="refTitle">"qlog: Structured Logging for Network Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-qlog-main-schema-10</span>, <time datetime="2024-10-21" class="refDate">21 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-qlog-main-schema-10">https://datatracker.ietf.org/doc/html/draft-ietf-quic-qlog-main-schema-10</a>&gt;</span>. </dd>
+<span class="refAuthor">Marx, R.</span>, <span class="refAuthor">Niccolini, L.</span>, <span class="refAuthor">Seemann, M.</span>, and <span class="refAuthor">L. Pardue</span>, <span class="refTitle">"qlog: Structured Logging for Network Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-qlog-main-schema-11</span>, <time datetime="2025-03-17" class="refDate">17 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-qlog-main-schema-11">https://datatracker.ietf.org/doc/html/draft-ietf-quic-qlog-main-schema-11</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC0020">[RFC0020]</dt>
         <dd>
@@ -1784,10 +1786,6 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dt id="RFC9001">[RFC9001]</dt>
         <dd>
 <span class="refAuthor">Thomson, M., Ed.</span> and <span class="refAuthor">S. Turner, Ed.</span>, <span class="refTitle">"Using TLS to Secure QUIC"</span>, <span class="seriesInfo">RFC 9001</span>, <span class="seriesInfo">DOI 10.17487/RFC9001</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9001">https://www.rfc-editor.org/rfc/rfc9001</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC9180">[RFC9180]</dt>
-        <dd>
-<span class="refAuthor">Barnes, R.</span>, <span class="refAuthor">Bhargavan, K.</span>, <span class="refAuthor">Lipp, B.</span>, and <span class="refAuthor">C. Wood</span>, <span class="refTitle">"Hybrid Public Key Encryption"</span>, <span class="seriesInfo">RFC 9180</span>, <span class="seriesInfo">DOI 10.17487/RFC9180</span>, <time datetime="2022-02" class="refDate">February 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9180">https://www.rfc-editor.org/rfc/rfc9180</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9261">[RFC9261]</dt>
         <dd>
