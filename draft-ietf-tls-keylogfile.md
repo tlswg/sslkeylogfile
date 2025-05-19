@@ -417,7 +417,7 @@ of the SSLKEYLOGFILE label.
 # Example
 
 The following is a sample of a file in this format, including secrets from two
-TLS 1.3 connections.
+TLS 1.3 connections.  Long lines in these examples are wrapped according to {{?RFC8792}}.
 
 ~~~
 # NOTE: '\' line wrapping per RFC 8792
