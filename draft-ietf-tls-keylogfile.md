@@ -41,14 +41,16 @@ author:
 normative:
 
 informative:
+  RFC8792:
 
 
 --- abstract
 
-A format that supports the logging information about the secrets used in a TLS
-connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
-allows diagnostic and logging tools that use this file to decrypt messages
-exchanged by TLS endpoints.
+A format for logging information about the secrets used in a TLS connection is
+described.  Recording secrets to a file in SSLKEYLOGFILE format allows
+diagnostic and logging tools that use this file to decrypt messages exchanged by
+TLS endpoints.  This format is intended for use in systems where TLS only
+protects test data.
 
 
 --- middle
