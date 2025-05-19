@@ -9,10 +9,11 @@
 <meta content="Yaroslav Rosomakho" name="author">
 <meta content="Hannes Tschofenig" name="author">
 <meta content="
-       A format that supports the logging information about the secrets used in a TLS
-connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
-allows diagnostic and logging tools that use this file to decrypt messages
-exchanged by TLS endpoints. 
+       A format for logging information about the secrets used in a TLS connection is
+described.  Recording secrets to a file in SSLKEYLOGFILE format allows
+diagnostic and logging tools that use this file to decrypt messages exchanged by
+TLS endpoints.  This format is intended for use in systems where TLS only
+protects test data. 
     " name="description">
 <meta content="xml2rfc 3.28.1" name="generator">
 <meta content="network transparency" name="keyword">
@@ -21,13 +22,13 @@ exchanged by TLS endpoints.
 <meta content="draft-ietf-tls-keylogfile-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.28.1
-    Python 3.12.9
+    Python 3.12.10
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
     lxml 5.3.0
-    platformdirs 4.3.7
+    platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.3
@@ -1051,11 +1052,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SSLKEYLOGFILE</td>
-<td class="right">April 2025</td>
+<td class="right">May 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thomson, et al.</td>
-<td class="center">Expires 13 October 2025</td>
+<td class="center">Expires 20 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-tls-keylogfile-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-04-11" class="published">11 April 2025</time>
+<time datetime="2025-05-19" class="published">19 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-10-13">13 October 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-20">20 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1094,10 +1095,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">The SSLKEYLOGFILE Format for TLS</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">A format that supports the logging information about the secrets used in a TLS
-connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
-allows diagnostic and logging tools that use this file to decrypt messages
-exchanged by TLS endpoints.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">A format for logging information about the secrets used in a TLS connection is
+described.  Recording secrets to a file in SSLKEYLOGFILE format allows
+diagnostic and logging tools that use this file to decrypt messages exchanged by
+TLS endpoints.  This format is intended for use in systems where TLS only
+protects test data.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1134,7 +1136,7 @@ exchanged by TLS endpoints.<a href="#section-abstract-1" class="pilcrow">¶</a><
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1774,6 +1776,10 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dt id="RFC8471">[RFC8471]</dt>
         <dd>
 <span class="refAuthor">Popov, A., Ed.</span>, <span class="refAuthor">Nystroem, M.</span>, <span class="refAuthor">Balfanz, D.</span>, and <span class="refAuthor">J. Hodges</span>, <span class="refTitle">"The Token Binding Protocol Version 1.0"</span>, <span class="seriesInfo">RFC 8471</span>, <span class="seriesInfo">DOI 10.17487/RFC8471</span>, <time datetime="2018-10" class="refDate">October 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8471">https://www.rfc-editor.org/rfc/rfc8471</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8792">[RFC8792]</dt>
+        <dd>
+<span class="refAuthor">Watsen, K.</span>, <span class="refAuthor">Auerswald, E.</span>, <span class="refAuthor">Farrel, A.</span>, and <span class="refAuthor">Q. Wu</span>, <span class="refTitle">"Handling Long Lines in Content of Internet-Drafts and RFCs"</span>, <span class="seriesInfo">RFC 8792</span>, <span class="seriesInfo">DOI 10.17487/RFC8792</span>, <time datetime="2020-06" class="refDate">June 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8792">https://www.rfc-editor.org/rfc/rfc8792</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8996">[RFC8996]</dt>
         <dd>
