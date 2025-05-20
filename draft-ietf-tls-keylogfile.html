@@ -9,10 +9,11 @@
 <meta content="Yaroslav Rosomakho" name="author">
 <meta content="Hannes Tschofenig" name="author">
 <meta content="
-       A format that supports the logging information about the secrets used in a TLS
-connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
-allows diagnostic and logging tools that use this file to decrypt messages
-exchanged by TLS endpoints. 
+       A format for logging information about the secrets used in a TLS connection is
+described.  Recording secrets to a file in SSLKEYLOGFILE format allows
+diagnostic and logging tools that use this file to decrypt messages exchanged by
+TLS endpoints.  This format is intended for use in systems where TLS only
+protects test data. 
     " name="description">
 <meta content="xml2rfc 3.28.1" name="generator">
 <meta content="network transparency" name="keyword">
@@ -1094,10 +1095,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">The SSLKEYLOGFILE Format for TLS</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">A format that supports the logging information about the secrets used in a TLS
-connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
-allows diagnostic and logging tools that use this file to decrypt messages
-exchanged by TLS endpoints.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">A format for logging information about the secrets used in a TLS connection is
+described.  Recording secrets to a file in SSLKEYLOGFILE format allows
+diagnostic and logging tools that use this file to decrypt messages exchanged by
+TLS endpoints.  This format is intended for use in systems where TLS only
+protects test data.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1774,6 +1776,10 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dt id="RFC8471">[RFC8471]</dt>
         <dd>
 <span class="refAuthor">Popov, A., Ed.</span>, <span class="refAuthor">Nystroem, M.</span>, <span class="refAuthor">Balfanz, D.</span>, and <span class="refAuthor">J. Hodges</span>, <span class="refTitle">"The Token Binding Protocol Version 1.0"</span>, <span class="seriesInfo">RFC 8471</span>, <span class="seriesInfo">DOI 10.17487/RFC8471</span>, <time datetime="2018-10" class="refDate">October 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8471">https://www.rfc-editor.org/rfc/rfc8471</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8792">[RFC8792]</dt>
+        <dd>
+<span class="refAuthor">Watsen, K.</span>, <span class="refAuthor">Auerswald, E.</span>, <span class="refAuthor">Farrel, A.</span>, and <span class="refAuthor">Q. Wu</span>, <span class="refTitle">"Handling Long Lines in Content of Internet-Drafts and RFCs"</span>, <span class="seriesInfo">RFC 8792</span>, <span class="seriesInfo">DOI 10.17487/RFC8792</span>, <time datetime="2020-06" class="refDate">June 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8792">https://www.rfc-editor.org/rfc/rfc8792</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8996">[RFC8996]</dt>
         <dd>
