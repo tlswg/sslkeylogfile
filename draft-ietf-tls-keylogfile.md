@@ -91,6 +91,9 @@ used in a production system.  For software that is compiled, use of conditional
 compilation is the best way to ensure that deployed binaries cannot be
 configured to enable key logging.
 
+{{security}} addresses a number of additional concerns that arise from the use
+of key logging.
+
 
 ## Conventions and Definitions
 
