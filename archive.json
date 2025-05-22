@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-20T01:46:37.258090+00:00",
+  "timestamp": "2025-05-22T01:45:35.158773+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -1504,6 +1504,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOIRczls6W-KK1",
+      "title": "A vague forward reference",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/29",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Based on discussion.",
+      "createdAt": "2025-05-21T00:27:37Z",
+      "updatedAt": "2025-05-21T00:27:38Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "d03e8abdc8dc4e7516f0cebe4f05e28ad71f61ba",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "fwd-ref-authz",
+      "headRefOid": "501b50e24f2fcc7038891fdf9c0732652d0b1aea",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
