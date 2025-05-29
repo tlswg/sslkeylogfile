@@ -5,10 +5,10 @@
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Informational                              Y. Rosomakho
-Expires: 21 November 2025                                        Zscaler
+Expires: 30 November 2025                                        Zscaler
                                                            H. Tschofenig
                                                                    H-BRS
-                                                             20 May 2025
+                                                             29 May 2025
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 November 2025.
+   This Internet-Draft will expire on 30 November 2025.
 
 Copyright Notice
 
@@ -381,11 +381,11 @@ Table of Contents
 
 4.2.  SSLKEYLOGFILE Labels Registry
 
-   IANA is requested to create a new registry "SSLKEYLOGFILE Labels",
-   within the existing "Transport Layer Security (TLS) Parameters"
-   registry page.  This new registry reserves labels used for
-   SSLKEYLOGFILE entries.  The initial contents of this registry are as
-   follows.
+   IANA is requested to create a new registry "TLS SSLKEYLOGFILE
+   Labels", within the existing "Transport Layer Security (TLS)
+   Parameters" registry page.  This new registry reserves labels used
+   for SSLKEYLOGFILE entries.  The initial contents of this registry are
+   as follows.
 
    +=================================+=====================+===========+
    | Value                           | Description         | Reference |
