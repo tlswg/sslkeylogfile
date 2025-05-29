@@ -388,7 +388,7 @@ Change controller:
 
 ## SSLKEYLOGFILE Labels Registry {#iana-labels-registry}
 
-IANA is requested to create a new registry "SSLKEYLOGFILE Labels", within the
+IANA is requested to create a new registry "TLS SSLKEYLOGFILE Labels", within the
 existing "Transport Layer Security (TLS) Parameters" registry page.
 This new registry reserves labels used for SSLKEYLOGFILE entries.
 The initial contents of this registry are as follows.
