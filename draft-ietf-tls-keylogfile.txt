@@ -129,6 +129,9 @@ Table of Contents
    of conditional compilation is the best way to ensure that deployed
    binaries cannot be configured to enable key logging.
 
+   Section 3 addresses a number of additional concerns that arise from
+   the use of key logging.
+
 1.2.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
