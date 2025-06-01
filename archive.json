@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-22T01:45:35.158773+00:00",
+  "timestamp": "2025-06-01T02:03:55.274267+00:00",
   "repo": "tlswg/sslkeylogfile",
   "labels": [
     {
@@ -1510,24 +1510,54 @@
       "id": "PR_kwDOIRczls6W-KK1",
       "title": "A vague forward reference",
       "url": "https://github.com/tlswg/sslkeylogfile/pull/29",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinthomson",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Based on discussion.",
       "createdAt": "2025-05-21T00:27:37Z",
-      "updatedAt": "2025-05-21T00:27:38Z",
+      "updatedAt": "2025-05-29T18:09:11Z",
       "baseRepository": "tlswg/sslkeylogfile",
       "baseRefName": "main",
       "baseRefOid": "d03e8abdc8dc4e7516f0cebe4f05e28ad71f61ba",
       "headRepository": "tlswg/sslkeylogfile",
       "headRefName": "fwd-ref-authz",
       "headRefOid": "501b50e24f2fcc7038891fdf9c0732652d0b1aea",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-05-29T18:09:11Z",
+      "mergedAt": "2025-05-29T18:09:11Z",
+      "mergedBy": "yaroslavros",
+      "mergeCommit": {
+        "oid": "e06c3afd47f577cab2bca0aece2dda784bebc629"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOIRczls6YDIup",
+      "title": "Add \"TLS\" to registry name",
+      "url": "https://github.com/tlswg/sslkeylogfile/pull/30",
+      "state": "MERGED",
+      "author": "martinthomson",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "IANA noted that RFC 8447bis requested that TLS registries all include the TLS name as a prefix.  Seems like a good plan here too.",
+      "createdAt": "2025-05-29T02:08:59Z",
+      "updatedAt": "2025-05-29T15:42:58Z",
+      "baseRepository": "tlswg/sslkeylogfile",
+      "baseRefName": "main",
+      "baseRefOid": "d03e8abdc8dc4e7516f0cebe4f05e28ad71f61ba",
+      "headRepository": "tlswg/sslkeylogfile",
+      "headRefName": "iana-tls",
+      "headRefOid": "a4a19527f72fa123346271d78e41f93c9011ddff",
+      "closedAt": "2025-05-29T15:42:58Z",
+      "mergedAt": "2025-05-29T15:42:58Z",
+      "mergedBy": "yaroslavros",
+      "mergeCommit": {
+        "oid": "219dfeeffd524f89668fe91bb4fa5dc90116c852"
+      },
       "comments": [],
       "reviews": []
     }
