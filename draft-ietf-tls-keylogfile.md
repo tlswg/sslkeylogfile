@@ -130,9 +130,7 @@ client_random:
 : The 32-byte value of the Random field from the ClientHello message that
   established the TLS connection.  This value is encoded as 64 hexadecimal
   characters.  In a log that can include secrets from multiple connections, this
-  field is used to correlate multiple secrets from the same connection.  This
-  allows secrets to be matched to the correct connection, provided that records
-  can be matched to the correct ClientHello message.
+  field can be used to identify a connection.
 
 secret:
 
