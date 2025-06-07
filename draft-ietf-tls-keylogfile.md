@@ -46,11 +46,11 @@ informative:
 
 --- abstract
 
-A format for logging information about the secrets used in a TLS connection is
-described.  Recording secrets to a file in SSLKEYLOGFILE format allows
-diagnostic and logging tools that use this file to decrypt messages exchanged by
-TLS endpoints.  This format is intended for use in systems where TLS only
-protects test data.
+A format that supports logging information about the secrets used in a TLS
+connection is described.  Recording secrets to a file in SSLKEYLOGFILE format
+allows diagnostic and logging tools that use this file to decrypt messages
+exchanged by TLS endpoints.  This format is intended for use in systems where
+TLS only protects test data.
 
 
 --- middle
@@ -129,10 +129,8 @@ client_random:
 
 : The 32-byte value of the Random field from the ClientHello message that
   established the TLS connection.  This value is encoded as 64 hexadecimal
-  characters.  Including this field allows a single file to include secrets from
-  multiple connections and for the secrets to be applied to the correct
-  connection, though this depends on being able to match records to the correct
-  ClientHello message.
+  characters.  In a log that can include secrets from multiple connections, this
+  field can be used to identify a connection.
 
 secret:
 
@@ -212,7 +210,7 @@ will log secrets strictly in this order.
 
 ## Secret Labels for TLS 1.2
 
-An implementation of TLS 1.2 {{!TLS12}} (and also earlier versions) use the
+Implementations of TLS 1.2 {{!TLS12}} (and also earlier versions) use the
 label "CLIENT_RANDOM" to identify the "master" secret for the connection.
 
 ## Secret Labels for ECH
@@ -414,7 +412,7 @@ Specification Required procedure {{?RFC8126}}. The role of the designated expert
 in {{Section 17 of ?RFC8447}}. The designated expert {{RFC8126}} ensures that the specification is
 publicly available.  It is sufficient to have an Internet-Draft (that is posted and never published
 as an RFC) or to cite a document from another standards body, industry consortium, or any other location.
-An expert may provide more in depth reviews, but their approval should not be taken as an endorsement
+An expert may provide more in-depth reviews, but their approval should not be taken as an endorsement
 of the SSLKEYLOGFILE label.
 
 --- back
