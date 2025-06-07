@@ -5,10 +5,10 @@
 Transport Layer Security                                      M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Informational                              Y. Rosomakho
-Expires: 30 November 2025                                        Zscaler
+Expires: 9 December 2025                                         Zscaler
                                                            H. Tschofenig
                                                                    H-BRS
-                                                             29 May 2025
+                                                             7 June 2025
 
 
                     The SSLKEYLOGFILE Format for TLS
@@ -16,8 +16,8 @@ Expires: 30 November 2025                                        Zscaler
 
 Abstract
 
-   A format for logging information about the secrets used in a TLS
-   connection is described.  Recording secrets to a file in
+   A format that supports logging information about the secrets used in
+   a TLS connection is described.  Recording secrets to a file in
    SSLKEYLOGFILE format allows diagnostic and logging tools that use
    this file to decrypt messages exchanged by TLS endpoints.  This
    format is intended for use in systems where TLS only protects test
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 November 2025.
+   This Internet-Draft will expire on 9 December 2025.
 
 Copyright Notice
 
@@ -168,11 +168,9 @@ Table of Contents
 
    client_random:  The 32-byte value of the Random field from the
       ClientHello message that established the TLS connection.  This
-      value is encoded as 64 hexadecimal characters.  Including this
-      field allows a single file to include secrets from multiple
-      connections and for the secrets to be applied to the correct
-      connection, though this depends on being able to match records to
-      the correct ClientHello message.
+      value is encoded as 64 hexadecimal characters.  In a log that can
+      include secrets from multiple connections, this field can be used
+      to identify a connection.
 
    secret:  The value of the identified secret for the identified
       connection.  This value is encoded in hexadecimal, with a length
@@ -250,7 +248,7 @@ Table of Contents
 
 2.2.  Secret Labels for TLS 1.2
 
-   An implementation of TLS 1.2 [TLS12] (and also earlier versions) use
+   Implementations of TLS 1.2 [TLS12] (and also earlier versions) use
    the label "CLIENT_RANDOM" to identify the "master" secret for the
    connection.
 
@@ -439,7 +437,7 @@ Table of Contents
    that the specification is publicly available.  It is sufficient to
    have an Internet-Draft (that is posted and never published as an RFC)
    or to cite a document from another standards body, industry
-   consortium, or any other location.  An expert may provide more in
+   consortium, or any other location.  An expert may provide more in-
    depth reviews, but their approval should not be taken as an
    endorsement of the SSLKEYLOGFILE label.
 
