@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" class="Internet-Draft">
+<html lang="en" class="RFC">
 <head>
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>The SSLKEYLOGFILE Format for TLS</title>
+<title>RFC 9850: The SSLKEYLOGFILE Format for TLS</title>
 <meta content="Martin Thomson" name="author">
 <meta content="Yaroslav Rosomakho" name="author">
 <meta content="Hannes Tschofenig" name="author">
 <meta content="
-       A format for logging information about the secrets used in a TLS connection is
-described.  Recording secrets to a file in SSLKEYLOGFILE format allows
-diagnostic and logging tools that use this file to decrypt messages exchanged by
-TLS endpoints.  This format is intended for use in systems where TLS only
-protects test data. 
+       This document describes a format that supports logging information about the secrets used in a TLS
+      connection.  Recording secrets to a file in SSLKEYLOGFILE format
+      allows diagnostic and logging tools that use this file to decrypt messages
+      exchanged by TLS endpoints.  This format is intended for use in systems where
+      TLS only protects test data. 
     " name="description">
-<meta content="xml2rfc 3.28.1" name="generator">
+<meta content="xml2rfc 3.31.0" name="generator">
 <meta content="network transparency" name="keyword">
 <meta content="tls" name="keyword">
 <meta content="blockchain" name="keyword">
-<meta content="draft-ietf-tls-keylogfile-latest" name="ietf.draft">
+<meta content="9850" name="rfc.number">
 <!-- Generator version information:
-  xml2rfc 3.28.1
-    Python 3.12.10
+  xml2rfc 3.31.0
+    Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
-    lxml 5.3.0
-    platformdirs 4.3.8
+    lxml 5.3.1
+    platformdirs 4.5.0
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
-    wcwidth 0.2.13
+    requests 2.32.5
+    wcwidth 0.2.14
 -->
 <link href="draft-ietf-tls-keylogfile.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1046,35 +1045,38 @@ svg :is([fill="white"], [fill^="#fff"]) {
 }
 </style>
 
-</head>
+<link href="https://dx.doi.org/10.17487/rfc9850" rel="alternate">
+  <link href="urn:issn:2070-1721" rel="alternate">
+  <link href="https://datatracker.ietf.org/doc/draft-ietf-tls-keylogfile-latest" rel="prev">
+  </head>
 <body class="xml2rfc">
 <table class="ears">
 <thead><tr>
-<td class="left">Internet-Draft</td>
+<td class="left">RFC 9850</td>
 <td class="center">SSLKEYLOGFILE</td>
-<td class="right">May 2025</td>
+<td class="right">December 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thomson, et al.</td>
-<td class="center">Expires 22 November 2025</td>
+<td class="center">Informational</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
 <div id="external-metadata" class="document-information"></div>
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
-<dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">Transport Layer Security</dd>
-<dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-ietf-tls-keylogfile-latest</dd>
+<dt class="label-stream">Stream:</dt>
+<dd class="stream">Internet Engineering Task Force (IETF)</dd>
+<dt class="label-rfc">RFC:</dt>
+<dd class="rfc"><a href="https://www.rfc-editor.org/rfc/rfc9850" class="eref">9850</a></dd>
+<dt class="label-category">Category:</dt>
+<dd class="category">Informational</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-21" class="published">21 May 2025</time>
+<time datetime="2025-12" class="published">December 2025</time>
     </dd>
-<dt class="label-intended-status">Intended Status:</dt>
-<dd class="intended-status">Informational</dd>
-<dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-22">22 November 2025</time></dd>
+<dt class="label-issn">ISSN:</dt>
+<dd class="issn">2070-1721</dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1092,30 +1094,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
+<h1 id="rfcnum">RFC 9850</h1>
 <h1 id="title">The SSLKEYLOGFILE Format for TLS</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">A format for logging information about the secrets used in a TLS connection is
-described.  Recording secrets to a file in SSLKEYLOGFILE format allows
-diagnostic and logging tools that use this file to decrypt messages exchanged by
-TLS endpoints.  This format is intended for use in systems where TLS only
-protects test data.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
-</section>
-<section class="note rfcEditorRemove" id="section-note.1">
-      <h2 id="name-about-this-document">
-<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
-      </h2>
-<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
-<p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://tlswg.github.io/sslkeylogfile/draft-ietf-tls-keylogfile.html">https://tlswg.github.io/sslkeylogfile/draft-ietf-tls-keylogfile.html</a></span>.
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-ietf-tls-keylogfile/">https://datatracker.ietf.org/doc/draft-ietf-tls-keylogfile/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
-<p id="section-note.1-3">
-        Discussion of this document takes place on the
-        Transport Layer Security Working Group mailing list (<span><a href="mailto:tls@ietf.org">mailto:tls@ietf.org</a></span>),
-        which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/tls/">https://mailarchive.ietf.org/arch/browse/tls/</a></span>.
-        Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/tls/">https://www.ietf.org/mailman/listinfo/tls/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
-<p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/tlswg/sslkeylogfile">https://github.com/tlswg/sslkeylogfile</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document describes a format that supports logging information about the secrets used in a TLS
+      connection.  Recording secrets to a file in SSLKEYLOGFILE format
+      allows diagnostic and logging tools that use this file to decrypt messages
+      exchanged by TLS endpoints.  This format is intended for use in systems where
+      TLS only protects test data.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1123,20 +1110,19 @@ protects test data.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
         </h2>
 <p id="section-boilerplate.1-1">
-        This Internet-Draft is submitted in full conformance with the
-        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+            This document is not an Internet Standards Track specification; it is
+            published for informational purposes.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-2">
-        Internet-Drafts are working documents of the Internet Engineering Task
-        Force (IETF). Note that other groups may also distribute working
-        documents as Internet-Drafts. The list of current Internet-Drafts is
-        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+            This document is a product of the Internet Engineering Task Force
+            (IETF).  It represents the consensus of the IETF community.  It has
+            received public review and has been approved for publication by the
+            Internet Engineering Steering Group (IESG).  Not all documents
+            approved by the IESG are candidates for any level of Internet
+            Standard; see Section 2 of RFC 7841.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-3">
-        Internet-Drafts are draft documents valid for a maximum of six months
-        and may be updated, replaced, or obsoleted by other documents at any
-        time. It is inappropriate to use Internet-Drafts as reference
-        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
-<p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 22 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+            Information about the current status of this document, any
+            errata, and how to provide feedback on it may be obtained at
+            <span><a href="https://www.rfc-editor.org/info/rfc9850">https://www.rfc-editor.org/info/rfc9850</a></span>.<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1172,7 +1158,7 @@ protects test data.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-applicability-statement" class="internal xref">Applicability Statement</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
-                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-conventions" class="internal xref">Conventions</a></p>
 </li>
             </ul>
 </li>
@@ -1234,49 +1220,49 @@ protects test data.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1">Debugging or analyzing protocols can be challenging when TLS <span>[<a href="#TLS13" class="cite xref">TLS13</a>]</span> is used
-to protect the content of communications.  Inspecting the content of encrypted
-messages in diagnostic tools can enable more thorough analysis.<a href="#section-1-1" class="pilcrow">¶</a></p>
+      to protect the content of communications.  Inspecting the content of encrypted
+      messages in diagnostic tools can enable more thorough analysis.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Over time, multiple TLS implementations have informally adopted a file format
-for logging the secret values generated by the TLS key schedule.  In many
-implementations, the file that the secrets are logged to is specified in an
-environment variable named "SSLKEYLOGFILE", hence the name of SSLKEYLOGFILE
-format.  Note the use of "SSL" as this convention originally predates the
-adoption of TLS as the name of the protocol.<a href="#section-1-2" class="pilcrow">¶</a></p>
+      for logging the secret values generated by the TLS key schedule.  In many
+      implementations, the file that the secrets are logged to is specified in an
+      environment variable named "SSLKEYLOGFILE", hence the name of SSLKEYLOGFILE
+      format.  Note the use of "SSL" as this convention originally predates the
+      adoption of TLS as the name of the protocol.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">This document describes the SSLKEYLOGFILE format.  This format can be used for
-TLS 1.2 <span>[<a href="#TLS12" class="cite xref">TLS12</a>]</span> and TLS 1.3 <span>[<a href="#TLS13" class="cite xref">TLS13</a>]</span>.  The format also
-supports earlier TLS versions, though use of earlier versions is strongly discouraged
-<span>[<a href="#RFC8996" class="cite xref">RFC8996</a>]</span><span>[<a href="#RFC9325" class="cite xref">RFC9325</a>]</span>.  This format can also be used with DTLS <span>[<a href="#DTLS13" class="cite xref">DTLS13</a>]</span>, QUIC
-<span>[<a href="#RFC9000" class="cite xref">RFC9000</a>]</span><span>[<a href="#RFC9001" class="cite xref">RFC9001</a>]</span>, and other protocols that also use the TLS key
-schedule.  Use of this format could complement other protocol-specific logging
-such as QLOG <span>[<a href="#QLOG" class="cite xref">QLOG</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
+      TLS 1.2 <span>[<a href="#TLS12" class="cite xref">TLS12</a>]</span> and TLS 1.3 <span>[<a href="#TLS13" class="cite xref">TLS13</a>]</span>.  The format also
+      supports earlier TLS versions, though use of earlier versions is strongly discouraged
+      <span>[<a href="#RFC8996" class="cite xref">RFC8996</a>]</span> <span>[<a href="#RFC9325" class="cite xref">RFC9325</a>]</span>.  This format can also be used with DTLS <span>[<a href="#DTLS13" class="cite xref">DTLS13</a>]</span>, QUIC
+      <span>[<a href="#RFC9000" class="cite xref">RFC9000</a>]</span> <span>[<a href="#RFC9001" class="cite xref">RFC9001</a>]</span>, and other protocols that also use the TLS key
+      schedule.  Use of this format could complement other protocol-specific logging
+      such as qlog <span>[<a href="#QLOG" class="cite xref">QLOG</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">This document also defines labels that can be used to log information
-about exchanges that use Encrypted Client Hello (ECH) <span>[<a href="#ECH" class="cite xref">ECH</a>]</span>.<a href="#section-1-4" class="pilcrow">¶</a></p>
+      about exchanges that use Encrypted Client Hello (ECH) <span>[<a href="#ECH" class="cite xref">ECH</a>]</span>.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <div id="applicability-statement">
 <section id="section-1.1">
         <h3 id="name-applicability-statement">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-applicability-statement" class="section-name selfRef">Applicability Statement</a>
         </h3>
 <p id="section-1.1-1">The artifact that this document describes - if made available to entities other
-than endpoints - completely undermines the core guarantees that TLS provides.
-This format is intended for use in systems where TLS only protects test data.
-While the access that this information provides to TLS connections can be useful
-for diagnosing problems while developing systems, this mechanism <span class="bcp14">MUST NOT</span> be
-used in a production system.  For software that is compiled, use of conditional
-compilation is the best way to ensure that deployed binaries cannot be
-configured to enable key logging.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+        than endpoints - completely undermines the core guarantees that TLS provides.
+        This format is intended for use in systems where TLS only protects test data.
+        While the access that this information provides to TLS connections can be useful
+        for diagnosing problems while developing systems, this mechanism <span class="bcp14">MUST NOT</span> be
+        used in a production system.  For software that is compiled, use of conditional
+        compilation is the best way to ensure that deployed binaries cannot be
+        configured to enable key logging.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 <p id="section-1.1-2"><a href="#security" class="auto internal xref">Section 3</a> addresses a number of additional concerns that arise from the use
-of key logging.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+        of key logging.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="conventions-and-definitions">
+<div id="conventions">
 <section id="section-1.2">
-        <h3 id="name-conventions-and-definitions">
-<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+        <h3 id="name-conventions">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-conventions" class="section-name selfRef">Conventions</a>
         </h3>
 <p id="section-1.2-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
-"<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
-described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
-appear in all capitals, as shown here.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+        "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
+        described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
+        appear in all capitals, as shown here.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1287,78 +1273,76 @@ appear in all capitals, as shown here.<a href="#section-1.2-1" class="pilcrow">�
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-the-sslkeylogfile-format" class="section-name selfRef">The SSLKEYLOGFILE Format</a>
       </h2>
 <p id="section-2-1">A file in SSLKEYLOGFILE format is a text file.  This document specifies the
-character encoding as UTF-8 <span>[<a href="#RFC3629" class="cite xref">RFC3629</a>]</span>.  Though the format itself only
-includes ASCII characters <span>[<a href="#RFC0020" class="cite xref">RFC0020</a>]</span>, comments <span class="bcp14">MAY</span> contain other characters.
-Though Unicode is permitted in comments, the file <span class="bcp14">MUST NOT</span> contain a Unicode
-byte order mark (U+FEFF).<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">Lines are terminated using the line ending convention of the platform on which
-the file is generated.  Tools that process these files <span class="bcp14">MUST</span> accept CRLF (U+13
-followed by U+10), CR (U+13), or LF (U+10) as a line terminator.  Lines are
-ignored if they are empty or if the first character is an octothorpe character
-('#', U+23).  Other lines of the file each contain a single secret.<a href="#section-2-2" class="pilcrow">¶</a></p>
+      character encoding as UTF-8 <span>[<a href="#RFC3629" class="cite xref">RFC3629</a>]</span>.  Though the format itself only
+      includes ASCII characters <span>[<a href="#RFC0020" class="cite xref">RFC0020</a>]</span>, comments <span class="bcp14">MAY</span> contain other characters.
+      Though Unicode is permitted in comments, the file <span class="bcp14">MUST NOT</span> contain a Unicode
+      byte order mark (U+FEFF).<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">Lines are terminated using the line-ending convention of the platform on which
+      the file is generated.  Tools that process these files <span class="bcp14">MUST</span> accept CRLF (U+13
+      followed by U+10), CR (U+13), or LF (U+10) as a line terminator.  Lines are
+      ignored if they are empty or if the first character is an octothorpe character
+      ('#', U+23).  Other lines of the file each contain a single secret.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">Implementations that record secrets to a file do so continuously as those
-secrets are generated.<a href="#section-2-3" class="pilcrow">¶</a></p>
+      secrets are generated.<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">Each secret is described using a single line composed of three values that are
-separated by a single space character (U+20).  These values are:<a href="#section-2-4" class="pilcrow">¶</a></p>
+      separated by a single space character (U+20).  These values are:<a href="#section-2-4" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-2-5">
         <dt id="section-2-5.1">label:</dt>
         <dd style="margin-left: 1.5em" id="section-2-5.2">
           <p id="section-2-5.2.1">The label identifies the type of secret that is being conveyed; see <a href="#labels" class="auto internal xref">Section 2.1</a>
-for a description of the labels that are defined in this document.<a href="#section-2-5.2.1" class="pilcrow">¶</a></p>
+          for descriptions of the labels that are defined in this document.<a href="#section-2-5.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-2-5.3">client_random:</dt>
         <dd style="margin-left: 1.5em" id="section-2-5.4">
           <p id="section-2-5.4.1">The 32-byte value of the Random field from the ClientHello message that
-established the TLS connection.  This value is encoded as 64 hexadecimal
-characters.  Including this field allows a single file to include secrets from
-multiple connections and for the secrets to be applied to the correct
-connection, though this depends on being able to match records to the correct
-ClientHello message.<a href="#section-2-5.4.1" class="pilcrow">¶</a></p>
+          established the TLS connection.  This value is encoded as 64 hexadecimal
+          characters.  In a log that can include secrets from multiple connections, this
+          field can be used to identify a connection.<a href="#section-2-5.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-2-5.5">secret:</dt>
         <dd style="margin-left: 1.5em" id="section-2-5.6">
           <p id="section-2-5.6.1">The value of the identified secret for the identified connection.  This value
-is encoded in hexadecimal, with a length that depends on the size of the
-secret.<a href="#section-2-5.6.1" class="pilcrow">¶</a></p>
+          is encoded in hexadecimal, with a length that depends on the size of the
+          secret.<a href="#section-2-5.6.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
-<p id="section-2-6">For the hexadecimal values of the <code>client_random</code> or <code>secret</code>, no convention
-exists for the case of characters 'a' through 'f' (or 'A' through 'F').  Files
-can be generated with either, so either form <span class="bcp14">MUST</span> be accepted when processing a
-file.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-6">For the hexadecimal values of <code>client_random</code> or <code>secret</code>, no convention
+      exists for the case of characters "a" through "f" (or "A" through "F").  Files
+      can be generated with either, so either form <span class="bcp14">MUST</span> be accepted when processing a
+      file.<a href="#section-2-6" class="pilcrow">¶</a></p>
 <p id="section-2-7">Diagnostic tools that accept files in this format might choose to ignore lines
-that do not conform to this format in the interest of ensuring that secrets can
-be obtained from corrupted files.<a href="#section-2-7" class="pilcrow">¶</a></p>
+      that do not conform to this format in the interest of ensuring that secrets can
+      be obtained from corrupted files.<a href="#section-2-7" class="pilcrow">¶</a></p>
 <p id="section-2-8">Logged secret values are not annotated with the cipher suite or other connection
-parameters.  A record of the TLS handshake might therefore be needed to use the
-logged secrets.<a href="#section-2-8" class="pilcrow">¶</a></p>
+      parameters.  Therefore, a record of the TLS handshake might be needed to use the
+      logged secrets.<a href="#section-2-8" class="pilcrow">¶</a></p>
 <div id="labels">
 <section id="section-2.1">
         <h3 id="name-secret-labels-for-tls-13">
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-secret-labels-for-tls-13" class="section-name selfRef">Secret Labels for TLS 1.3</a>
         </h3>
 <p id="section-2.1-1">An implementation of TLS 1.3 produces a number of values as part of the key
-schedule (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>). If ECH was successfully negotiated for a
-given connection, these labels <span class="bcp14">MUST</span> be followed by the Random from the Inner ClientHello.
-Otherwise, the Random from the Outer ClientHello <span class="bcp14">MUST</span> be used.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+        schedule (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>). If ECH was successfully negotiated for a
+        given connection, these labels <span class="bcp14">MUST</span> be followed by the value of the Random field from the Inner ClientHello.
+        Otherwise, the Random field from the Outer ClientHello <span class="bcp14">MUST</span> be used.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.1-2">Each of the following labels correspond to the equivalent secret produced by the key schedule:<a href="#section-2.1-2" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlNewline" id="section-2.1-3">
           <dt id="section-2.1-3.1">CLIENT_EARLY_TRAFFIC_SECRET:</dt>
           <dd style="margin-left: 1.5em" id="section-2.1-3.2">
             <p id="section-2.1-3.2.1">This secret is used to protect records sent by the client as early data, if
-early data is attempted by the client.  Note that a server that rejects early
-data will not log this secret, though a client that attempts early data can do
-so unconditionally.<a href="#section-2.1-3.2.1" class="pilcrow">¶</a></p>
+            early data is attempted by the client.  Note that a server that rejects early
+            data will not log this secret, though a client that attempts early data can do
+            so unconditionally.<a href="#section-2.1-3.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.1-3.3">EARLY_EXPORTER_SECRET:</dt>
           <dd style="margin-left: 1.5em" id="section-2.1-3.4">
-            <p id="section-2.1-3.4.1">This secret is used for early exporters.  Like the
-CLIENT_EARLY_TRAFFIC_SECRET, this is only generated when early data is
-attempted and might not be logged by a server if early data is rejected.<a href="#section-2.1-3.4.1" class="pilcrow">¶</a></p>
+            <p id="section-2.1-3.4.1">This secret is used for early exporters.  Like
+            CLIENT_EARLY_TRAFFIC_SECRET, this is only generated when early data is
+            attempted and might not be logged by a server if early data is rejected.<a href="#section-2.1-3.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.1-3.5">CLIENT_HANDSHAKE_TRAFFIC_SECRET:</dt>
@@ -1374,30 +1358,30 @@ attempted and might not be logged by a server if early data is rejected.<a href=
 <dt id="section-2.1-3.9">CLIENT_TRAFFIC_SECRET_0:</dt>
           <dd style="margin-left: 1.5em" id="section-2.1-3.10">
             <p id="section-2.1-3.10.1">This secret is used to protect application_data records sent by the client
-immediately after the handshake completes.  This secret is identified as
-<code>client_application_traffic_secret_0</code> in the TLS 1.3 key schedule.<a href="#section-2.1-3.10.1" class="pilcrow">¶</a></p>
+            immediately after the handshake completes.  This secret is identified as
+            <code>client_application_traffic_secret_0</code> in the TLS 1.3 key schedule.<a href="#section-2.1-3.10.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.1-3.11">SERVER_TRAFFIC_SECRET_0:</dt>
           <dd style="margin-left: 1.5em" id="section-2.1-3.12">
             <p id="section-2.1-3.12.1">This secret is used to protect application_data records sent by the server
-immediately after the handshake completes.  This secret is identified as
-<code>server_application_traffic_secret_0</code> in the TLS 1.3 key schedule.<a href="#section-2.1-3.12.1" class="pilcrow">¶</a></p>
+            immediately after the handshake completes.  This secret is identified as
+            <code>server_application_traffic_secret_0</code> in the TLS 1.3 key schedule.<a href="#section-2.1-3.12.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.1-3.13">EXPORTER_SECRET:</dt>
           <dd style="margin-left: 1.5em" id="section-2.1-3.14">
-            <p id="section-2.1-3.14.1">This secret is used in generating exporters <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>.<a href="#section-2.1-3.14.1" class="pilcrow">¶</a></p>
+            <p id="section-2.1-3.14.1">This secret is used in generating exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>).<a href="#section-2.1-3.14.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
 <p id="section-2.1-4">These labels all appear in uppercase in the key log, but they correspond to
-lowercase labels in the TLS key schedule (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>), except for
-the application data secrets as noted.  For example, "EXPORTER_SECRET" in the
-log file corresponds to the secret named <code>exporter_secret</code>.<a href="#section-2.1-4" class="pilcrow">¶</a></p>
+        lowercase labels in the TLS key schedule (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14#section-7.1" class="relref">Section 7.1</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>), except for
+        the application data secrets as noted.  For example, "EXPORTER_SECRET" in the
+        log file corresponds to the secret named <code>exporter_secret</code>.<a href="#section-2.1-4" class="pilcrow">¶</a></p>
 <p id="section-2.1-5">Note that the order that labels appear here corresponds to the order in which
-they are presented in <span>[<a href="#TLS13" class="cite xref">TLS13</a>]</span>, but there is no guarantee that implementations
-will log secrets strictly in this order.<a href="#section-2.1-5" class="pilcrow">¶</a></p>
+        they are presented in <span>[<a href="#TLS13" class="cite xref">TLS13</a>]</span>, but there is no guarantee that implementations
+        will log secrets strictly in this order.<a href="#section-2.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secret-labels-for-tls-12">
@@ -1405,8 +1389,8 @@ will log secrets strictly in this order.<a href="#section-2.1-5" class="pilcrow"
         <h3 id="name-secret-labels-for-tls-12">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-secret-labels-for-tls-12" class="section-name selfRef">Secret Labels for TLS 1.2</a>
         </h3>
-<p id="section-2.2-1">An implementation of TLS 1.2 <span>[<a href="#TLS12" class="cite xref">TLS12</a>]</span> (and also earlier versions) use the
-label "CLIENT_RANDOM" to identify the "master" secret for the connection.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">Implementations of TLS 1.2 <span>[<a href="#TLS12" class="cite xref">TLS12</a>]</span> (and also earlier versions) use the
+        label "CLIENT_RANDOM" to identify the "master" secret for the connection.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="secret-labels-for-ech">
@@ -1415,24 +1399,24 @@ label "CLIENT_RANDOM" to identify the "master" secret for the connection.<a href
 <a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-secret-labels-for-ech" class="section-name selfRef">Secret Labels for ECH</a>
         </h3>
 <p id="section-2.3-1">With ECH <span>[<a href="#ECH" class="cite xref">ECH</a>]</span>, additional secrets are derived
-during the handshake to encrypt the Inner ClientHello message using Hybrid Public
-Key Encryption (HPKE) <span>[<a href="#HPKE" class="cite xref">HPKE</a>]</span>. A client can log the ECH labels described below
-if it offered ECH regardless of server acceptance. The server can log the labels only if it
-successfully decrypted the ECH offered by the client, though it could choose to do so
-only when it accepts ECH.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+        during the handshake to encrypt the Inner ClientHello message using Hybrid Public
+        Key Encryption (HPKE) <span>[<a href="#HPKE" class="cite xref">HPKE</a>]</span>. A client can log the ECH labels described below
+        if it offered ECH, regardless of server acceptance. The server can log the labels only if it
+        successfully decrypted the ECH offered by the client, though it could choose to do so
+        only when it accepts ECH.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
 <p id="section-2.3-2">These labels <span class="bcp14">MUST</span> always use the Random from the Outer ClientHello.<a href="#section-2.3-2" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlParallel" id="section-2.3-3">
+<span class="break"></span><dl class="dlNewline" id="section-2.3-3">
           <dt id="section-2.3-3.1">ECH_SECRET:</dt>
           <dd style="margin-left: 1.5em" id="section-2.3-3.2">
-            <p id="section-2.3-3.2.1">This label corresponds to the KEM shared secret used by HPKE
-(<code>shared_secret</code> in the algorithms in <span><a href="https://rfc-editor.org/rfc/rfc9180#section-5.1.1" class="relref">Section 5.1.1</a> of [<a href="#HPKE" class="cite xref">HPKE</a>]</span>).
-Length of the secret is defined by the KEM negotiated for use with ECH.<a href="#section-2.3-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-2.3-3.2.1">This label corresponds to the Key Encapsulation Mechanism (KEM) shared secret used by HPKE
+            (<code>shared_secret</code> in the algorithms in <span><a href="https://rfc-editor.org/rfc/rfc9180#section-5.1.1" class="relref">Section 5.1.1</a> of [<a href="#HPKE" class="cite xref">HPKE</a>]</span>).
+            The length of the secret is defined by the KEM negotiated for use with ECH.<a href="#section-2.3-3.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-2.3-3.3">ECH_CONFIG:</dt>
           <dd style="margin-left: 1.5em" id="section-2.3-3.4">
             <p id="section-2.3-3.4.1">The ECHConfig used to construct the ECH extension. The value is logged
-in hexadecimal representation.<a href="#section-2.3-3.4.1" class="pilcrow">¶</a></p>
+            in hexadecimal representation.<a href="#section-2.3-3.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -1446,57 +1430,57 @@ in hexadecimal representation.<a href="#section-2.3-3.4.1" class="pilcrow">¶</a
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
 <p id="section-3-1">Access to the content of a file in SSLKEYLOGFILE format allows an attacker to
-break the confidentiality and integrity protection on any TLS connections that
-are included in the file.  This includes both active connections and connections
-for which encrypted records were previously stored.  Ensuring adequate access
-control on these files therefore becomes very important.<a href="#section-3-1" class="pilcrow">¶</a></p>
+      break the confidentiality and integrity protection on any TLS connections that
+      are included in the file.  This includes both active connections and connections
+      for which encrypted records were previously stored.  Therefore, ensuring adequate access
+      control on these files becomes very important.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">Implementations that support logging this data need to ensure that logging can
-only be enabled by those who are authorized.  Allowing logging to be initiated
-by any entity that is not otherwise authorized to observe or modify the content
-of connections for which secrets are logged could represent a privilege
-escalation attack.  Implementations that enable logging also need to ensure that
-access to logged secrets is limited, using appropriate file permissions or
-equivalent access control mechanisms.<a href="#section-3-2" class="pilcrow">¶</a></p>
+      only be enabled by those who are authorized.  Allowing logging to be initiated
+      by any entity that is not otherwise authorized to observe or modify the content
+      of connections for which secrets are logged could represent a privilege
+      escalation attack.  Implementations that enable logging also need to ensure that
+      access to logged secrets is limited, using appropriate file permissions or
+      equivalent access control mechanisms.<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3">In order to support decryption, the secrets necessary to remove record
-protection are logged.  However, as the keys that can be derived from these
-secrets are symmetric, an adversary with access to these secrets is also able to
-encrypt data for an active connection.  This might allow for injection or
-modification of application data on a connection that would otherwise be
-protected by TLS.<a href="#section-3-3" class="pilcrow">¶</a></p>
+      protection are logged.  However, as the keys that can be derived from these
+      secrets are symmetric, an adversary with access to these secrets is also able to
+      encrypt data for an active connection.  This might allow for injection or
+      modification of application data on a connection that would otherwise be
+      protected by TLS.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">As some protocols rely on TLS for generating encryption keys, the SSLKEYLOGFILE
-format includes keys that identify the secret used in TLS exporters or early
-exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>).  Knowledge of these secrets can enable
-more than inspection or modification of encrypted data, depending on how an
-application protocol uses exporters.  For instance, exporters might be used for
-session bindings (e.g., <span>[<a href="#RFC8471" class="cite xref">RFC8471</a>]</span>), authentication (e.g., <span>[<a href="#RFC9261" class="cite xref">RFC9261</a>]</span>), or
-other derived secrets that are used in application context.  An adversary that
-obtains these secrets might be able to use this information to attack these
-applications.  A TLS implementation might either choose to omit these secrets in
-contexts where the information might be abused or require separate
-authorization to enable logging of exporter secrets.<a href="#section-3-4" class="pilcrow">¶</a></p>
+      format includes keys that identify the secret used in TLS exporters or early
+      exporters (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14#section-7.5" class="relref">Section 7.5</a> of [<a href="#TLS13" class="cite xref">TLS13</a>]</span>).  Knowledge of these secrets can enable
+      more than inspection or modification of encrypted data, depending on how an
+      application protocol uses exporters.  For instance, exporters might be used for
+      session bindings (e.g., <span>[<a href="#RFC8471" class="cite xref">RFC8471</a>]</span>), authentication (e.g., <span>[<a href="#RFC9261" class="cite xref">RFC9261</a>]</span>), or
+      other derived secrets that are used in application context.  An adversary that
+      obtains these secrets might be able to use this information to attack these
+      applications.  A TLS implementation might either choose to omit these secrets in
+      contexts where the information might be abused or require separate
+      authorization to enable logging of exporter secrets.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <p id="section-3-5">Using an environment variable, such as <code>SSLKEYLOGFILE</code>, to enable logging
-implies that access to the launch context for the application is needed to
-authorize logging.  On systems that support specially-named files, logs might be
-directed to these names so that logging does not result in storage, but enable
-consumption by other programs.  In both cases, applications might require
-special authorization or they might rely on system-level access control to limit
-access to these capabilities.<a href="#section-3-5" class="pilcrow">¶</a></p>
-<p id="section-3-6">Forward secrecy guarantees provided in TLS 1.3 (see Section <a href="https://rfc-editor.org/rfc/rfc8446#section-1.2" class="relref">1.2</a> and Appendix <a href="https://rfc-editor.org/rfc/rfc8446#appendix-E.1" class="relref">E.1</a> of <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span>) and some modes of TLS 1.2 (such as those in Sections <a href="https://rfc-editor.org/rfc/rfc4492#section-2.2" class="relref">2.2</a> and <a href="https://rfc-editor.org/rfc/rfc4492#section-2.4" class="relref">2.4</a> of <span>[<a href="#RFC4492" class="cite xref">RFC4492</a>]</span>) do not hold if key material is recorded.  Access to key
-material allows an attacker to decrypt data exchanged in any previously logged TLS
-connections.<a href="#section-3-6" class="pilcrow">¶</a></p>
+      implies that access to the launch context for the application is needed to
+      authorize logging.  On systems that support specially named files, logs might be
+      directed to these names so that logging does not result in storage but enables
+      consumption by other programs.  In both cases, applications might require
+      special authorization or might rely on system-level access control to limit
+      access to these capabilities.<a href="#section-3-5" class="pilcrow">¶</a></p>
+<p id="section-3-6">Forward secrecy guarantees provided in TLS 1.3 (see Section <a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14#section-1.3" class="relref">1.3</a> and Appendix <a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14#appendix-F.1" class="relref">F.1</a> of <span>[<a href="#TLS13" class="cite xref">TLS13</a>]</span>) and some modes of TLS 1.2 (such as those in Sections <a href="https://rfc-editor.org/rfc/rfc8422#section-2.1" class="relref">2.1</a> and <a href="https://rfc-editor.org/rfc/rfc8422#section-2.2" class="relref">2.2</a> of <span>[<a href="#RFC8422" class="cite xref">RFC8422</a>]</span>) do not hold if key material is recorded.  Access to key
+      material allows an attacker to decrypt data exchanged in any previously logged TLS
+      connections.<a href="#section-3-6" class="pilcrow">¶</a></p>
 <p id="section-3-7">Logging the TLS 1.2 "master" secret provides the recipient of that secret far
-greater access to an active connection than TLS 1.3 secrets.  In addition to
-reading and altering protected messages, the TLS 1.2 "master" secret confers the
-ability to resume the connection and impersonate either endpoint, insert records
-that result in renegotiation, and forge Finished messages.  Implementations can
-avoid the risks associated with these capabilities by not logging this secret
-value.<a href="#section-3-7" class="pilcrow">¶</a></p>
-<p id="section-3-8">Access to the ECH_SECRET record in the SSLKEYLOGFILE allows the attacker to decrypt
-the ECH extension and thereby reveal the content of the Inner ClientHello message,
-including the payload of the Server Name Indication (SNI) extension.<a href="#section-3-8" class="pilcrow">¶</a></p>
+      greater access to an active connection than TLS 1.3 secrets provide.  In addition to
+      reading and altering protected messages, the TLS 1.2 "master" secret confers the
+      ability to resume the connection and impersonate either endpoint, insert records
+      that result in renegotiation, and forge Finished messages.  Implementations can
+      avoid the risks associated with these capabilities by not logging this secret
+      value.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<p id="section-3-8">Access to the ECH_SECRET record in SSLKEYLOGFILE allows the attacker to decrypt
+      the ECH extension and thereby reveal the content of the Inner ClientHello message,
+      including the payload of the Server Name Indication (SNI) extension.<a href="#section-3-8" class="pilcrow">¶</a></p>
 <p id="section-3-9">Access to the HPKE-established shared secret used in ECH introduces a potential
-attack surface against the HPKE library since access to this keying material
-is normally not available otherwise.<a href="#section-3-9" class="pilcrow">¶</a></p>
+      attack surface against the HPKE library since access to this keying material
+      is normally not available otherwise.<a href="#section-3-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1505,16 +1489,16 @@ is normally not available otherwise.<a href="#section-3-9" class="pilcrow">¶</a
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-4-1">This document registers a media type (<a href="#iana-media" class="auto internal xref">Section 4.1</a>)
-and creates a registry for labels (<a href="#iana-labels-registry" class="auto internal xref">Section 4.2</a>).<a href="#section-4-1" class="pilcrow">¶</a></p>
+      and creates a registry for labels (<a href="#iana-labels-registry" class="auto internal xref">Section 4.2</a>).<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div id="iana-media">
 <section id="section-4.1">
         <h3 id="name-sslkeylogfile-media-type">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-sslkeylogfile-media-type" class="section-name selfRef">SSLKEYLOGFILE Media Type</a>
         </h3>
 <p id="section-4.1-1">The "<code>application/sslkeylogfile</code>" media type can be used to describe content in
-the SSLKEYLOGFILE format.  IANA [has added/is requested to add] the following
-information to the "Media Types" registry at
-<a href="https://www.iana.org/assignments/media-types">https://www.iana.org/assignments/media-types</a>:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+        the SSLKEYLOGFILE format.  IANA has added the following
+        information to the "Media Types" registry at
+        <a href="https://www.iana.org/assignments/media-types">https://www.iana.org/assignments/media-types</a>:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlCompact dlParallel" id="section-4.1-2">
           <dt id="section-4.1-2.1">Type name:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.2">
@@ -1548,18 +1532,18 @@ information to the "Media Types" registry at
           <dd class="break"></dd>
 <dt id="section-4.1-2.13">Interoperability considerations:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.14">
-            <p id="section-4.1-2.14.1">Line endings might differ from platform convention<a href="#section-4.1-2.14.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.14.1">Line endings might differ from platform convention.<a href="#section-4.1-2.14.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-4.1-2.15">Published specification:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.16">
-            <p id="section-4.1-2.16.1">RFC XXXX (RFC Editor: please update)<a href="#section-4.1-2.16.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.16.1">RFC 9850<a href="#section-4.1-2.16.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-4.1-2.17">Applications that use this media type:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.18">
             <p id="section-4.1-2.18.1">Diagnostic and analysis tools that need to decrypt data that is otherwise
-protected by TLS.<a href="#section-4.1-2.18.1" class="pilcrow">¶</a></p>
+            protected by TLS.<a href="#section-4.1-2.18.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-4.1-2.19">Fragment identifier considerations:</dt>
@@ -1591,7 +1575,9 @@ protected by TLS.<a href="#section-4.1-2.18.1" class="pilcrow">¶</a></p>
           <dd class="break"></dd>
 <dt id="section-4.1-2.23">Person &amp; email address to contact for further information:</dt>
           <dd style="margin-left: 1.5em" id="section-4.1-2.24">
-            <p id="section-4.1-2.24.1">TLS WG (tls@ietf.org)<a href="#section-4.1-2.24.1" class="pilcrow">¶</a></p>
+            <p id="section-4.1-2.24.1">
+              <br>
+TLS WG (tls@ietf.org)<a href="#section-4.1-2.24.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-4.1-2.25">Intended usage:</dt>
@@ -1622,10 +1608,10 @@ protected by TLS.<a href="#section-4.1-2.18.1" class="pilcrow">¶</a></p>
         <h3 id="name-sslkeylogfile-labels-regist">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-sslkeylogfile-labels-regist" class="section-name selfRef">SSLKEYLOGFILE Labels Registry</a>
         </h3>
-<p id="section-4.2-1">IANA is requested to create a new registry "SSLKEYLOGFILE Labels", within the
-existing "Transport Layer Security (TLS) Parameters" registry page.
-This new registry reserves labels used for SSLKEYLOGFILE entries.
-The initial contents of this registry are as follows.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-1">IANA is requested to create a new registry "TLS SSLKEYLOGFILE Labels", within the
+        existing "Transport Layer Security (TLS) Parameters" registry page.
+        This new registry reserves labels used for SSLKEYLOGFILE entries.
+        The initial contents of this registry are as follows.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-1">
           <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
 <thead>
@@ -1639,62 +1625,62 @@ The initial contents of this registry are as follows.<a href="#section-4.2-1" cl
             <tr>
               <td class="text-left" rowspan="1" colspan="1">CLIENT_RANDOM</td>
               <td class="text-left" rowspan="1" colspan="1">Master secret in TLS 1.2 and earlier</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">CLIENT_EARLY_TRAFFIC_SECRET</td>
               <td class="text-left" rowspan="1" colspan="1">Secret for client early data records</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">EARLY_EXPORTER_SECRET</td>
-              <td class="text-left" rowspan="1" colspan="1">Early exporters secret</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">Early exporter secret</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">CLIENT_HANDSHAKE_TRAFFIC_SECRET</td>
               <td class="text-left" rowspan="1" colspan="1">Secret protecting client handshake</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">SERVER_HANDSHAKE_TRAFFIC_SECRET</td>
               <td class="text-left" rowspan="1" colspan="1">Secret protecting server handshake</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">CLIENT_TRAFFIC_SECRET_0</td>
               <td class="text-left" rowspan="1" colspan="1">Secret protecting client records post handshake</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">SERVER_TRAFFIC_SECRET_0</td>
               <td class="text-left" rowspan="1" colspan="1">Secret protecting server records post handshake</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">EXPORTER_SECRET</td>
               <td class="text-left" rowspan="1" colspan="1">Exporter secret after handshake</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">ECH_SECRET</td>
               <td class="text-left" rowspan="1" colspan="1">HPKE KEM shared secret used in the ECH</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">ECH_CONFIG</td>
               <td class="text-left" rowspan="1" colspan="1">ECHConfig used for construction of the ECH</td>
-              <td class="text-left" rowspan="1" colspan="1">This document</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC 9850</td>
             </tr>
           </tbody>
         </table>
-<p id="section-4.2-3">New assignments in the "SSLKEYLOGFILE Labels" registry will be administered by IANA through
-Specification Required procedure <span>[<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>. The role of the designated expert is described
-in <span><a href="https://rfc-editor.org/rfc/rfc8447#section-17" class="relref">Section 17</a> of [<a href="#RFC8447" class="cite xref">RFC8447</a>]</span>. The designated expert <span>[<a href="#RFC8126" class="cite xref">RFC8126</a>]</span> ensures that the specification is
-publicly available.  It is sufficient to have an Internet-Draft (that is posted and never published
-as an RFC) or to cite a document from another standards body, industry consortium, or any other location.
-An expert may provide more in depth reviews, but their approval should not be taken as an endorsement
-of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.2-3">New assignments in the "TLS SSLKEYLOGFILE Labels" registry will be administered by IANA through
+        Specification Required procedure <span>[<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>. The role of designated experts for TLS registries is described
+        in <span><a href="https://rfc-editor.org/rfc/rfc8447#section-17" class="relref">Section 17</a> of [<a href="#RFC8447" class="cite xref">RFC8447</a>]</span>. Designated experts for this registry are advised to ensure that the specification is
+        publicly available.  In the Reference column, it is sufficient to cite an Internet-Draft (that is posted but not published
+        as an RFC) or a document from another standards body, an industry consortium, or any other organization.
+        Designated experts may provide more in-depth reviews, but their approval should not be taken as an endorsement
+        of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1712,7 +1698,7 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dl class="references">
 <dt id="ECH">[ECH]</dt>
         <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-24</span>, <time datetime="2025-03-20" class="refDate">20 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-24">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-24</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-25</span>, <time datetime="2025-06-14" class="refDate">14 June 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-25">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-25</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="HPKE">[HPKE]</dt>
         <dd>
@@ -1736,7 +1722,7 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="TLS13">[TLS13]</dt>
       <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8446bis-12</span>, <time datetime="2025-02-17" class="refDate">17 February 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-12</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-rfc8446bis-14</span>, <time datetime="2025-09-13" class="refDate">13 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14">https://datatracker.ietf.org/doc/html/draft-ietf-tls-rfc8446bis-14</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1753,23 +1739,19 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="QLOG">[QLOG]</dt>
         <dd>
-<span class="refAuthor">Marx, R.</span>, <span class="refAuthor">Niccolini, L.</span>, <span class="refAuthor">Seemann, M.</span>, and <span class="refAuthor">L. Pardue</span>, <span class="refTitle">"qlog: Structured Logging for Network Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-qlog-main-schema-11</span>, <time datetime="2025-03-17" class="refDate">17 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-qlog-main-schema-11">https://datatracker.ietf.org/doc/html/draft-ietf-quic-qlog-main-schema-11</a>&gt;</span>. </dd>
+<span class="refAuthor">Marx, R.</span>, <span class="refAuthor">Niccolini, L.</span>, <span class="refAuthor">Seemann, M.</span>, and <span class="refAuthor">L. Pardue</span>, <span class="refTitle">"qlog: Structured Logging for Network Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-qlog-main-schema-13</span>, <time datetime="2025-10-20" class="refDate">20 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-qlog-main-schema-13">https://datatracker.ietf.org/doc/html/draft-ietf-quic-qlog-main-schema-13</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC0020">[RFC0020]</dt>
         <dd>
 <span class="refAuthor">Cerf, V.</span>, <span class="refTitle">"ASCII format for network interchange"</span>, <span class="seriesInfo">STD 80</span>, <span class="seriesInfo">RFC 20</span>, <span class="seriesInfo">DOI 10.17487/RFC0020</span>, <time datetime="1969-10" class="refDate">October 1969</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc20">https://www.rfc-editor.org/rfc/rfc20</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC4492">[RFC4492]</dt>
-        <dd>
-<span class="refAuthor">Blake-Wilson, S.</span>, <span class="refAuthor">Bolyard, N.</span>, <span class="refAuthor">Gupta, V.</span>, <span class="refAuthor">Hawk, C.</span>, and <span class="refAuthor">B. Moeller</span>, <span class="refTitle">"Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS)"</span>, <span class="seriesInfo">RFC 4492</span>, <span class="seriesInfo">DOI 10.17487/RFC4492</span>, <time datetime="2006-05" class="refDate">May 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4492">https://www.rfc-editor.org/rfc/rfc4492</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC8126">[RFC8126]</dt>
         <dd>
 <span class="refAuthor">Cotton, M.</span>, <span class="refAuthor">Leiba, B.</span>, and <span class="refAuthor">T. Narten</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">BCP 26</span>, <span class="seriesInfo">RFC 8126</span>, <span class="seriesInfo">DOI 10.17487/RFC8126</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8126">https://www.rfc-editor.org/rfc/rfc8126</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC8446">[RFC8446]</dt>
+<dt id="RFC8422">[RFC8422]</dt>
         <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="seriesInfo">RFC 8446</span>, <span class="seriesInfo">DOI 10.17487/RFC8446</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8446">https://www.rfc-editor.org/rfc/rfc8446</a>&gt;</span>. </dd>
+<span class="refAuthor">Nir, Y.</span>, <span class="refAuthor">Josefsson, S.</span>, and <span class="refAuthor">M. Pegourie-Gonnard</span>, <span class="refTitle">"Elliptic Curve Cryptography (ECC) Cipher Suites for Transport Layer Security (TLS) Versions 1.2 and Earlier"</span>, <span class="seriesInfo">RFC 8422</span>, <span class="seriesInfo">DOI 10.17487/RFC8422</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8422">https://www.rfc-editor.org/rfc/rfc8422</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8447">[RFC8447]</dt>
         <dd>
@@ -1813,8 +1795,8 @@ of the SSLKEYLOGFILE label.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
       <h2 id="name-example">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-example" class="section-name selfRef">Example</a>
       </h2>
-<p id="appendix-A-1">The following is a sample of a file in this format, including secrets from two
-TLS 1.3 connections.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">The following is a sample of a file in SSLKEYLOGFILE format, including secrets from two
+      TLS 1.3 connections.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A-2">
 <pre>
 # NOTE: '\' line wrapping per RFC 8792
@@ -1852,7 +1834,7 @@ EXPORTER_SECRET \
 </pre><a href="#appendix-A-2" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A-3">Note that secrets from the two connections might be interleaved as shown here,
-because secrets could be logged as they are generated.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
+      because secrets could be logged as they are generated.<a href="#appendix-A-3" class="pilcrow">¶</a></p>
 <p id="appendix-A-4">The following shows a log entry for a TLS 1.2 connection.<a href="#appendix-A-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A-5">
 <pre>
@@ -1865,7 +1847,7 @@ CLIENT_RANDOM \
 </pre><a href="#appendix-A-5" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A-6">The following shows a log entry for a TLS 1.3 connection that successfully
-negotiated ECH.<a href="#appendix-A-6" class="pilcrow">¶</a></p>
+      negotiated ECH.<a href="#appendix-A-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A-7">
 <pre>
 # NOTE: '\' line wrapping per RFC 8792
@@ -1901,9 +1883,9 @@ EXPORTER_SECRET \
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-B-1">The SSLKEYLOGFILE format originated in the NSS project, but it has evolved over
-time as TLS has changed.  Many people contributed to this evolution.  The authors
-are only documenting the format as it is used while extending it to cover ECH.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-1">The SSLKEYLOGFILE format originated in the Network Security Services (NSS) project, but it has evolved over
+      time as TLS has changed.  Many people contributed to this evolution.  The authors
+      are only documenting the format as it is used while extending it to cover ECH.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
