@@ -115,7 +115,8 @@ separated by a single space character (U+20).  These values are:
 
 label:
 
-: The label identifies the type of secret that is being conveyed; see {{labels}}
+: The label identifies the type of secret that is being conveyed;
+  see Sections {{<labels}}, {{<labels-12}}, and {{<labels-ech}}
   for descriptions of the labels that are defined in this document.
 
 client_random:
@@ -202,12 +203,12 @@ Note that the order that labels appear here corresponds to the order in which
 they are presented in {{?TLS13}}, but there is no guarantee that implementations
 will log secrets strictly in this order.
 
-## Secret Labels for TLS 1.2
+## Secret Labels for TLS 1.2 {#labels-12}
 
 Implementations of TLS 1.2 {{!TLS12}} (and also earlier versions) use the
 label "CLIENT_RANDOM" to identify the "master" secret for the connection.
 
-## Secret Labels for ECH
+## Secret Labels for ECH {#labels-ech}
 
 With ECH {{!ECH}}, additional secrets are derived
 during the handshake to encrypt the Inner ClientHello message using Hybrid Public
