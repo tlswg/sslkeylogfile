@@ -65,7 +65,7 @@ This document describes the SSLKEYLOGFILE format.  This format can be used for
 TLS 1.2 {{!TLS12=RFC5246}} and TLS 1.3 {{!TLS13=I-D.ietf-tls-rfc8446bis}}.  The format also
 supports earlier TLS versions, though use of earlier versions is strongly discouraged
 {{?RFC8996}} {{?RFC9325}}.  This format can also be used with DTLS {{?DTLS13=RFC9147}}, QUIC
-{{?RFC9000}} {{?RFC9001}}, and other protocols that also use the TLS key
+{{?RFC9000}} {{?RFC9001}}, and other protocols that use the TLS key
 schedule.  Use of this format could complement other protocol-specific logging
 such as qlog {{?QLOG=I-D.ietf-quic-qlog-main-schema}}.
 
@@ -75,8 +75,8 @@ about exchanges that use Encrypted Client Hello (ECH) {{!ECH=I-D.ietf-tls-esni}}
 
 ## Applicability Statement
 
-The artifact that this document describes - if made available to entities other
-than endpoints - completely undermines the core guarantees that TLS provides.
+The artifact that this document describes -- if made available to entities other
+than endpoints -- completely undermines the core guarantees that TLS provides.
 This format is intended for use in systems where TLS only protects test data.
 While the access that this information provides to TLS connections can be useful
 for diagnosing problems while developing systems, this mechanism MUST NOT be
@@ -130,6 +130,7 @@ secret:
 : The value of the identified secret for the identified connection.  This value
   is encoded in hexadecimal, with a length that depends on the size of the
   secret.
+{: newline="true"}
 
 For the hexadecimal values of `client_random` or `secret`, no convention
 exists for the case of characters "a" through "f" (or "A" through "F").  Files
@@ -307,7 +308,7 @@ and creates a registry for labels ({{iana-labels-registry}}).
 The "`application/sslkeylogfile`" media type can be used to describe content in
 the SSLKEYLOGFILE format.  IANA has added the following
 information to the "Media Types" registry at
-<https://www.iana.org/assignments/media-types>{:brackets="angle"}:
+[](https://www.iana.org/assignments/media-types){:brackets="angle"}:
 
 Type name:
 
@@ -381,9 +382,9 @@ Change controller:
 {:compact}
 
 
-## SSLKEYLOGFILE Labels Registry {#iana-labels-registry}
+## TLS SSLKEYLOGFILE Labels Registry {#iana-labels-registry}
 
-IANA is requested to create a new registry "TLS SSLKEYLOGFILE Labels", within the
+IANA has created a new registry "TLS SSLKEYLOGFILE Labels", within the
 existing "Transport Layer Security (TLS) Parameters" registry page.
 This new registry reserves labels used for SSLKEYLOGFILE entries.
 The initial contents of this registry are as follows.
@@ -401,7 +402,7 @@ The initial contents of this registry are as follows.
 | ECH_SECRET | HPKE KEM shared secret used in the ECH | RFC 9850 |
 | ECH_CONFIG | ECHConfig used for construction of the ECH | RFC 9850 |
 
-New assignments in the "TLS SSLKEYLOGFILE Labels" registry will be administered by IANA through
+New assignments in the "TLS SSLKEYLOGFILE Labels" registry will be administered by IANA through the
 Specification Required procedure {{?RFC8126}}. The role of designated experts for TLS registries is described
 in {{Section 17 of ?RFC8447}}. Designated experts for this registry are advised to ensure that the specification is
 publicly available.  In the Reference column, it is sufficient to cite an Internet-Draft (that is posted but not published
