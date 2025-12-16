@@ -65,7 +65,7 @@ Table of Contents
    3.  Security Considerations
    4.  IANA Considerations
      4.1.  SSLKEYLOGFILE Media Type
-     4.2.  SSLKEYLOGFILE Labels Registry
+     4.2.  TLS SSLKEYLOGFILE Labels Registry
    5.  References
      5.1.  Normative References
      5.2.  Informative References
@@ -93,16 +93,16 @@ Table of Contents
    supports earlier TLS versions, though use of earlier versions is
    strongly discouraged [RFC8996] [RFC9325].  This format can also be
    used with DTLS [DTLS13], QUIC [RFC9000] [RFC9001], and other
-   protocols that also use the TLS key schedule.  Use of this format
-   could complement other protocol-specific logging such as qlog [QLOG].
+   protocols that use the TLS key schedule.  Use of this format could
+   complement other protocol-specific logging such as qlog [QLOG].
 
    This document also defines labels that can be used to log information
    about exchanges that use Encrypted Client Hello (ECH) [ECH].
 
 1.1.  Applicability Statement
 
-   The artifact that this document describes - if made available to
-   entities other than endpoints - completely undermines the core
+   The artifact that this document describes -- if made available to
+   entities other than endpoints -- completely undermines the core
    guarantees that TLS provides.  This format is intended for use in
    systems where TLS only protects test data.  While the access that
    this information provides to TLS connections can be useful for
@@ -144,19 +144,22 @@ Table of Contents
    that are separated by a single space character (U+20).  These values
    are:
 
-   label:  The label identifies the type of secret that is being
-      conveyed; see Section 2.1 for descriptions of the labels that are
-      defined in this document.
+   label:
+      The label identifies the type of secret that is being conveyed;
+      see Section 2.1 for descriptions of the labels that are defined in
+      this document.
 
-   client_random:  The 32-byte value of the Random field from the
-      ClientHello message that established the TLS connection.  This
-      value is encoded as 64 hexadecimal characters.  In a log that can
-      include secrets from multiple connections, this field can be used
-      to identify a connection.
+   client_random:
+      The 32-byte value of the Random field from the ClientHello message
+      that established the TLS connection.  This value is encoded as 64
+      hexadecimal characters.  In a log that can include secrets from
+      multiple connections, this field can be used to identify a
+      connection.
 
-   secret:  The value of the identified secret for the identified
-      connection.  This value is encoded in hexadecimal, with a length
-      that depends on the size of the secret.
+   secret:
+      The value of the identified secret for the identified connection.
+      This value is encoded in hexadecimal, with a length that depends
+      on the size of the secret.
 
    For the hexadecimal values of client_random or secret, no convention
    exists for the case of characters "a" through "f" (or "A" through
@@ -338,7 +341,6 @@ Table of Contents
    The "application/sslkeylogfile" media type can be used to describe
    content in the SSLKEYLOGFILE format.  IANA has added the following
    information to the "Media Types" registry at
-   https://www.iana.org/assignments/media-types
    <https://www.iana.org/assignments/media-types>:
 
    Type name:  application
@@ -364,13 +366,12 @@ Table of Contents
    Author:  IETF TLS Working Group
    Change controller:  IETF
 
-4.2.  SSLKEYLOGFILE Labels Registry
+4.2.  TLS SSLKEYLOGFILE Labels Registry
 
-   IANA is requested to create a new registry "TLS SSLKEYLOGFILE
-   Labels", within the existing "Transport Layer Security (TLS)
-   Parameters" registry page.  This new registry reserves labels used
-   for SSLKEYLOGFILE entries.  The initial contents of this registry are
-   as follows.
+   IANA has created a new registry "TLS SSLKEYLOGFILE Labels", within
+   the existing "Transport Layer Security (TLS) Parameters" registry
+   page.  This new registry reserves labels used for SSLKEYLOGFILE
+   entries.  The initial contents of this registry are as follows.
 
    +=================================+=====================+===========+
    | Value                           | Description         | Reference |
@@ -415,7 +416,7 @@ Table of Contents
                                   Table 1
 
    New assignments in the "TLS SSLKEYLOGFILE Labels" registry will be
-   administered by IANA through Specification Required procedure
+   administered by IANA through the Specification Required procedure
    [RFC8126].  The role of designated experts for TLS registries is
    described in Section 17 of [RFC8447].  Designated experts for this
    registry are advised to ensure that the specification is publicly
