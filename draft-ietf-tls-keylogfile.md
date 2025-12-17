@@ -418,9 +418,9 @@ of the SSLKEYLOGFILE label.
 The following is a sample of a file in SSLKEYLOGFILE format, including secrets from two
 TLS 1.3 connections.
 
-~~~
-# NOTE: '\' line wrapping per RFC 8792
+The following examples use wrapping per {{RFC8792}}.
 
+~~~ application/sslkeylogfile
 CLIENT_HANDSHAKE_TRAFFIC_SECRET \
   cf34899b3dcb8c9fe7160ceaf95d354a294793b67a2e49cb9cca4d69b43593a0 \
   be4a28d81ce41242ff31c6d8a6615852178f2cd75eaca2ee8768f9ed51282b38
@@ -458,9 +458,7 @@ because secrets could be logged as they are generated.
 
 The following shows a log entry for a TLS 1.2 connection.
 
-~~~
-# NOTE: '\' line wrapping per RFC 8792
-
+~~~ application/sslkeylogfile
 CLIENT_RANDOM \
   ad52329fcadd34ee3aa07092680287f09954823e26d7b5ae25c0d47714152a6a \
   97af4c8618cfdc0b2326e590114c2ec04b43b08b7e2c3f8124cc61a3b068ba966\
@@ -470,9 +468,7 @@ CLIENT_RANDOM \
 The following shows a log entry for a TLS 1.3 connection that successfully
 negotiated ECH.
 
-~~~
-# NOTE: '\' line wrapping per RFC 8792
-
+~~~ application/sslkeylogfile
 ECH_SECRET \
   0ba587ee6b65ce21a726630efb881206a7cd995611095b5f4c244bb2b23f1ee1 \
   e8828ec09909cc9363179dc13b62498550c8637129345263011a1678370ca52a
