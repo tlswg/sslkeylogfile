@@ -113,20 +113,20 @@ secrets are generated.
 Each secret is described using a single line composed of three values that are
 separated by a single space character (U+20).  These values are:
 
-label:
+`label`:
 
-: The label identifies the type of secret that is being conveyed;
+: The `label` identifies the type of secret that is being conveyed;
   see Sections {{<labels}}, {{<labels-12}}, and {{<labels-ech}}
   for descriptions of the labels that are defined in this document.
 
-client_random:
+`client_random`:
 
 : The 32-byte value of the Random field from the ClientHello message that
   established the TLS connection.  This value is encoded as 64 hexadecimal
   characters.  In a log that can include secrets from multiple connections, this
   field can be used to identify a connection.
 
-secret:
+`secret`:
 
 : The value of the identified secret for the identified connection.  This value
   is encoded in hexadecimal, with a length that depends on the size of the
